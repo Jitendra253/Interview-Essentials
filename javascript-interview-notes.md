@@ -5088,3 +5088,1194 @@ Original array is modified.
 
 
 "The main difference is that slice() creates a copy of a portion of an array without modifying the original array, whereas splice() is used to add, remove, or replace elements and directly modifies the original array. slice() is non-mutating, while splice() is mutating."
+
+
+# Question: How Do You Select Elements in JavaScript?
+
+## 20-Second Interview Answer
+
+> JavaScript provides several methods to select HTML elements from the DOM. The most commonly used methods are `getElementById()`, `querySelector()`, and `querySelectorAll()`. Once selected, we can read or modify the element's content, style, and attributes.
+
+---
+
+## Interview Answer
+
+To manipulate an HTML element, we first need to select it from the DOM.
+
+JavaScript provides multiple methods to select elements.
+
+The most commonly used methods are:
+
+- getElementById()
+- querySelector()
+- querySelectorAll()
+
+---
+
+## Easy Remember
+
+```javascript
+ID → getElementById()
+
+One Element → querySelector()
+
+Multiple Elements → querySelectorAll()
+```
+
+---
+
+# 1. getElementById()
+
+Selects an element using its id.
+
+## HTML
+
+```html
+<h1 id="title">Hello</h1>
+```
+
+## JavaScript
+
+```javascript
+const heading =
+  document.getElementById("title");
+
+console.log(heading);
+```
+
+---
+
+# 2. querySelector()
+
+Selects the first matching element.
+
+## HTML
+
+```html
+<p class="text">Paragraph 1</p>
+<p class="text">Paragraph 2</p>
+```
+
+## JavaScript
+
+```javascript
+const element =
+  document.querySelector(".text");
+
+console.log(element);
+```
+
+Output:
+
+```javascript
+Paragraph 1
+```
+
+Only the first matching element is selected.
+
+---
+
+# 3. querySelectorAll()
+
+Selects all matching elements.
+
+## HTML
+
+```html
+<p class="text">One</p>
+<p class="text">Two</p>
+<p class="text">Three</p>
+```
+
+## JavaScript
+
+```javascript
+const elements =
+  document.querySelectorAll(".text");
+
+console.log(elements);
+```
+
+Output:
+
+```javascript
+NodeList(3)
+```
+
+---
+
+# Loop Through Elements
+
+```javascript
+const elements =
+  document.querySelectorAll(".text");
+
+elements.forEach(item => {
+  console.log(item.textContent);
+});
+```
+
+Output:
+
+```javascript
+One
+Two
+Three
+```
+
+---
+
+# getElementsByClassName()
+
+Selects elements by class name.
+
+```javascript
+const elements =
+  document.getElementsByClassName("text");
+```
+
+Returns:
+
+```javascript
+HTMLCollection
+```
+
+---
+
+# getElementsByTagName()
+
+Selects elements by tag name.
+
+```javascript
+const headings =
+  document.getElementsByTagName("h1");
+```
+
+Returns:
+
+```javascript
+HTMLCollection
+```
+
+---
+
+# Difference Between querySelector and querySelectorAll
+
+## querySelector()
+
+Returns:
+
+```javascript
+Single Element
+```
+
+Example:
+
+```javascript
+document.querySelector(".text");
+```
+
+---
+
+## querySelectorAll()
+
+Returns:
+
+```javascript
+NodeList
+```
+
+Example:
+
+```javascript
+document.querySelectorAll(".text");
+```
+
+---
+
+# Real-World Example
+
+```javascript
+const button =
+  document.querySelector("#btn");
+
+button.addEventListener("click", () => {
+  console.log("Button Clicked");
+});
+```
+
+---
+
+# Common Follow-up Questions
+
+### Which method selects an element by ID?
+
+```javascript
+document.getElementById()
+```
+
+### Which method selects the first matching element?
+
+```javascript
+document.querySelector()
+```
+
+### Which method selects multiple elements?
+
+```javascript
+document.querySelectorAll()
+```
+
+### What does querySelectorAll() return?
+
+```javascript
+NodeList
+```
+
+### What does getElementsByClassName() return?
+
+```javascript
+HTMLCollection
+```
+
+---
+
+# Most Common Interview Question
+
+## Difference Between querySelector() and querySelectorAll()
+
+### querySelector()
+
+Returns:
+
+```javascript
+First Matching Element
+```
+
+---
+
+### querySelectorAll()
+
+Returns:
+
+```javascript
+All Matching Elements
+```
+
+as a:
+
+```javascript
+NodeList
+```
+
+---
+
+# One-Line Interview Summary
+
+JavaScript uses methods like `getElementById()`, `querySelector()`, and `querySelectorAll()` to select HTML elements from the DOM for manipulation.
+
+
+# Question: What are Event Bubbling and Event Capturing in JavaScript?
+
+## 20-Second Interview Answer
+
+> Event Bubbling and Event Capturing describe how events travel through the DOM. In Event Bubbling, the event moves from the target element up to its parent elements. In Event Capturing, the event moves from the parent elements down to the target element. By default, JavaScript uses Event Bubbling.
+
+---
+
+## Interview Answer
+
+When an event occurs on an element, the event travels through the DOM.
+
+There are two ways it can travel:
+
+1. Event Capturing (Top → Bottom)
+2. Event Bubbling (Bottom → Top)
+
+By default:
+
+```javascript
+JavaScript uses Event Bubbling
+```
+
+---
+
+## Easy Remember
+
+```javascript
+Capturing
+Parent → Child
+```
+
+```javascript
+Bubbling
+Child → Parent
+```
+
+Think:
+
+```javascript
+Capturing = Going Down
+
+Bubbling = Coming Up
+```
+
+---
+
+# Example HTML
+
+```html
+<div id="parent">
+  <button id="child">
+    Click Me
+  </button>
+</div>
+```
+
+---
+
+# Event Bubbling
+
+```javascript
+document
+  .getElementById("parent")
+  .addEventListener("click", () => {
+    console.log("Parent Clicked");
+  });
+
+document
+  .getElementById("child")
+  .addEventListener("click", () => {
+    console.log("Button Clicked");
+  });
+```
+
+Click:
+
+```javascript
+Button
+```
+
+Output:
+
+```javascript
+Button Clicked
+Parent Clicked
+```
+
+---
+
+# Why?
+
+Event starts from:
+
+```javascript
+Button
+```
+
+Then moves upward:
+
+```javascript
+Button
+  ↓
+Parent
+  ↓
+Document
+```
+
+This is:
+
+```javascript
+Event Bubbling
+```
+
+---
+
+# Event Capturing
+
+To enable capturing:
+
+```javascript
+addEventListener(
+  "click",
+  callback,
+  true
+);
+```
+
+Third argument:
+
+```javascript
+true
+```
+
+means:
+
+```javascript
+Capturing Mode
+```
+
+---
+
+## Example
+
+```javascript
+document
+  .getElementById("parent")
+  .addEventListener(
+    "click",
+    () => {
+      console.log("Parent");
+    },
+    true
+  );
+
+document
+  .getElementById("child")
+  .addEventListener(
+    "click",
+    () => {
+      console.log("Button");
+    },
+    true
+  );
+```
+
+Output:
+
+```javascript
+Parent
+Button
+```
+
+---
+
+# Why?
+
+Event travels:
+
+```javascript
+Document
+  ↓
+Parent
+  ↓
+Button
+```
+
+This is:
+
+```javascript
+Event Capturing
+```
+
+---
+
+# Visual Flow
+
+## Capturing
+
+```javascript
+Document
+   ↓
+Parent
+   ↓
+Child
+```
+
+---
+
+## Bubbling
+
+```javascript
+Child
+   ↑
+Parent
+   ↑
+Document
+```
+
+---
+
+# stopPropagation()
+
+Used to stop event bubbling.
+
+```javascript
+document
+  .getElementById("child")
+  .addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    console.log("Button");
+  });
+```
+
+Output:
+
+```javascript
+Button
+```
+
+Parent event will not run.
+
+---
+
+# Real-World Example
+
+```javascript
+button.addEventListener("click", () => {
+  console.log("Button Clicked");
+});
+
+card.addEventListener("click", () => {
+  console.log("Card Clicked");
+});
+```
+
+Clicking the button may also trigger the card event because of bubbling.
+
+---
+
+# Common Follow-up Questions
+
+### What is Event Bubbling?
+
+Event moves:
+
+```javascript
+Child → Parent
+```
+
+---
+
+### What is Event Capturing?
+
+Event moves:
+
+```javascript
+Parent → Child
+```
+
+---
+
+### Which one is the default behavior?
+
+```javascript
+Event Bubbling
+```
+
+---
+
+### How do we enable Capturing?
+
+```javascript
+addEventListener(
+  "click",
+  callback,
+  true
+);
+```
+
+---
+
+### How do we stop Bubbling?
+
+```javascript
+event.stopPropagation();
+```
+
+---
+
+# Most Common Interview Question
+
+## What is the output?
+
+```javascript
+<div id="parent">
+  <button id="child">
+    Click
+  </button>
+</div>
+```
+
+```javascript
+parent.addEventListener("click", () => {
+  console.log("Parent");
+});
+
+child.addEventListener("click", () => {
+  console.log("Child");
+});
+```
+
+Clicking the button:
+
+Output:
+
+```javascript
+Child
+Parent
+```
+
+Because:
+
+```javascript
+Event Bubbling
+```
+
+runs from child to parent.
+
+---
+
+# One-Line Interview Summary
+
+Event Bubbling moves events from child to parent, while Event Capturing moves events from parent to child. By default, JavaScript uses Event Bubbling.
+
+
+# Question: What is Event Delegation in JavaScript?
+
+## 20-Second Interview Answer
+
+> Event Delegation is a technique where we attach a single event listener to a parent element instead of adding event listeners to multiple child elements. It works because of Event Bubbling and improves performance, especially when dealing with many dynamic elements.
+
+---
+
+## Interview Answer
+
+Normally, we add an event listener to every element.
+
+Example:
+
+```javascript
+button1.addEventListener(...);
+button2.addEventListener(...);
+button3.addEventListener(...);
+```
+
+This becomes difficult when there are many elements.
+
+With Event Delegation, we add one event listener to the parent element and handle events for all child elements.
+
+---
+
+## Easy Remember
+
+```javascript
+One Parent Listener
+Handles Many Children
+```
+
+Event Delegation works because of:
+
+```javascript
+Event Bubbling
+```
+
+---
+
+# Without Event Delegation
+
+```html
+<button>Button 1</button>
+<button>Button 2</button>
+<button>Button 3</button>
+```
+
+```javascript
+const buttons =
+  document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    console.log("Clicked");
+  });
+});
+```
+
+Problem:
+
+```javascript
+Many Event Listeners
+```
+
+---
+
+# With Event Delegation
+
+## HTML
+
+```html
+<div id="container">
+  <button>Button 1</button>
+  <button>Button 2</button>
+  <button>Button 3</button>
+</div>
+```
+
+---
+
+## JavaScript
+
+```javascript
+const container =
+  document.getElementById("container");
+
+container.addEventListener("click", (event) => {
+  console.log(event.target.textContent);
+});
+```
+
+Output:
+
+```javascript
+Button 1
+Button 2
+Button 3
+```
+
+Depending on which button is clicked.
+
+---
+
+# How Does It Work?
+
+When a button is clicked:
+
+```javascript
+Button
+   ↑
+Parent
+```
+
+The event bubbles up to the parent.
+
+The parent catches the event.
+
+We identify the clicked element using:
+
+```javascript
+event.target
+```
+
+---
+
+# event.target
+
+Represents the actual element that triggered the event.
+
+```javascript
+container.addEventListener("click", (event) => {
+  console.log(event.target);
+});
+```
+
+If Button 2 is clicked:
+
+```javascript
+<button>Button 2</button>
+```
+
+is returned.
+
+---
+
+# Real-World Example
+
+## Menu Items
+
+```html
+<ul id="menu">
+  <li>Home</li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
+```
+
+```javascript
+document
+  .getElementById("menu")
+  .addEventListener("click", (event) => {
+    console.log(event.target.textContent);
+  });
+```
+
+Output:
+
+```javascript
+Home
+About
+Contact
+```
+
+---
+
+# Dynamic Elements Example
+
+```javascript
+const list =
+  document.getElementById("list");
+
+list.addEventListener("click", (event) => {
+  console.log(event.target.textContent);
+});
+```
+
+Even newly added elements will work automatically.
+
+No need to add new event listeners.
+
+---
+
+# Benefits of Event Delegation
+
+- Better performance
+- Less memory usage
+- Less code
+- Works with dynamically added elements
+- Easier to maintain
+
+---
+
+# Event Delegation and Bubbling
+
+```javascript
+Child Click
+     ↑
+Parent Listener
+```
+
+Because events bubble upward, the parent can handle child events.
+
+---
+
+# Common Follow-up Questions
+
+### What is Event Delegation?
+
+Adding one event listener to a parent element to handle events from child elements.
+
+### Which concept makes Event Delegation possible?
+
+```javascript
+Event Bubbling
+```
+
+### Which property identifies the clicked element?
+
+```javascript
+event.target
+```
+
+### Why use Event Delegation?
+
+Better performance and easier management.
+
+### Does Event Delegation work for dynamically added elements?
+
+Yes.
+
+That is one of its biggest advantages.
+
+---
+
+# Most Common Interview Question
+
+## Why is Event Delegation better than adding listeners to every child?
+
+### Without Delegation
+
+```javascript
+100 buttons
+=
+100 listeners
+```
+
+---
+
+### With Delegation
+
+```javascript
+100 buttons
+=
+1 listener
+```
+
+Less memory and better performance.
+
+---
+
+# One-Line Interview Summary
+
+Event Delegation is a technique where a single event listener is attached to a parent element to handle events from its child elements using Event Bubbling.
+
+
+# Question: How Do You Create and Remove Elements in JavaScript?
+
+## 20-Second Interview Answer
+
+> JavaScript provides DOM methods to create, add, and remove HTML elements dynamically. We use `createElement()` to create an element, `appendChild()` or `append()` to add it to the DOM, and `remove()` or `removeChild()` to remove it.
+
+---
+
+## Interview Answer
+
+JavaScript allows us to create new HTML elements and remove existing elements without reloading the page.
+
+Common methods:
+
+- `createElement()`
+- `appendChild()`
+- `append()`
+- `remove()`
+- `removeChild()`
+
+---
+
+## Easy Remember
+
+```javascript
+Create → Add → Remove
+```
+
+```javascript
+createElement()
+appendChild()
+remove()
+```
+
+---
+
+# Creating an Element
+
+```javascript
+const heading =
+  document.createElement("h1");
+
+console.log(heading);
+```
+
+Output:
+
+```html
+<h1></h1>
+```
+
+Element is created but not visible yet.
+
+---
+
+# Adding Text
+
+```javascript
+const heading =
+  document.createElement("h1");
+
+heading.textContent = "Hello World";
+```
+
+Output:
+
+```html
+<h1>Hello World</h1>
+```
+
+---
+
+# Adding Element to DOM
+
+## HTML
+
+```html
+<div id="container"></div>
+```
+
+---
+
+## JavaScript
+
+```javascript
+const heading =
+  document.createElement("h1");
+
+heading.textContent = "Hello World";
+
+document
+  .getElementById("container")
+  .appendChild(heading);
+```
+
+Output:
+
+```html
+<div id="container">
+  <h1>Hello World</h1>
+</div>
+```
+
+---
+
+# Using append()
+
+```javascript
+const para =
+  document.createElement("p");
+
+para.textContent = "Paragraph";
+
+document.body.append(para);
+```
+
+---
+
+# Difference Between append() and appendChild()
+
+## appendChild()
+
+Accepts only DOM nodes.
+
+```javascript
+parent.appendChild(child);
+```
+
+---
+
+## append()
+
+Accepts nodes and text.
+
+```javascript
+parent.append("Hello");
+```
+
+---
+
+# Removing an Element
+
+## HTML
+
+```html
+<h1 id="title">
+  Hello World
+</h1>
+```
+
+---
+
+## JavaScript
+
+```javascript
+const element =
+  document.getElementById("title");
+
+element.remove();
+```
+
+The element is removed from the DOM.
+
+---
+
+# removeChild()
+
+```html
+<div id="parent">
+  <p id="child">Hello</p>
+</div>
+```
+
+```javascript
+const parent =
+  document.getElementById("parent");
+
+const child =
+  document.getElementById("child");
+
+parent.removeChild(child);
+```
+
+---
+
+# Real-World Example
+
+## Add List Item
+
+```javascript
+const li =
+  document.createElement("li");
+
+li.textContent = "New Item";
+
+document
+  .querySelector("ul")
+  .appendChild(li);
+```
+
+---
+
+## Remove List Item
+
+```javascript
+document
+  .querySelector("li")
+  .remove();
+```
+
+---
+
+# Common Follow-up Questions
+
+### Which method creates an element?
+
+```javascript
+document.createElement()
+```
+
+### Which method adds an element to the DOM?
+
+```javascript
+appendChild()
+```
+
+or
+
+```javascript
+append()
+```
+
+### Which method removes an element?
+
+```javascript
+remove()
+```
+
+### What is the difference between append() and appendChild()?
+
+`append()` can add text and elements.
+
+`appendChild()` only adds elements.
+
+---
+
+# Most Common Interview Question
+
+## How do you create and add a new div?
+
+```javascript
+const div =
+  document.createElement("div");
+
+div.textContent = "Hello";
+
+document.body.appendChild(div);
+```
+
+Output:
+
+```html
+<div>Hello</div>
+```
+
+---
+
+# One-Line Interview Summary
+
+JavaScript uses `createElement()` to create elements, `appendChild()` or `append()` to add them to the DOM, and `remove()` or `removeChild()` to remove them.

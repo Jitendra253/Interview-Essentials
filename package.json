@@ -1,0 +1,12 @@
+{
+  "name": "interview-essentials",
+  "version": "1.0.0",
+  "description": "all practice codes for interveiw",
+  "license": "ISC",
+  "author": "jitendra mahali",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

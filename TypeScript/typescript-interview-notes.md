@@ -7972,3 +7972,4886 @@ const input =
 
 console.log(input.value);
 ```
+
+
+# Question: What are Classes in TypeScript?
+
+## 20-Second Interview Answer
+
+> A class in TypeScript is a blueprint for creating objects. It contains properties (variables) and methods (functions). TypeScript allows us to define data types for class properties and method parameters, providing better type safety.
+
+---
+
+# What is a Class?
+
+A class is a blueprint for creating objects.
+
+It defines:
+
+- Properties (Variables)
+- Methods (Functions)
+
+Using a class, we can create multiple objects with the same structure.
+
+---
+
+# Why Use Classes?
+
+Benefits:
+
+- Code Reusability
+- Better Organization
+- Object-Oriented Programming
+- Type Safety
+
+---
+
+# Class Syntax
+
+```typescript
+class ClassName {
+
+}
+```
+
+---
+
+# Example of a Class
+
+```typescript
+class Student {
+
+  name: string;
+  age: number;
+
+  constructor(
+    name: string,
+    age: number
+  ) {
+    this.name = name;
+    this.age = age;
+  }
+
+  display(): void {
+    console.log(
+      this.name,
+      this.age
+    );
+  }
+}
+```
+
+---
+
+# Creating an Object
+
+```typescript
+const student =
+  new Student(
+    "John",
+    25
+  );
+
+student.display();
+```
+
+Output:
+
+```typescript
+John 25
+```
+
+---
+
+# Class Property Types
+
+TypeScript allows us to define data types for properties.
+
+```typescript
+class Employee {
+
+  id: number;
+  name: string;
+  salary: number;
+}
+```
+
+---
+
+# Method with Parameter Types
+
+```typescript
+class Calculator {
+
+  add(
+    a: number,
+    b: number
+  ): number {
+
+    return a + b;
+  }
+}
+```
+
+---
+
+# Usage
+
+```typescript
+const calc =
+  new Calculator();
+
+console.log(
+  calc.add(10, 20)
+);
+```
+
+Output:
+
+```typescript
+30
+```
+
+---
+
+# Constructor in Class
+
+A constructor is a special method that runs automatically when an object is created.
+
+```typescript
+class User {
+
+  name: string;
+
+  constructor(
+    name: string
+  ) {
+    this.name = name;
+  }
+}
+```
+
+---
+
+# Example
+
+```typescript
+const user =
+  new User(
+    "John"
+  );
+
+console.log(
+  user.name
+);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+# Class with Multiple Properties
+
+```typescript
+class Product {
+
+  id: number;
+  name: string;
+  price: number;
+
+  constructor(
+    id: number,
+    name: string,
+    price: number
+  ) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+}
+```
+
+---
+
+# Usage
+
+```typescript
+const product =
+  new Product(
+    1,
+    "Laptop",
+    50000
+  );
+
+console.log(product);
+```
+
+---
+
+# Type Safety
+
+```typescript
+class User {
+
+  age: number;
+}
+```
+
+Valid:
+
+```typescript
+user.age = 25;
+```
+
+---
+
+Invalid:
+
+```typescript
+user.age = "25";
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because:
+
+```typescript
+age
+```
+
+must be:
+
+```typescript
+number
+```
+
+---
+
+# Real-World Example
+
+```typescript
+class Employee {
+
+  id: number;
+  name: string;
+
+  constructor(
+    id: number,
+    name: string
+  ) {
+    this.id = id;
+    this.name = name;
+  }
+
+  showInfo(): void {
+    console.log(
+      this.id,
+      this.name
+    );
+  }
+}
+```
+
+---
+
+```typescript
+const emp =
+  new Employee(
+    101,
+    "John"
+  );
+
+emp.showInfo();
+```
+
+Output:
+
+```typescript
+101 John
+```
+
+---
+
+## Easy Remember
+
+```typescript
+Class
+=
+Blueprint of Objects
+```
+
+---
+
+```typescript
+Properties
+=
+Variables
+```
+
+---
+
+```typescript
+Methods
+=
+Functions
+```
+
+---
+
+```typescript
+new
+```
+
+Used to create objects.
+
+---
+
+```typescript
+constructor()
+```
+
+Runs automatically when an object is created.
+
+---
+
+## Common Follow-up Questions
+
+### What is a Class?
+
+A blueprint used to create objects.
+
+### What are Properties?
+
+Variables inside a class.
+
+### What are Methods?
+
+Functions inside a class.
+
+### What is a Constructor?
+
+A special method that runs automatically when an object is created.
+
+### How do you create an object from a class?
+
+```typescript
+const obj = new ClassName();
+```
+
+### Can we define types for class properties?
+
+```typescript
+Yes
+```
+
+TypeScript allows data types for properties, parameters, and return values.
+
+# Question: What are Access Modifiers in TypeScript?
+
+## 20-Second Interview Answer
+
+> Access Modifiers in TypeScript are used to control the visibility and accessibility of class properties and methods. The three main access modifiers are public, private, and protected.
+
+---
+
+## What are Access Modifiers?
+
+Access Modifiers in TypeScript are used to control the visibility and accessibility of class properties and methods.
+
+TypeScript provides three access modifiers:
+
+- public
+- private
+- protected
+
+---
+
+## Public
+
+- Accessible from anywhere.
+- Default access modifier in TypeScript.
+
+### Example
+
+```typescript
+class Employee {
+  public name: string = "John";
+}
+
+const emp = new Employee();
+console.log(emp.name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Private
+
+- Accessible only inside the same class.
+- Cannot be accessed outside the class.
+
+### Example
+
+```typescript
+class Employee {
+  private salary: number = 50000;
+
+  showSalary() {
+    console.log(this.salary);
+  }
+}
+
+const emp = new Employee();
+emp.showSalary();
+```
+
+### Invalid Example
+
+```typescript
+class Employee {
+  private salary: number = 50000;
+}
+
+const emp = new Employee();
+console.log(emp.salary);
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because `salary` is private.
+
+---
+
+## Protected
+
+- Accessible inside the class.
+- Accessible inside child classes.
+- Not accessible outside the class hierarchy.
+
+### Example
+
+```typescript
+class Person {
+  protected name: string = "John";
+}
+
+class Employee extends Person {
+  showName() {
+    console.log(this.name);
+  }
+}
+```
+
+### Invalid Example
+
+```typescript
+const emp = new Employee();
+console.log(emp.name);
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because `name` is protected.
+
+---
+
+## Public vs Private vs Protected
+
+| Modifier | Same Class | Child Class | Outside Class |
+|----------|------------|-------------|---------------|
+| public | ✅ | ✅ | ✅ |
+| private | ✅ | ❌ | ❌ |
+| protected | ✅ | ✅ | ❌ |
+
+---
+
+## Real World Example
+
+```typescript
+class BankAccount {
+  public accountName: string;
+  private balance: number;
+
+  constructor(name: string, balance: number) {
+    this.accountName = name;
+    this.balance = balance;
+  }
+
+  showBalance() {
+    console.log(this.balance);
+  }
+}
+```
+
+
+# Question: What is Inheritance in TypeScript?
+
+## 20-Second Interview Answer
+
+> Inheritance in TypeScript allows one class to acquire properties and methods of another class. It helps in code reusability by allowing a child class to reuse and extend the functionality of a parent class using the `extends` keyword.
+
+---
+
+## What is Inheritance?
+
+Inheritance is an Object-Oriented Programming (OOP) feature that allows one class to inherit properties and methods from another class.
+
+Benefits:
+
+- Code Reusability
+- Less Code Duplication
+- Easier Maintenance
+- Better Code Organization
+
+TypeScript uses the:
+
+```typescript
+extends
+```
+
+keyword for inheritance.
+
+---
+
+## Parent Class
+
+```typescript
+class Person {
+  name: string = "John";
+
+  greet() {
+    console.log("Hello");
+  }
+}
+```
+
+---
+
+## Child Class
+
+```typescript
+class Employee extends Person {
+  salary: number = 50000;
+}
+```
+
+Here:
+
+```typescript
+Employee
+```
+
+inherits:
+
+```typescript
+name
+greet()
+```
+
+from:
+
+```typescript
+Person
+```
+
+---
+
+## Using Inheritance
+
+```typescript
+class Person {
+  name: string = "John";
+
+  greet() {
+    console.log("Hello");
+  }
+}
+
+class Employee extends Person {
+  salary: number = 50000;
+}
+
+const emp = new Employee();
+
+console.log(emp.name);
+emp.greet();
+console.log(emp.salary);
+```
+
+Output:
+
+```typescript
+John
+Hello
+50000
+```
+
+---
+
+## Constructor with Inheritance
+
+Use:
+
+```typescript
+super()
+```
+
+to call the parent class constructor.
+
+### Example
+
+```typescript
+class Person {
+  constructor(public name: string) {}
+}
+
+class Employee extends Person {
+  constructor(name: string, public salary: number) {
+    super(name);
+  }
+}
+
+const emp = new Employee("John", 50000);
+
+console.log(emp.name);
+console.log(emp.salary);
+```
+
+Output:
+
+```typescript
+John
+50000
+```
+
+---
+
+## Method Inheritance
+
+```typescript
+class Person {
+  greet() {
+    console.log("Hello");
+  }
+}
+
+class Employee extends Person {}
+
+const emp = new Employee();
+emp.greet();
+```
+
+Output:
+
+```typescript
+Hello
+```
+
+---
+
+## Method Overriding
+
+A child class can override a parent class method.
+
+```typescript
+class Person {
+  greet() {
+    console.log("Hello");
+  }
+}
+
+class Employee extends Person {
+  greet() {
+    console.log("Welcome Employee");
+  }
+}
+
+const emp = new Employee();
+emp.greet();
+```
+
+Output:
+
+```typescript
+Welcome Employee
+```
+
+---
+
+## Real World Example
+
+```typescript
+class Vehicle {
+  start() {
+    console.log("Vehicle Started");
+  }
+}
+
+class Car extends Vehicle {
+  drive() {
+    console.log("Car Driving");
+  }
+}
+
+const car = new Car();
+
+car.start();
+car.drive();
+```
+
+Output:
+
+```typescript
+Vehicle Started
+Car Driving
+```
+
+---
+
+## Parent vs Child Class
+
+| Parent Class | Child Class |
+|-------------|-------------|
+| Base Class | Derived Class |
+| Provides properties and methods | Inherits properties and methods |
+| Can exist independently | Depends on Parent Class |
+
+---
+
+## Common Follow-up Questions
+
+### What is Inheritance?
+
+Inheritance allows one class to acquire properties and methods of another class.
+
+### Which keyword is used for Inheritance?
+
+```typescript
+extends
+```
+
+### Which keyword is used to call the parent constructor?
+
+```typescript
+super()
+```
+
+### What is a Parent Class?
+
+A class whose properties and methods are inherited by another class.
+
+### What is a Child Class?
+
+A class that inherits properties and methods from a parent class.
+
+### What is Method Overriding?
+
+When a child class provides its own implementation of a parent class method.
+
+### What are the advantages of Inheritance?
+
+- Code Reusability
+- Less Duplication
+- Easier Maintenance
+- Better Organization
+
+
+# Question: What are Modules in TypeScript?
+
+## 20-Second Interview Answer
+
+> Modules in TypeScript are used to divide code into separate reusable files using `export` and `import` keywords. They help organize code, improve maintainability, and avoid naming conflicts.
+
+---
+
+## What are Modules in TypeScript?
+
+Modules are self-contained units of code that encapsulate related functionalities such as:
+
+- Variables
+- Functions
+- Classes
+- Interfaces
+- Types
+
+Modules help break large applications into smaller and reusable files.
+
+TypeScript uses:
+
+```typescript
+export
+import
+```
+
+to create and use modules.
+
+---
+
+## Why Use Modules?
+
+Benefits:
+
+- Code Reusability
+- Better Organization
+- Easy Maintenance
+- Avoid Global Scope Pollution
+- Easier Team Collaboration
+
+---
+
+## Exporting a Variable
+
+### user.ts
+
+```typescript
+export const name: string = "John";
+```
+
+---
+
+## Importing a Variable
+
+### app.ts
+
+```typescript
+import { name } from "./user";
+
+console.log(name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Exporting a Function
+
+### math.ts
+
+```typescript
+export function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+---
+
+## Importing a Function
+
+### app.ts
+
+```typescript
+import { add } from "./math";
+
+console.log(add(10, 20));
+```
+
+Output:
+
+```typescript
+30
+```
+
+---
+
+## Exporting a Class
+
+### Employee.ts
+
+```typescript
+export class Employee {
+  name: string = "John";
+}
+```
+
+---
+
+## Importing a Class
+
+### app.ts
+
+```typescript
+import { Employee } from "./Employee";
+
+const emp = new Employee();
+console.log(emp.name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Named Export
+
+### user.ts
+
+```typescript
+export const name = "John";
+export const age = 25;
+```
+
+---
+
+### app.ts
+
+```typescript
+import { name, age } from "./user";
+
+console.log(name, age);
+```
+
+---
+
+## Default Export
+
+### user.ts
+
+```typescript
+export default class User {
+  name: string = "John";
+}
+```
+
+---
+
+### app.ts
+
+```typescript
+import User from "./user";
+
+const user = new User();
+console.log(user.name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Difference Between Named and Default Export
+
+### Named Export
+
+```typescript
+export const name = "John";
+```
+
+Import:
+
+```typescript
+import { name } from "./user";
+```
+
+---
+
+### Default Export
+
+```typescript
+export default User;
+```
+
+Import:
+
+```typescript
+import User from "./user";
+```
+
+No curly braces required.
+
+---
+
+## Real World Example
+
+### types.ts
+
+```typescript
+export interface User {
+  id: number;
+  name: string;
+}
+```
+
+---
+
+### app.ts
+
+```typescript
+import { User } from "./types";
+
+const user: User = {
+  id: 1,
+  name: "John"
+};
+```
+
+---
+
+## Folder Structure Example
+
+```text
+src/
+│
+├── app.ts
+├── user.ts
+├── employee.ts
+├── utils.ts
+```
+
+Each file acts as a separate module.
+
+---
+
+## Common Follow-up Questions
+
+### What is a Module?
+
+A self-contained unit of code stored in a separate file.
+
+### Why do we use Modules?
+
+To organize and reuse code.
+
+### Which keywords are used in Modules?
+
+```typescript
+export
+import
+```
+
+### What is the difference between Named Export and Default Export?
+
+Named exports use curly braces during import, while default exports do not.
+
+### Can a module contain classes, functions, and variables?
+
+```typescript
+Yes
+```
+
+### What is the main advantage of Modules?
+
+Better code organization and reusability.
+
+
+
+# Question: What are Getter and Setter in TypeScript?
+
+## 20-Second Interview Answer
+
+> A getter in TypeScript is a special method used to retrieve class property values using the `get` keyword. A setter is a special method used to update class property values using the `set` keyword. They provide controlled access to class properties.
+
+---
+
+## What is a Getter?
+
+A getter is a special method used to read or retrieve the value of a class property.
+
+Getter uses the:
+
+```typescript
+get
+```
+
+keyword.
+
+---
+
+## Getter Example
+
+```typescript
+class Employee {
+  private _name: string = "John";
+
+  get name(): string {
+    return this._name;
+  }
+}
+
+const emp = new Employee();
+
+console.log(emp.name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+Notice:
+
+```typescript
+emp.name
+```
+
+is used like a property, not a function.
+
+---
+
+## What is a Setter?
+
+A setter is a special method used to update the value of a class property.
+
+Setter uses the:
+
+```typescript
+set
+```
+
+keyword.
+
+---
+
+## Setter Example
+
+```typescript
+class Employee {
+  private _name: string = "";
+
+  set name(value: string) {
+    this._name = value;
+  }
+}
+
+const emp = new Employee();
+
+emp.name = "John";
+```
+
+The setter updates the value of `_name`.
+
+---
+
+## Getter and Setter Together
+
+```typescript
+class Employee {
+  private _name: string = "";
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(value: string) {
+    this._name = value;
+  }
+}
+
+const emp = new Employee();
+
+emp.name = "John";
+
+console.log(emp.name);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Why Use Getter and Setter?
+
+Benefits:
+
+- Encapsulation
+- Data Validation
+- Controlled Access
+- Better Security
+
+---
+
+## Validation Using Setter
+
+```typescript
+class Employee {
+  private _age: number = 0;
+
+  set age(value: number) {
+    if (value > 0) {
+      this._age = value;
+    }
+  }
+
+  get age(): number {
+    return this._age;
+  }
+}
+
+const emp = new Employee();
+
+emp.age = 25;
+
+console.log(emp.age);
+```
+
+Output:
+
+```typescript
+25
+```
+
+---
+
+## Real World Example
+
+```typescript
+class BankAccount {
+  private _balance: number = 0;
+
+  get balance(): number {
+    return this._balance;
+  }
+
+  set balance(amount: number) {
+    if (amount >= 0) {
+      this._balance = amount;
+    }
+  }
+}
+
+const account = new BankAccount();
+
+account.balance = 5000;
+
+console.log(account.balance);
+```
+
+Output:
+
+```typescript
+5000
+```
+
+---
+
+## Getter vs Setter
+
+| Getter | Setter |
+|----------|----------|
+| Reads data | Updates data |
+| Uses `get` keyword | Uses `set` keyword |
+| Returns value | Accepts value as parameter |
+| No parameters | One parameter |
+
+---
+
+## Common Follow-up Questions
+
+### What is a Getter?
+
+A special method used to retrieve a property value.
+
+### What keyword is used for Getter?
+
+```typescript
+get
+```
+
+### What is a Setter?
+
+A special method used to update a property value.
+
+### What keyword is used for Setter?
+
+```typescript
+set
+```
+
+### Why do we use Getter and Setter?
+
+To provide controlled access and validation for class properties.
+
+### Can a Setter return a value?
+
+```typescript
+No
+```
+
+A setter only updates data.
+
+### Can a Getter have parameters?
+
+```typescript
+No
+```
+
+A getter only returns data.
+
+
+# Question: How to Use Interface with Class in TypeScript?
+
+## 20-Second Interview Answer
+
+> In TypeScript, a class uses the `implements` keyword to follow the structure defined by an interface. The class must provide all properties and methods declared in the interface.
+
+---
+
+## What is Interface with Class?
+
+An interface defines a contract or structure.
+
+A class can implement that interface using the:
+
+```typescript
+implements
+```
+
+keyword.
+
+When a class implements an interface, it must provide all properties and methods defined in the interface.
+
+---
+
+## Interface Example
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+```
+
+---
+
+## Class Implementing Interface
+
+```typescript
+class Employee implements Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+```
+
+---
+
+## Usage
+
+```typescript
+const emp = new Employee("John", 25);
+
+console.log(emp.name);
+console.log(emp.age);
+```
+
+Output:
+
+```typescript
+John
+25
+```
+
+---
+
+## Interface with Method
+
+```typescript
+interface Person {
+  name: string;
+  greet(): void;
+}
+```
+
+---
+
+## Class Implementation
+
+```typescript
+class Employee implements Person {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): void {
+    console.log("Hello");
+  }
+}
+```
+
+---
+
+## Usage
+
+```typescript
+const emp = new Employee("John");
+
+emp.greet();
+```
+
+Output:
+
+```typescript
+Hello
+```
+
+---
+
+## Missing Property Example
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+class Employee implements Person {
+  name: string = "John";
+}
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because:
+
+```typescript
+age
+```
+
+is missing.
+
+The class must implement all interface members.
+
+---
+
+## Multiple Interfaces
+
+A class can implement multiple interfaces.
+
+```typescript
+interface Person {
+  name: string;
+}
+
+interface EmployeeDetails {
+  salary: number;
+}
+
+class Employee implements Person, EmployeeDetails {
+  name: string = "John";
+  salary: number = 50000;
+}
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+
+  login(): void;
+}
+
+class Admin implements User {
+  id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  login(): void {
+    console.log("Admin Logged In");
+  }
+}
+```
+
+---
+
+## implements vs extends
+
+### implements
+
+Used between:
+
+```typescript
+Class → Interface
+```
+
+Example:
+
+```typescript
+class Employee implements Person {}
+```
+
+---
+
+### extends
+
+Used between:
+
+```typescript
+Class → Class
+```
+
+or
+
+```typescript
+Interface → Interface
+```
+
+Example:
+
+```typescript
+class Employee extends Person {}
+```
+
+---
+
+## Common Follow-up Questions
+
+### What keyword is used to implement an interface?
+
+```typescript
+implements
+```
+
+### Can a class implement multiple interfaces?
+
+```typescript
+Yes
+```
+
+### Is implementing all interface members mandatory?
+
+```typescript
+Yes
+```
+
+### What happens if a class does not implement all interface members?
+
+```typescript
+Compile Time Error
+```
+
+### What is the difference between implements and extends?
+
+`implements` is used for Interface → Class relationship, while `extends` is used for inheritance.
+
+
+# Question: What is the Static Keyword in TypeScript?
+
+## 20-Second Interview Answer
+
+> In TypeScript, the `static` keyword is used to create properties and methods that belong to the class itself rather than individual objects. Static members can be accessed directly using the class name without creating an object.
+
+---
+
+## What is the Static Keyword?
+
+The `static` keyword is used to create:
+
+- Static Properties
+- Static Methods
+
+Static members belong to the class itself, not to objects created from the class.
+
+---
+
+## Why Use Static Keyword?
+
+- Define static properties and methods.
+- Memory efficient because only one copy exists.
+- Create utility/helper methods.
+- Store global constants shared by all objects.
+
+---
+
+## Advantage of Static Keyword
+
+- Saves memory.
+- No need to create objects.
+- Shared across all instances.
+- Useful for utility functions and constants.
+- Better code organization.
+
+---
+
+## Static Property
+
+```typescript
+class Employee {
+  static companyName: string = "Google";
+}
+
+console.log(Employee.companyName);
+```
+
+Output:
+
+```typescript
+Google
+```
+
+---
+
+## Accessing Static Property
+
+```typescript
+class Employee {
+  static companyName: string = "Google";
+}
+
+console.log(Employee.companyName);
+```
+
+Valid.
+
+---
+
+```typescript
+const emp = new Employee();
+
+console.log(emp.companyName);
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because static properties belong to the class, not the object.
+
+---
+
+## Static Method
+
+```typescript
+class Calculator {
+  static add(a: number, b: number): number {
+    return a + b;
+  }
+}
+
+console.log(Calculator.add(10, 20));
+```
+
+Output:
+
+```typescript
+30
+```
+
+---
+
+## Accessing Static Method
+
+```typescript
+Calculator.add(10, 20);
+```
+
+No object required.
+
+---
+
+## Static Property Example
+
+```typescript
+class Company {
+  static name: string = "Microsoft";
+}
+
+console.log(Company.name);
+```
+
+Output:
+
+```typescript
+Microsoft
+```
+
+---
+
+## Static Method Example
+
+```typescript
+class MathUtil {
+  static square(num: number): number {
+    return num * num;
+  }
+}
+
+console.log(MathUtil.square(5));
+```
+
+Output:
+
+```typescript
+25
+```
+
+---
+
+## Real World Example
+
+```typescript
+class Config {
+  static API_URL: string = "https://api.example.com";
+
+  static getApiUrl(): string {
+    return Config.API_URL;
+  }
+}
+
+console.log(Config.API_URL);
+console.log(Config.getApiUrl());
+```
+
+Output:
+
+```typescript
+https://api.example.com
+https://api.example.com
+```
+
+---
+
+## Static vs Non-Static
+
+| Static | Non-Static |
+|----------|------------|
+| Belongs to Class | Belongs to Object |
+| Accessed using Class Name | Accessed using Object |
+| No Object Required | Object Required |
+| Single Shared Copy | Separate Copy per Object |
+
+---
+
+## Example Comparison
+
+```typescript
+class Employee {
+  static company: string = "Google";
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+console.log(Employee.company);
+
+const emp = new Employee("John");
+console.log(emp.name);
+```
+
+---
+
+## Common Follow-up Questions
+
+### What is a Static Property?
+
+A property that belongs to the class itself.
+
+### What is a Static Method?
+
+A method that belongs to the class itself.
+
+### How do you access Static Members?
+
+```typescript
+ClassName.memberName
+```
+
+Example:
+
+```typescript
+Employee.companyName
+```
+
+### Do we need an object to access Static Members?
+
+```typescript
+No
+```
+
+### What are common uses of Static Members?
+
+- Utility Methods
+- Helper Functions
+- Constants
+- Configuration Values
+
+### What is the main advantage of Static Members?
+
+Memory efficiency because only one copy exists for the entire class.
+
+# Question: What are Type Guards in TypeScript?
+
+## 20-Second Interview Answer
+
+> A Type Guard is a TypeScript feature used to narrow down a variable's type at runtime, allowing safe access to type-specific properties and methods. It helps TypeScript determine the exact type of a variable inside conditional blocks.
+
+---
+
+## What is a Type Guard?
+
+A Type Guard is a technique used to narrow down the type of a variable within a conditional block.
+
+It helps TypeScript identify the actual type of a variable at runtime.
+
+This allows safe access to properties and methods specific to that type.
+
+---
+
+## Why Use Type Guards?
+
+- Provides better type safety.
+- Helps TypeScript infer types automatically.
+- Prevents runtime errors.
+- Allows type-specific operations.
+- Works well with Union Types.
+
+---
+
+## Types of Type Guards
+
+- typeof
+- instanceof
+- Custom Type Guard
+
+---
+
+# 1. typeof Type Guard
+
+Used for primitive data types such as:
+
+```typescript
+string
+number
+boolean
+undefined
+symbol
+bigint
+```
+
+### Example
+
+```typescript
+function printValue(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
+
+---
+
+### Usage
+
+```typescript
+printValue("hello");
+printValue(10);
+```
+
+Output:
+
+```typescript
+HELLO
+10.00
+```
+
+---
+
+# 2. instanceof Type Guard
+
+Used with classes and objects.
+
+Checks whether an object is an instance of a particular class.
+
+### Example
+
+```typescript
+class Employee {
+  work() {
+    console.log("Working");
+  }
+}
+
+class Student {
+  study() {
+    console.log("Studying");
+  }
+}
+
+function performAction(person: Employee | Student) {
+  if (person instanceof Employee) {
+    person.work();
+  } else {
+    person.study();
+  }
+}
+```
+
+---
+
+### Usage
+
+```typescript
+performAction(new Employee());
+performAction(new Student());
+```
+
+Output:
+
+```typescript
+Working
+Studying
+```
+
+---
+
+# 3. Custom Type Guard
+
+Used when built-in type guards are not enough.
+
+A custom type guard returns:
+
+```typescript
+value is TypeName
+```
+
+---
+
+### Example
+
+```typescript
+interface Employee {
+  name: string;
+  salary: number;
+}
+
+interface Student {
+  name: string;
+  grade: string;
+}
+
+function isEmployee(person: Employee | Student): person is Employee {
+  return "salary" in person;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+function printInfo(person: Employee | Student) {
+  if (isEmployee(person)) {
+    console.log(person.salary);
+  } else {
+    console.log(person.grade);
+  }
+}
+```
+
+---
+
+# Type Guard with Union Types
+
+```typescript
+function process(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.length);
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
+
+TypeScript automatically narrows the type.
+
+---
+
+# Real World Example
+
+```typescript
+function getUser(id: string | number) {
+  if (typeof id === "string") {
+    console.log(id.toUpperCase());
+  } else {
+    console.log(id.toFixed(0));
+  }
+}
+```
+
+---
+
+## Type Guards Summary
+
+| Type Guard | Used For |
+|------------|----------|
+| typeof | Primitive Types |
+| instanceof | Classes and Objects |
+| Custom Type Guard | Custom Types and Interfaces |
+
+---
+
+## Common Follow-up Questions
+
+### What is a Type Guard?
+
+A technique used to narrow down the type of a variable at runtime.
+
+### Why do we use Type Guards?
+
+To provide type safety and perform type-specific operations.
+
+### Which operator is used for primitive types?
+
+```typescript
+typeof
+```
+
+### Which operator is used for classes?
+
+```typescript
+instanceof
+```
+
+### What is a Custom Type Guard?
+
+A user-defined function that helps TypeScript determine the type of a variable.
+
+### What is the benefit of Type Guards?
+
+They help TypeScript infer types automatically and prevent runtime errors.
+
+
+
+# Question: What are Generics in TypeScript?
+
+## 20-Second Interview Answer
+
+> Generics in TypeScript allow us to create reusable functions, interfaces, classes, and types that can work with different data types while maintaining type safety. Instead of writing separate code for each data type, we can write one generic solution.
+
+---
+
+## What are Generics in TypeScript?
+
+Generics allow us to write reusable code that works with multiple data types.
+
+Without generics, we may need separate functions for:
+
+```typescript
+string
+number
+boolean
+```
+
+Generics allow a single function to work with all data types while preserving type safety.
+
+---
+
+## Why Use Generics?
+
+- Code Reusability
+- Type Safety
+- Better Maintainability
+- Less Duplicate Code
+- Flexible and Reusable Components
+
+---
+
+## Generic Syntax
+
+```typescript
+<T>
+```
+
+`T` stands for:
+
+```typescript
+Type
+```
+
+It is a placeholder for a data type.
+
+---
+
+## Generic Function Example
+
+### Without Generics
+
+```typescript
+function getString(value: string): string {
+  return value;
+}
+
+function getNumber(value: number): number {
+  return value;
+}
+```
+
+Separate functions are required.
+
+---
+
+### With Generics
+
+```typescript
+function getValue<T>(value: T): T {
+  return value;
+}
+```
+
+One function works for all types.
+
+---
+
+## Usage
+
+```typescript
+console.log(getValue<string>("Hello"));
+console.log(getValue<number>(100));
+console.log(getValue<boolean>(true));
+```
+
+Output:
+
+```typescript
+Hello
+100
+true
+```
+
+---
+
+## Type Inference
+
+TypeScript can automatically detect the type.
+
+```typescript
+function getValue<T>(value: T): T {
+  return value;
+}
+
+const result = getValue("Hello");
+```
+
+TypeScript automatically infers:
+
+```typescript
+T = string
+```
+
+---
+
+## Generic with Array
+
+```typescript
+function getItems<T>(items: T[]): T[] {
+  return items;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const numbers = getItems<number>([1, 2, 3]);
+const names = getItems<string>(["John", "David"]);
+```
+
+---
+
+## Generic Interface
+
+```typescript
+interface ApiResponse<T> {
+  data: T;
+  success: boolean;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const userResponse: ApiResponse<string> = {
+  data: "John",
+  success: true
+};
+```
+
+---
+
+## Generic Class
+
+```typescript
+class Box<T> {
+  value: T;
+
+  constructor(value: T) {
+    this.value = value;
+  }
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const box1 = new Box<string>("Hello");
+const box2 = new Box<number>(100);
+
+console.log(box1.value);
+console.log(box2.value);
+```
+
+Output:
+
+```typescript
+Hello
+100
+```
+
+---
+
+## Multiple Generics
+
+```typescript
+function getData<T, U>(id: T, name: U) {
+  return { id, name };
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const result = getData<number, string>(1, "John");
+
+console.log(result);
+```
+
+Output:
+
+```typescript
+{ id: 1, name: "John" }
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface ApiResponse<T> {
+  data: T;
+  message: string;
+}
+
+const response: ApiResponse<string[]> = {
+  data: ["John", "David"],
+  message: "Success"
+};
+```
+
+Generics are commonly used in:
+
+- API Responses
+- React Components
+- Utility Functions
+- Collections
+- Libraries
+
+---
+
+## Generic vs Any
+
+### Generic
+
+```typescript
+function getValue<T>(value: T): T {
+  return value;
+}
+```
+
+Type Safe.
+
+---
+
+### Any
+
+```typescript
+function getValue(value: any): any {
+  return value;
+}
+```
+
+No Type Safety.
+
+---
+
+## Common Follow-up Questions
+
+### What are Generics?
+
+Generics allow reusable code that works with different data types while maintaining type safety.
+
+### What does `<T>` represent?
+
+A placeholder for a data type.
+
+### Why do we use Generics?
+
+To create reusable and type-safe code.
+
+### Can Generics be used with Functions?
+
+```typescript
+Yes
+```
+
+### Can Generics be used with Interfaces?
+
+```typescript
+Yes
+```
+
+### Can Generics be used with Classes?
+
+```typescript
+Yes
+```
+
+### What is the advantage of Generics over `any`?
+
+Generics provide type safety while `any` disables type checking.
+
+
+
+
+# Question: What is `keyof` in TypeScript?
+
+## 20-Second Interview Answer
+
+> `keyof` is a TypeScript operator that returns a union of all property names of a given type. It is commonly used to achieve type safety when working with object properties and dynamic keys.
+
+---
+
+## What is `keyof`?
+
+`keyof` is a TypeScript operator used to get all keys of an object type as a union of string literal types.
+
+It helps ensure that only valid object keys are used.
+
+---
+
+## Why Use `keyof`?
+
+- Better Type Safety
+- Prevent Invalid Property Access
+- Useful with Objects
+- Works Well with Generics
+- Reduces Runtime Errors
+
+---
+
+## Basic Example
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+  age: number;
+};
+
+type UserKeys = keyof User;
+```
+
+Result:
+
+```typescript
+"id" | "name" | "age"
+```
+
+---
+
+## Using `keyof` with Variables
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+  age: number;
+};
+
+let key: keyof User;
+
+key = "name";
+key = "age";
+```
+
+Valid.
+
+---
+
+### Invalid Example
+
+```typescript
+key = "salary";
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because:
+
+```typescript
+salary
+```
+
+is not a key of:
+
+```typescript
+User
+```
+
+---
+
+## Using `keyof` with Objects
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+};
+
+const user: User = {
+  id: 1,
+  name: "John"
+};
+
+let key: keyof User = "name";
+
+console.log(user[key]);
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Object Keys with `keyof`
+
+```typescript
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+type ProductKeys = keyof Product;
+```
+
+Result:
+
+```typescript
+"id" | "name" | "price"
+```
+
+---
+
+## Generic Example
+
+```typescript
+function getProperty<T, K extends keyof T>(
+  obj: T,
+  key: K
+) {
+  return obj[key];
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user = {
+  id: 1,
+  name: "John"
+};
+
+console.log(getProperty(user, "name"));
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+### Invalid Usage
+
+```typescript
+getProperty(user, "salary");
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because:
+
+```typescript
+salary
+```
+
+is not a valid key.
+
+---
+
+## Using `keyof` with Interface
+
+```typescript
+interface Employee {
+  id: number;
+  name: string;
+  salary: number;
+}
+
+type EmployeeKeys = keyof Employee;
+```
+
+Result:
+
+```typescript
+"id" | "name" | "salary"
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+function getValue(
+  user: User,
+  key: keyof User
+) {
+  return user[key];
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: User = {
+  id: 1,
+  name: "John",
+  email: "john@gmail.com"
+};
+
+console.log(getValue(user, "email"));
+```
+
+Output:
+
+```typescript
+john@gmail.com
+```
+
+---
+
+## Common Follow-up Questions
+
+### What is `keyof`?
+
+A TypeScript operator that returns all keys of a type as a union.
+
+### What does `keyof User` return?
+
+```typescript
+"id" | "name" | "age"
+```
+
+(Depending on the properties of User.)
+
+### Why do we use `keyof`?
+
+To provide type safety when working with object properties.
+
+### Can `keyof` be used with Interfaces?
+
+```typescript
+Yes
+```
+
+### Can `keyof` be used with Generics?
+
+```typescript
+Yes
+```
+
+### What is the main advantage of `keyof`?
+
+It prevents accessing invalid object properties at compile time.
+
+
+# Question: What is an Index Signature in TypeScript?
+
+## 20-Second Interview Answer
+
+> An Index Signature in TypeScript allows you to define objects with dynamic keys while specifying the type of their values. It is useful when the property names are not known in advance but the value types are known.
+
+---
+
+## What is an Index Signature?
+
+An Index Signature allows an object to have dynamic property names while enforcing a specific type for the values.
+
+Syntax:
+
+```typescript
+{
+  [key: string]: string;
+}
+```
+
+Meaning:
+
+- Key can be any string.
+- Value must be a string.
+
+---
+
+## Why Use Index Signature?
+
+- Dynamic Object Keys
+- Flexible Object Structures
+- Type Safety
+- Useful for Dictionaries and Maps
+- Useful for API Response Data
+
+---
+
+## Basic Example
+
+```typescript
+interface User {
+  [key: string]: string;
+}
+```
+
+---
+
+## Usage
+
+```typescript
+const user: User = {
+  name: "John",
+  city: "Bhubaneswar",
+  country: "India"
+};
+```
+
+Valid because all values are strings.
+
+---
+
+## Invalid Example
+
+```typescript
+const user: User = {
+  name: "John",
+  age: 25
+};
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because:
+
+```typescript
+age
+```
+
+contains a number but the index signature expects a string.
+
+---
+
+## String Key with Number Value
+
+```typescript
+interface Scores {
+  [key: string]: number;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const marks: Scores = {
+  math: 90,
+  english: 85,
+  science: 95
+};
+```
+
+---
+
+## Flexible Object Shapes
+
+Index signatures are commonly used when object keys are unknown.
+
+```typescript
+interface Settings {
+  [key: string]: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const settings: Settings = {
+  theme: "dark",
+  language: "english",
+  currency: "INR"
+};
+```
+
+New properties can be added without modifying the interface.
+
+---
+
+## Number Index Signature
+
+```typescript
+interface StringArray {
+  [index: number]: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const users: StringArray = [
+  "John",
+  "David",
+  "Alex"
+];
+```
+
+---
+
+## Mixing Fixed and Dynamic Properties
+
+```typescript
+interface Employee {
+  id: number;
+  [key: string]: string | number;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const emp: Employee = {
+  id: 101,
+  name: "John",
+  city: "Bhubaneswar"
+};
+```
+
+---
+
+## Readonly Index Signature
+
+Use `readonly` when values should not be modified.
+
+```typescript
+interface User {
+  readonly [key: string]: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: User = {
+  name: "John",
+  city: "Bhubaneswar"
+};
+```
+
+Valid.
+
+---
+
+### Invalid Update
+
+```typescript
+user.name = "David";
+```
+
+Output:
+
+```typescript
+Error
+```
+
+Because the index signature is readonly.
+
+---
+
+## Readonly Number Index Signature
+
+```typescript
+interface ReadonlyArray {
+  readonly [index: number]: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const users: ReadonlyArray = [
+  "John",
+  "David"
+];
+```
+
+---
+
+### Invalid Update
+
+```typescript
+users[0] = "Alex";
+```
+
+Output:
+
+```typescript
+Error
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface ApiResponse {
+  [key: string]: string;
+}
+
+const response: ApiResponse = {
+  status: "success",
+  message: "Data Loaded",
+  token: "abc123"
+};
+```
+
+---
+
+## Common Follow-up Questions
+
+### What is an Index Signature?
+
+A way to define objects with dynamic keys and fixed value types.
+
+### Why do we use Index Signatures?
+
+To handle objects whose property names are not known beforehand.
+
+### What is the syntax of an Index Signature?
+
+```typescript
+[key: string]: string;
+```
+
+### Can Index Signatures use Number Keys?
+
+```typescript
+Yes
+```
+
+Example:
+
+```typescript
+[index: number]: string;
+```
+
+### What is a Readonly Index Signature?
+
+An index signature whose values cannot be modified after creation.
+
+### Where are Index Signatures commonly used?
+
+- API Responses
+- Dictionaries
+- Configuration Objects
+- Dynamic Data Structures
+
+
+# Question: What are Utility Types in TypeScript?
+
+## 20-Second Interview Answer
+
+> Utility Types are built-in TypeScript types that help transform or manipulate existing types in a convenient way. They reduce code duplication and improve type safety. Common utility types are `Partial`, `Required`, `Readonly`, `Pick`, `Omit`, `Extract`, `NonNullable`, and `Record`.
+
+---
+
+## What are Utility Types?
+
+Utility Types are predefined TypeScript types used to create new types from existing types.
+
+Benefits:
+
+- Less Code
+- Better Reusability
+- Better Type Safety
+- Easy Type Transformations
+
+---
+
+# 1. Partial<T>
+
+Makes all properties optional.
+
+### Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type PartialUser = Partial<User>;
+```
+
+Equivalent to:
+
+```typescript
+{
+  id?: number;
+  name?: string;
+  email?: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: Partial<User> = {
+  name: "John"
+};
+```
+
+Valid because all properties are optional.
+
+---
+
+# 2. Required<T>
+
+Makes all properties required.
+
+### Example
+
+```typescript
+interface User {
+  id?: number;
+  name?: string;
+}
+
+type RequiredUser = Required<User>;
+```
+
+Equivalent to:
+
+```typescript
+{
+  id: number;
+  name: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: Required<User> = {
+  id: 1,
+  name: "John"
+};
+```
+
+---
+
+# 3. Readonly<T>
+
+Makes all properties readonly.
+
+### Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+}
+
+type ReadonlyUser = Readonly<User>;
+```
+
+---
+
+### Usage
+
+```typescript
+const user: Readonly<User> = {
+  id: 1,
+  name: "John"
+};
+```
+
+---
+
+### Invalid Update
+
+```typescript
+user.name = "David";
+```
+
+Output:
+
+```typescript
+Error
+```
+
+---
+
+# 4. Pick<T, K>
+
+Selects specific properties from a type.
+
+### Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type UserInfo = Pick<User, "id" | "name">;
+```
+
+Result:
+
+```typescript
+{
+  id: number;
+  name: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: UserInfo = {
+  id: 1,
+  name: "John"
+};
+```
+
+---
+
+# 5. Omit<T, K>
+
+Removes specific properties from a type.
+
+### Example
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type UserInfo = Omit<User, "email">;
+```
+
+Result:
+
+```typescript
+{
+  id: number;
+  name: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: UserInfo = {
+  id: 1,
+  name: "John"
+};
+```
+
+---
+
+# 6. Extract<T, U>
+
+Extracts matching types from a union.
+
+### Example
+
+```typescript
+type Data =
+  string | number | boolean;
+
+type Result =
+  Extract<Data, string | number>;
+```
+
+Result:
+
+```typescript
+string | number
+```
+
+---
+
+# 7. NonNullable<T>
+
+Removes:
+
+```typescript
+null
+undefined
+```
+
+from a type.
+
+### Example
+
+```typescript
+type Data =
+  string | null | undefined;
+
+type Result =
+  NonNullable<Data>;
+```
+
+Result:
+
+```typescript
+string
+```
+
+---
+
+# 8. Record<K, T>
+
+Creates an object type with specific keys and value types.
+
+### Example
+
+```typescript
+type User = Record<string, string>;
+```
+
+Equivalent to:
+
+```typescript
+{
+  [key: string]: string;
+}
+```
+
+---
+
+### Usage
+
+```typescript
+const user: User = {
+  name: "John",
+  city: "Bhubaneswar"
+};
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+
+type ProductUpdate =
+  Partial<Product>;
+
+const product: ProductUpdate = {
+  price: 50000
+};
+```
+
+Useful for update APIs where not all fields are required.
+
+---
+
+## Utility Types Summary
+
+| Utility Type | Purpose |
+|--------------|---------|
+| Partial | Makes all properties optional |
+| Required | Makes all properties required |
+| Readonly | Makes all properties readonly |
+| Pick | Select specific properties |
+| Omit | Remove specific properties |
+| Extract | Extract matching union types |
+| NonNullable | Remove null and undefined |
+| Record | Create object type with keys and values |
+
+---
+
+## Common Follow-up Questions
+
+### What are Utility Types?
+
+Built-in TypeScript types used to transform existing types.
+
+### Which Utility Type makes all properties optional?
+
+```typescript
+Partial
+```
+
+### Which Utility Type makes all properties required?
+
+```typescript
+Required
+```
+
+### Which Utility Type makes properties readonly?
+
+```typescript
+Readonly
+```
+
+### What is the difference between Pick and Omit?
+
+`Pick` selects properties, while `Omit` removes properties.
+
+### What does NonNullable do?
+
+Removes:
+
+```typescript
+null
+undefined
+```
+
+from a type.
+
+### What is Record used for?
+
+To create object types with predefined key and value types.
+
+# Question: What are Namespaces in TypeScript?
+
+## 20-Second Interview Answer
+
+> A Namespace in TypeScript is a way to organize related code under a single name and avoid naming conflicts. It groups variables, functions, classes, and interfaces together. In modern applications, ES Modules are generally preferred over Namespaces.
+
+---
+
+## What is a Namespace?
+
+A Namespace is used to organize related code inside a single container.
+
+It helps:
+
+- Organize Code
+- Avoid Naming Conflicts
+- Group Related Functionality
+- Improve Maintainability
+
+Syntax:
+
+```typescript
+namespace NamespaceName {
+
+}
+```
+
+---
+
+## Basic Namespace Example
+
+```typescript
+namespace UserModule {
+  export const name = "John";
+
+  export function greet() {
+    console.log("Hello");
+  }
+}
+```
+
+---
+
+## Using Namespace Members
+
+```typescript
+console.log(UserModule.name);
+
+UserModule.greet();
+```
+
+Output:
+
+```typescript
+John
+Hello
+```
+
+---
+
+## Why Use export?
+
+Members inside a namespace are private by default.
+
+To access them outside the namespace, use:
+
+```typescript
+export
+```
+
+---
+
+## Namespace with Class
+
+```typescript
+namespace EmployeeModule {
+  export class Employee {
+    constructor(public name: string) {}
+
+    display() {
+      console.log(this.name);
+    }
+  }
+}
+```
+
+---
+
+## Usage
+
+```typescript
+const emp =
+  new EmployeeModule.Employee("John");
+
+emp.display();
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Creating Two Namespaces
+
+```typescript
+namespace UserModule {
+  export function login() {
+    console.log("User Login");
+  }
+}
+
+namespace AdminModule {
+  export function login() {
+    console.log("Admin Login");
+  }
+}
+```
+
+---
+
+## Usage
+
+```typescript
+UserModule.login();
+AdminModule.login();
+```
+
+Output:
+
+```typescript
+User Login
+Admin Login
+```
+
+No naming conflict occurs because both functions belong to different namespaces.
+
+---
+
+## Namespace with Function
+
+```typescript
+namespace MathUtils {
+  export function add(
+    a: number,
+    b: number
+  ): number {
+    return a + b;
+  }
+}
+```
+
+---
+
+## Usage
+
+```typescript
+console.log(
+  MathUtils.add(10, 20)
+);
+```
+
+Output:
+
+```typescript
+30
+```
+
+---
+
+## Namespace in Separate Files
+
+### math.ts
+
+```typescript
+namespace MathUtils {
+  export function add(
+    a: number,
+    b: number
+  ): number {
+    return a + b;
+  }
+}
+```
+
+---
+
+### app.ts
+
+```typescript
+/// <reference path="math.ts" />
+
+console.log(
+  MathUtils.add(10, 20)
+);
+```
+
+---
+
+## Compiling Multiple Namespace Files
+
+```bash
+tsc app.ts math.ts --outFile bundle.js
+```
+
+This combines multiple namespace files into one JavaScript file.
+
+---
+
+## Importing Namespaces
+
+Namespaces do not use:
+
+```typescript
+import
+export
+```
+
+like modern modules.
+
+Instead, TypeScript traditionally uses:
+
+```typescript
+/// <reference path="file.ts" />
+```
+
+Example:
+
+```typescript
+/// <reference path="math.ts" />
+```
+
+---
+
+## Real World Example
+
+```typescript
+namespace AppConfig {
+  export const API_URL =
+    "https://api.example.com";
+
+  export function getApiUrl() {
+    return API_URL;
+  }
+}
+
+console.log(AppConfig.getApiUrl());
+```
+
+Output:
+
+```typescript
+https://api.example.com
+```
+
+---
+
+## Namespace vs Module
+
+| Namespace | Module |
+|------------|---------|
+| Uses `namespace` keyword | Uses `import/export` |
+| Older approach | Modern approach |
+| Avoids naming conflicts | Better code organization |
+| Used mostly in legacy projects | Used in modern projects |
+
+---
+
+## Common Follow-up Questions
+
+### What is a Namespace?
+
+A way to organize related code under a single name.
+
+### Why do we use Namespaces?
+
+To organize code and avoid naming conflicts.
+
+### Which keyword is used to create a Namespace?
+
+```typescript
+namespace
+```
+
+### Why do we use `export` inside a Namespace?
+
+To make members accessible outside the namespace.
+
+### How do you access Namespace members?
+
+```typescript
+NamespaceName.memberName
+```
+
+Example:
+
+```typescript
+UserModule.login();
+```
+
+### How do you reference a Namespace from another file?
+
+```typescript
+/// <reference path="file.ts" />
+```
+
+### Which is preferred in modern TypeScript applications?
+
+```typescript
+Modules
+```
+
+using:
+
+```typescript
+import
+export
+```
+
+instead of Namespaces.
+
+
+
+# Question: What are Decorators in TypeScript?
+
+## 20-Second Interview Answer
+
+> Decorators in TypeScript are special functions that can be attached to classes, methods, properties, or parameters to add metadata or modify their behavior. They are commonly used in frameworks such as Angular and NestJS.
+
+---
+
+## What are Decorators?
+
+Decorators are a special kind of declaration that can be attached to:
+
+- Classes
+- Methods
+- Properties
+- Parameters
+
+They are used to add extra functionality without modifying the original code directly.
+
+Decorators use the:
+
+```typescript
+@
+```
+
+symbol.
+
+---
+
+## Enable Decorators
+
+In `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}
+```
+
+---
+
+## Why Use Decorators?
+
+- Add Metadata
+- Modify Behavior
+- Logging
+- Validation
+- Dependency Injection
+- Authorization
+
+---
+
+## Class Decorator
+
+A Class Decorator is applied to a class.
+
+### Example
+
+```typescript
+function Logger(constructor: Function) {
+  console.log("Class Created");
+}
+
+@Logger
+class Employee {
+  name: string = "John";
+}
+```
+
+Output:
+
+```typescript
+Class Created
+```
+
+---
+
+## Class Decorator with Custom Message
+
+```typescript
+function LogClass(constructor: Function) {
+  console.log("Employee Class Loaded");
+}
+
+@LogClass
+class Employee {}
+```
+
+Output:
+
+```typescript
+Employee Class Loaded
+```
+
+---
+
+## Property Decorator
+
+A Property Decorator is applied to class properties.
+
+### Example
+
+```typescript
+function LogProperty(
+  target: any,
+  propertyName: string
+) {
+  console.log(propertyName);
+}
+
+class Employee {
+  @LogProperty
+  name: string = "John";
+}
+```
+
+Output:
+
+```typescript
+name
+```
+
+---
+
+## Method Decorator
+
+A Method Decorator is applied to methods.
+
+### Example
+
+```typescript
+function LogMethod(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  console.log(methodName);
+}
+
+class Employee {
+  @LogMethod
+  display() {
+    console.log("Hello");
+  }
+}
+```
+
+Output:
+
+```typescript
+display
+```
+
+---
+
+## Override Function with Decorator
+
+Decorators can modify method behavior.
+
+### Example
+
+```typescript
+function OverrideMethod(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  descriptor.value = function () {
+    console.log("Method Overridden");
+  };
+}
+
+class Employee {
+  @OverrideMethod
+  display() {
+    console.log("Original Method");
+  }
+}
+
+const emp = new Employee();
+
+emp.display();
+```
+
+Output:
+
+```typescript
+Method Overridden
+```
+
+The original function is replaced by the decorator.
+
+---
+
+## Real World Example
+
+```typescript
+function ReadOnly(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  descriptor.writable = false;
+}
+
+class User {
+  @ReadOnly
+  login() {
+    console.log("User Login");
+  }
+}
+```
+
+This prevents the method from being overwritten.
+
+---
+
+## Class and Property Decorator Together
+
+```typescript
+function Logger(constructor: Function) {
+  console.log("Class Loaded");
+}
+
+function LogProperty(
+  target: any,
+  propertyName: string
+) {
+  console.log(propertyName);
+}
+
+@Logger
+class Employee {
+  @LogProperty
+  name: string = "John";
+}
+```
+
+Output:
+
+```typescript
+name
+Class Loaded
+```
+
+---
+
+## Types of Decorators
+
+| Decorator | Applied To |
+|------------|------------|
+| Class Decorator | Class |
+| Property Decorator | Property |
+| Method Decorator | Method |
+| Parameter Decorator | Method Parameter |
+| Accessor Decorator | Getter/Setter |
+
+---
+
+## Common Follow-up Questions
+
+### What are Decorators?
+
+Special functions used to add metadata or modify behavior of classes and class members.
+
+### Which symbol is used for Decorators?
+
+```typescript
+@
+```
+
+### Do Decorators work by default?
+
+```typescript
+No
+```
+
+Enable them using:
+
+```json
+"experimentalDecorators": true
+```
+
+### Can Decorators be applied to Properties?
+
+```typescript
+Yes
+```
+
+### Can Decorators be applied to Methods?
+
+```typescript
+Yes
+```
+
+### Which frameworks commonly use Decorators?
+
+- Angular
+- NestJS
+
+### Can Decorators override methods?
+
+```typescript
+Yes
+```
+
+Using the method descriptor, decorators can modify or replace method implementations.
+
+
+# Question: What are Typed Promises in TypeScript?
+
+## 20-Second Interview Answer
+
+> A Promise represents the future result of an asynchronous operation. In TypeScript, we can define the type of data that a Promise resolves with using `Promise<T>`, which provides better type safety and autocomplete support.
+
+---
+
+## What is a Promise?
+
+A Promise is an object that represents the future result of an asynchronous operation.
+
+A Promise can be in one of three states:
+
+- Pending
+- Fulfilled
+- Rejected
+
+---
+
+## Promise Syntax
+
+```typescript
+const promise = new Promise((resolve, reject) => {
+  resolve("Success");
+});
+```
+
+---
+
+## Why Use Typed Promises?
+
+- Type Safety
+- Better Autocomplete
+- Prevent Type Errors
+- Clear Return Types
+
+---
+
+## How to Define Type of a Promise?
+
+Use:
+
+```typescript
+Promise<T>
+```
+
+where:
+
+```typescript
+T
+```
+
+represents the type of value returned by the Promise.
+
+---
+
+## Promise with String Type
+
+```typescript
+const getData = (): Promise<string> => {
+  return new Promise((resolve) => {
+    resolve("Hello");
+  });
+};
+```
+
+---
+
+## Usage
+
+```typescript
+getData().then((data) => {
+  console.log(data);
+});
+```
+
+Output:
+
+```typescript
+Hello
+```
+
+---
+
+## Promise with Number Type
+
+```typescript
+const getAge = (): Promise<number> => {
+  return new Promise((resolve) => {
+    resolve(25);
+  });
+};
+```
+
+---
+
+## Usage
+
+```typescript
+getAge().then((age) => {
+  console.log(age);
+});
+```
+
+Output:
+
+```typescript
+25
+```
+
+---
+
+## Promise with Array Type
+
+```typescript
+const getUsers = (): Promise<string[]> => {
+  return new Promise((resolve) => {
+    resolve(["John", "David"]);
+  });
+};
+```
+
+---
+
+## Usage
+
+```typescript
+getUsers().then((users) => {
+  console.log(users);
+});
+```
+
+Output:
+
+```typescript
+["John", "David"]
+```
+
+---
+
+## Custom Type in Promise
+
+### Create a Type
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+};
+```
+
+---
+
+### Use in Promise
+
+```typescript
+const getUser = (): Promise<User> => {
+  return new Promise((resolve) => {
+    resolve({
+      id: 1,
+      name: "John"
+    });
+  });
+};
+```
+
+---
+
+## Usage
+
+```typescript
+getUser().then((user) => {
+  console.log(user.name);
+});
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Custom Interface in Promise
+
+```typescript
+interface Employee {
+  id: number;
+  name: string;
+  salary: number;
+}
+```
+
+---
+
+### Promise Example
+
+```typescript
+const getEmployee = (): Promise<Employee> => {
+  return new Promise((resolve) => {
+    resolve({
+      id: 101,
+      name: "John",
+      salary: 50000
+    });
+  });
+};
+```
+
+---
+
+## Promise with Multiple Objects
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+}
+```
+
+---
+
+```typescript
+const getUsers = (): Promise<User[]> => {
+  return new Promise((resolve) => {
+    resolve([
+      { id: 1, name: "John" },
+      { id: 2, name: "David" }
+    ]);
+  });
+};
+```
+
+---
+
+## Typed Promise with Async/Await
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+};
+
+async function getUser(): Promise<User> {
+  return {
+    id: 1,
+    name: "John"
+  };
+}
+```
+
+---
+
+## Usage
+
+```typescript
+async function loadUser() {
+  const user = await getUser();
+
+  console.log(user.name);
+}
+```
+
+Output:
+
+```typescript
+John
+```
+
+---
+
+## Real World API Example
+
+```typescript
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+async function getProducts(): Promise<Product[]> {
+  const response = await fetch(
+    "https://dummyjson.com/products"
+  );
+
+  const data = await response.json();
+
+  return data.products;
+}
+```
+
+---
+
+## Common Follow-up Questions
+
+### What is a Promise?
+
+A Promise represents the future result of an asynchronous operation.
+
+### What are the three Promise states?
+
+- Pending
+- Fulfilled
+- Rejected
+
+### How do you define a typed Promise?
+
+```typescript
+Promise<T>
+```
+
+### What does `Promise<string>` mean?
+
+The Promise will resolve with a string value.
+
+### Can we use Custom Types in Promises?
+
+```typescript
+Yes
+```
+
+### Can we use Interfaces in Promises?
+
+```typescript
+Yes
+```
+
+### Can Async Functions Return Typed Promises?
+
+```typescript
+Yes
+```
+
+Example:
+
+```typescript
+async function getUser(): Promise<User> {}
+```
+
+
+# Question: How to Make an API Call in TypeScript?
+
+## 20-Second Interview Answer
+
+> In TypeScript, API calls are typically made using the Fetch API or Axios. We define interfaces or types for the API response and apply those types to ensure type safety when working with the returned data.
+
+---
+
+## Why Define Types for API Responses?
+
+Benefits:
+
+- Type Safety
+- Better Autocomplete
+- Prevent Runtime Errors
+- Easier Maintenance
+
+---
+
+## Step 1: Define Type for API Response
+
+```typescript
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+```
+
+---
+
+## Step 2: API Call Using Fetch
+
+```typescript
+async function getProducts(): Promise<Product[]> {
+  const response = await fetch(
+    "https://dummyjson.com/products"
+  );
+
+  const data = await response.json();
+
+  return data.products;
+}
+```
+
+---
+
+## Step 3: Use API Data
+
+```typescript
+async function loadProducts() {
+  const products = await getProducts();
+
+  console.log(products);
+}
+
+loadProducts();
+```
+
+---
+
+## Complete Example
+
+```typescript
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+async function getProducts(): Promise<Product[]> {
+  const response = await fetch(
+    "https://dummyjson.com/products"
+  );
+
+  const data = await response.json();
+
+  return data.products;
+}
+
+async function loadProducts() {
+  const products = await getProducts();
+
+  products.forEach((product) => {
+    console.log(product.title);
+  });
+}
+
+loadProducts();
+```
+
+---
+
+## API Response Type
+
+Suppose API returns:
+
+```json
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone",
+      "price": 999
+    }
+  ]
+}
+```
+
+Define:
+
+```typescript
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+interface ProductResponse {
+  products: Product[];
+}
+```
+
+---
+
+## Apply Response Type
+
+```typescript
+async function getProducts(): Promise<Product[]> {
+  const response = await fetch(
+    "https://dummyjson.com/products"
+  );
+
+  const data: ProductResponse =
+    await response.json();
+
+  return data.products;
+}
+```
+
+---
+
+## Single Object API Example
+
+```typescript
+interface User {
+  id: number;
+  firstName: string;
+  email: string;
+}
+```
+
+---
+
+```typescript
+async function getUser(): Promise<User> {
+  const response = await fetch(
+    "https://dummyjson.com/users/1"
+  );
+
+  const user: User =
+    await response.json();
+
+  return user;
+}
+```
+
+---
+
+## Usage
+
+```typescript
+async function loadUser() {
+  const user = await getUser();
+
+  console.log(user.firstName);
+}
+
+loadUser();
+```
+
+---
+
+## Error Handling
+
+```typescript
+async function getProducts(): Promise<Product[]> {
+  try {
+    const response = await fetch(
+      "https://dummyjson.com/products"
+    );
+
+    const data: ProductResponse =
+      await response.json();
+
+    return data.products;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+```
+
+---
+
+## Real World Example
+
+```typescript
+interface Employee {
+  id: number;
+  name: string;
+  salary: number;
+}
+
+async function getEmployees(): Promise<Employee[]> {
+  const response = await fetch("/api/employees");
+
+  const data: Employee[] =
+    await response.json();
+
+  return data;
+}
+```
+
+---
+
+## Common Follow-up Questions
+
+### Why do we define types for API responses?
+
+To provide type safety and better code reliability.
+
+### Which keyword is used for asynchronous API calls?
+
+```typescript
+async
+await
+```
+
+### What type is returned from an async function?
+
+```typescript
+Promise
+```
+
+### How do you type an API response?
+
+Using:
+
+```typescript
+interface
+```
+
+or
+
+```typescript
+type
+```
+
+### What is the return type of an API that returns multiple products?
+
+```typescript
+Promise<Product[]>
+```
+
+### What is the return type of an API that returns a single user?
+
+```typescript
+Promise<User>
+```
+
+
+
+
+# Question: What are Some TypeScript Best Practices?
+
+## 20-Second Interview Answer
+
+> TypeScript best practices help improve code quality, readability, maintainability, and type safety. One important practice is using primitive types such as `number`, `string`, and `boolean` instead of wrapper object types like `Number`, `String`, and `Boolean`.
+
+---
+
+## Use Primitive Types Instead of Wrapper Types
+
+### Avoid
+
+```typescript
+Number
+String
+Boolean
+Object
+```
+
+These are JavaScript wrapper object types.
+
+---
+
+### Use
+
+```typescript
+number
+string
+boolean
+object
+```
+
+These are TypeScript primitive types and are recommended.
+
+---
+
+## Example
+
+### Avoid
+
+```typescript
+let age: Number = 25;
+let name: String = "John";
+let isActive: Boolean = true;
+```
+
+---
+
+### Recommended
+
+```typescript
+let age: number = 25;
+let name: string = "John";
+let isActive: boolean = true;
+```
+
+---
+
+## Why Avoid Wrapper Types?
+
+- Can cause unexpected behavior.
+- Less type-safe.
+- Creates object wrappers.
+- Not recommended by TypeScript.
+
+---
+
+## Example
+
+```typescript
+let value: String = new String("Hello");
+
+console.log(typeof value);
+```
+
+Output:
+
+```typescript
+object
+```
+
+---
+
+```typescript
+let value: string = "Hello";
+
+console.log(typeof value);
+```
+
+Output:
+
+```typescript
+string
+```
+
+---
+
+## Object Type Example
+
+### Avoid
+
+```typescript
+let user: Object = {
+  name: "John"
+};
+```
+
+---
+
+### Recommended
+
+```typescript
+let user: object = {
+  name: "John"
+};
+```
+
+Or better:
+
+```typescript
+interface User {
+  name: string;
+}
+
+const user: User = {
+  name: "John"
+};
+```
+
+---
+
+## Additional Best Practices
+
+### Use Interface or Type for Objects
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+}
+```
+
+---
+
+### Avoid Using `any`
+
+### Avoid
+
+```typescript
+let data: any = "Hello";
+```
+
+---
+
+### Prefer
+
+```typescript
+let data: string = "Hello";
+```
+
+or
+
+```typescript
+let data: unknown = "Hello";
+```
+
+---
+
+### Use Type Inference When Obvious
+
+```typescript
+const name = "John";
+```
+
+Instead of:
+
+```typescript
+const name: string = "John";
+```
+
+---
+
+### Use Readonly When Data Should Not Change
+
+```typescript
+interface User {
+  readonly id: number;
+}
+```
+
+---
+
+### Prefer Enum or Union Types for Fixed Values
+
+```typescript
+type Status =
+  "pending" |
+  "success" |
+  "failed";
+```
+
+---
+
+## Common Follow-up Questions
+
+### Which types should be avoided in TypeScript?
+
+```typescript
+Number
+String
+Boolean
+Object
+```
+
+### Which types should be used instead?
+
+```typescript
+number
+string
+boolean
+object
+```
+
+### Why are primitive types preferred?
+
+They are more type-safe, lightweight, and recommended by TypeScript.
+
+### What should be used instead of `any` whenever possible?
+
+```typescript
+Specific Types
+```
+
+or
+
+```typescript
+unknown
+```
+
+### What is a good practice for object typing?
+
+Use:
+
+```typescript
+interface
+```
+
+or
+
+```typescript
+type
+```
+
+instead of generic `object`.

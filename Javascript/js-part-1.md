@@ -76,12 +76,12 @@ console.log(experience);
 
 ### What is the difference between let, const, and var?
 
-| Feature | var | let | const |
-|----------|-----|-----|-------|
-| Scope | Function | Block | Block |
-| Reassign | Yes | Yes | No |
-| Redeclare | Yes | No | No |
-| Hoisting | Yes | Yes | Yes |
+| Feature   | var      | let   | const |
+| --------- | -------- | ----- | ----- |
+| Scope     | Function | Block | Block |
+| Reassign  | Yes      | Yes   | No    |
+| Redeclare | Yes      | No    | No    |
+| Hoisting  | Yes      | Yes   | Yes   |
 
 ### Which one should we use most of the time?
 
@@ -178,7 +178,7 @@ Reference data types store a reference (memory address) instead of the actual va
 ```javascript
 const user = {
   name: "Jitendra",
-  age: 25
+  age: 25,
 };
 
 const fruits = ["Apple", "Mango"];
@@ -199,7 +199,7 @@ function greet() {
 
 ```javascript
 let obj1 = {
-  name: "John"
+  name: "John",
 };
 
 let obj2 = obj1;
@@ -216,13 +216,13 @@ Here, both variables point to the same object in memory.
 
 ## Primitive vs Reference
 
-| Feature | Primitive | Reference |
-|----------|-----------|-----------|
-| Stores | Actual Value | Memory Address |
-| Mutable | No | Yes |
-| Compared By | Value | Reference |
-| Copy Behavior | Copy Value | Copy Reference |
-| Examples | String, Number, Boolean | Object, Array, Function |
+| Feature       | Primitive               | Reference               |
+| ------------- | ----------------------- | ----------------------- |
+| Stores        | Actual Value            | Memory Address          |
+| Mutable       | No                      | Yes                     |
+| Compared By   | Value                   | Reference               |
+| Copy Behavior | Copy Value              | Copy Reference          |
+| Examples      | String, Number, Boolean | Object, Array, Function |
 
 ## Comparison Example
 
@@ -270,7 +270,6 @@ Because JavaScript compares their memory references, not their content.
 
 Primitive data types store actual values and are copied by value, whereas reference data types store memory references and are copied by reference.
 
-
 # Question: What are Operators in JavaScript?
 
 ## Interview Answer
@@ -299,14 +298,14 @@ Here, `+` is an operator that adds two values.
 
 Used for mathematical calculations.
 
-| Operator | Description | Example |
-|----------|-------------|---------|
-| + | Addition | 10 + 5 |
-| - | Subtraction | 10 - 5 |
-| * | Multiplication | 10 * 5 |
-| / | Division | 10 / 5 |
-| % | Modulus (Remainder) | 10 % 3 |
-| ** | Exponentiation | 2 ** 3 |
+| Operator | Description         | Example  |
+| -------- | ------------------- | -------- |
+| +        | Addition            | 10 + 5   |
+| -        | Subtraction         | 10 - 5   |
+| \*       | Multiplication      | 10 \* 5  |
+| /        | Division            | 10 / 5   |
+| %        | Modulus (Remainder) | 10 % 3   |
+| \*\*     | Exponentiation      | 2 \*\* 3 |
 
 ### Example
 
@@ -328,12 +327,12 @@ console.log(a % b); // 0
 Used to assign values to variables.
 
 | Operator | Example |
-|----------|---------|
-| = | x = 10 |
-| += | x += 5 |
-| -= | x -= 5 |
-| *= | x *= 5 |
-| /= | x /= 5 |
+| -------- | ------- |
+| =        | x = 10  |
+| +=       | x += 5  |
+| -=       | x -= 5  |
+| \*=      | x \*= 5 |
+| /=       | x /= 5  |
 
 ### Example
 
@@ -353,30 +352,30 @@ Used to compare values.
 
 The result is always `true` or `false`.
 
-| Operator | Description |
-|----------|-------------|
-| == | Equal Value |
-| === | Equal Value and Type |
-| != | Not Equal |
-| !== | Not Equal Value or Type |
-| > | Greater Than |
-| < | Less Than |
-| >= | Greater Than or Equal |
-| <= | Less Than or Equal |
+| Operator | Description             |
+| -------- | ----------------------- |
+| ==       | Equal Value             |
+| ===      | Equal Value and Type    |
+| !=       | Not Equal               |
+| !==      | Not Equal Value or Type |
+| >        | Greater Than            |
+| <        | Less Than               |
+| >=       | Greater Than or Equal   |
+| <=       | Less Than or Equal      |
 
 ### Example
 
 ```javascript
-console.log(10 == "10");   // true
-console.log(10 === "10");  // false
-console.log(10 > 5);       // true
+console.log(10 == "10"); // true
+console.log(10 === "10"); // false
+console.log(10 > 5); // true
 ```
 
 ### Important Interview Point
 
 ```javascript
-10 == "10"   // true
-10 === "10"  // false
+10 == "10"; // true
+10 === "10"; // false
 ```
 
 `==` checks only value.
@@ -392,10 +391,10 @@ Always prefer `===` in modern JavaScript.
 Used to combine multiple conditions.
 
 | Operator | Description |
-|----------|-------------|
-| && | AND |
-| \|\| | OR |
-| ! | NOT |
+| -------- | ----------- |
+| &&       | AND         |
+| \|\|     | OR          |
+| !        | NOT         |
 
 ### Example
 
@@ -464,8 +463,8 @@ Used to find the data type of a value.
 
 ```javascript
 console.log(typeof "Hello"); // string
-console.log(typeof 100);     // number
-console.log(typeof true);    // boolean
+console.log(typeof 100); // number
+console.log(typeof true); // boolean
 ```
 
 ---
@@ -478,8 +477,8 @@ console.log(typeof true);    // boolean
 - `===` compares both values and data types.
 
 ```javascript
-10 == "10"   // true
-10 === "10"  // false
+10 == "10"; // true
+10 === "10"; // false
 ```
 
 ### Which comparison operator should be preferred?
@@ -495,6 +494,7 @@ It is a shorthand way to write simple if-else conditions.
 ## One-Line Interview Summary
 
 Operators are symbols that perform operations on values and variables, such as arithmetic calculations, comparisons, assignments, and logical evaluations.
+
 # Question: What are Function Declaration, Function Expression, and Arrow Function in JavaScript?
 
 ## Interview Answer
@@ -554,7 +554,7 @@ function sayHello() {
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 This works because the entire function is moved to the top during the creation phase.
@@ -598,7 +598,7 @@ const sayHello = function () {
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 Only the variable is hoisted, not the function definition.
@@ -641,13 +641,13 @@ If there is only one expression, `return` is implicit.
 
 # Key Differences
 
-| Feature | Function Declaration | Function Expression | Arrow Function |
-|----------|---------------------|--------------------|----------------|
-| Named Function | Yes | Optional | Usually Anonymous |
-| Hoisted | Yes | No | No |
-| Syntax | Traditional | Function in Variable | Shortest |
-| Own `this` | Yes | Yes | No |
-| Suitable for Object Methods | Yes | Yes | Usually No |
+| Feature                     | Function Declaration | Function Expression  | Arrow Function    |
+| --------------------------- | -------------------- | -------------------- | ----------------- |
+| Named Function              | Yes                  | Optional             | Usually Anonymous |
+| Hoisted                     | Yes                  | No                   | No                |
+| Syntax                      | Traditional          | Function in Variable | Shortest          |
+| Own `this`                  | Yes                  | Yes                  | No                |
+| Suitable for Object Methods | Yes                  | Yes                  | Usually No        |
 
 ---
 
@@ -660,7 +660,7 @@ const user = {
   name: "John",
   greet: function () {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -669,7 +669,7 @@ user.greet();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 `this` refers to the object.
@@ -683,7 +683,7 @@ const user = {
   name: "John",
   greet: () => {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -692,7 +692,7 @@ user.greet();
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 Arrow functions do not have their own `this`.
@@ -725,7 +725,7 @@ Use for callbacks and short functions.
 ```javascript
 const numbers = [1, 2, 3];
 
-const doubled = numbers.map(num => num * 2);
+const doubled = numbers.map((num) => num * 2);
 ```
 
 ---
@@ -761,7 +761,6 @@ Arrow Functions, because they are concise and work well with callbacks and event
 # One-Line Interview Summary
 
 Function Declarations are fully hoisted traditional functions, Function Expressions are functions stored in variables, and Arrow Functions are shorter ES6 functions that do not have their own `this`.
-
 
 # Question: What is Scope in JavaScript? Explain Global Scope, Function Scope, and Block Scope.
 
@@ -809,8 +808,8 @@ showCompany();
 Output:
 
 ```javascript
-OpenAI
-OpenAI
+OpenAI;
+OpenAI;
 ```
 
 ## Key Point
@@ -839,8 +838,8 @@ console.log(message);
 Output:
 
 ```javascript
-Hello
-ReferenceError
+Hello;
+ReferenceError;
 ```
 
 ## Key Point
@@ -878,9 +877,9 @@ console.log(age);
 Output:
 
 ```javascript
-25
-Bhubaneswar
-ReferenceError
+25;
+Bhubaneswar;
+ReferenceError;
 ```
 
 ## Key Point
@@ -904,7 +903,7 @@ console.log(name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 `var` ignores block scope.
@@ -924,7 +923,7 @@ console.log(name);
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ---
@@ -942,7 +941,7 @@ console.log(name);
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ---
@@ -979,8 +978,8 @@ outer();
 Output:
 
 ```javascript
-Global
-Outer
+Global;
+Outer;
 ```
 
 The inner function can access variables from its parent and global scope.
@@ -1014,6 +1013,7 @@ JavaScript searches for variables from the current scope to parent scopes until 
 # One-Line Interview Summary
 
 Scope determines where variables can be accessed, and JavaScript provides Global Scope, Function Scope, and Block Scope to control variable visibility and prevent conflicts.
+
 # Question: What is Hoisting in JavaScript?
 
 ## Interview Answer
@@ -1053,7 +1053,7 @@ name = "John";
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ### Why?
@@ -1075,7 +1075,7 @@ let age = 25;
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ## Example
@@ -1089,7 +1089,7 @@ const city = "Bhubaneswar";
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ### Why?
@@ -1115,7 +1115,7 @@ function greet() {
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 JavaScript moves the entire function declaration to the top.
@@ -1137,7 +1137,7 @@ const greet = function () {
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ### Why?
@@ -1161,7 +1161,7 @@ const sayHello = () => {
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 Arrow functions behave like function expressions.
@@ -1185,21 +1185,21 @@ let age = 25;
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ---
 
 # Hoisting Summary
 
-| Declaration Type | Hoisted | Accessible Before Declaration |
-|------------------|----------|------------------------------|
-| var | Yes | Yes (`undefined`) |
-| let | Yes | No (TDZ) |
-| const | Yes | No (TDZ) |
-| Function Declaration | Yes | Yes |
-| Function Expression | No | No |
-| Arrow Function | No | No |
+| Declaration Type     | Hoisted | Accessible Before Declaration |
+| -------------------- | ------- | ----------------------------- |
+| var                  | Yes     | Yes (`undefined`)             |
+| let                  | Yes     | No (TDZ)                      |
+| const                | Yes     | No (TDZ)                      |
+| Function Declaration | Yes     | Yes                           |
+| Function Expression  | No      | No                            |
+| Arrow Function       | No      | No                            |
 
 ---
 
@@ -1228,7 +1228,6 @@ The time between entering a scope and the variable declaration where `let` and `
 # One-Line Interview Summary
 
 Hoisting is JavaScript's behavior of moving declarations to the top of their scope before execution, allowing function declarations and `var` variables to be referenced before their declaration, while `let` and `const` remain in the Temporal Dead Zone until initialized.
-
 
 # Question: What is a Closure in JavaScript?
 
@@ -1318,7 +1317,7 @@ function createCounter() {
     decrement() {
       count--;
       return count;
-    }
+    },
   };
 }
 
@@ -1406,8 +1405,8 @@ fn();
 Output:
 
 ```javascript
-Global
-Outer
+Global;
+Outer;
 ```
 
 The inner function can access:
@@ -1464,7 +1463,7 @@ fn();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 ### Explanation
@@ -1478,7 +1477,6 @@ This behavior is called a Closure.
 # One-Line Interview Summary
 
 A closure is a function that remembers and can access variables from its outer scope even after the outer function has completed execution.
-
 
 # Question: What is the `this` Keyword in JavaScript?
 
@@ -1507,7 +1505,7 @@ console.log(this);
 Output:
 
 ```javascript
-window
+window;
 ```
 
 In the browser's global scope, `this` refers to the `window` object.
@@ -1524,7 +1522,7 @@ const user = {
 
   greet() {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -1533,7 +1531,7 @@ user.greet();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ### Why?
@@ -1547,7 +1545,7 @@ user.greet();
 So:
 
 ```javascript
-this === user
+this === user;
 ```
 
 ---
@@ -1567,7 +1565,7 @@ show();
 ### Browser (Non-Strict Mode)
 
 ```javascript
-window
+window;
 ```
 
 ### Strict Mode
@@ -1585,7 +1583,7 @@ show();
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ---
@@ -1604,7 +1602,7 @@ const user = {
 
   greet: () => {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -1613,7 +1611,7 @@ user.greet();
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ### Why?
@@ -1632,7 +1630,7 @@ const user = {
 
   greet() {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -1641,7 +1639,7 @@ user.greet();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ---
@@ -1654,7 +1652,7 @@ const user = {
 
   greet: () => {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -1663,7 +1661,7 @@ user.greet();
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ---
@@ -1685,7 +1683,7 @@ console.log(user.name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ### Why?
@@ -1706,7 +1704,7 @@ function greet() {
 }
 
 const user = {
-  name: "John"
+  name: "John",
 };
 
 greet.call(user);
@@ -1715,7 +1713,7 @@ greet.call(user);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ---
@@ -1728,7 +1726,7 @@ function greet(city) {
 }
 
 const user = {
-  name: "John"
+  name: "John",
 };
 
 greet.apply(user, ["Bhubaneswar"]);
@@ -1750,7 +1748,7 @@ function greet() {
 }
 
 const user = {
-  name: "John"
+  name: "John",
 };
 
 const newFunc = greet.bind(user);
@@ -1761,22 +1759,22 @@ newFunc();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ---
 
 # Summary Table
 
-| Situation | Value of this |
-|------------|--------------|
-| Global Scope (Browser) | window |
-| Object Method | The Object |
-| Regular Function (Strict Mode) | undefined |
-| Regular Function (Non-Strict Mode) | window |
-| Arrow Function | Inherits from Parent Scope |
-| Constructor Function | Newly Created Object |
-| call/apply/bind | Explicitly Assigned Object |
+| Situation                          | Value of this              |
+| ---------------------------------- | -------------------------- |
+| Global Scope (Browser)             | window                     |
+| Object Method                      | The Object                 |
+| Regular Function (Strict Mode)     | undefined                  |
+| Regular Function (Non-Strict Mode) | window                     |
+| Arrow Function                     | Inherits from Parent Scope |
+| Constructor Function               | Newly Created Object       |
+| call/apply/bind                    | Explicitly Assigned Object |
 
 ---
 
@@ -1804,7 +1802,7 @@ Regular functions.
 const user = {
   greet() {
     console.log(this);
-  }
+  },
 };
 ```
 
@@ -1822,7 +1820,7 @@ const user = {
 
   greet() {
     console.log(this.name);
-  }
+  },
 };
 
 user.greet();
@@ -1831,7 +1829,7 @@ user.greet();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ### Why?
@@ -1845,9 +1843,6 @@ Because `user` is calling the function, so `this` refers to the `user` object.
 The `this` keyword refers to the object that is executing the function, and its value depends on how the function is called.
 
 "this refers to the object that is currently executing a function. Its value is determined by how the function is called. In object methods, this refers to the object itself, while arrow functions do not have their own this and inherit it from the surrounding scope."
-
-
-
 
 # Question: What are Objects and Arrays in JavaScript?
 
@@ -1879,7 +1874,7 @@ An object is a collection of related data stored as key-value pairs.
 const user = {
   name: "John",
   age: 25,
-  city: "Bhubaneswar"
+  city: "Bhubaneswar",
 };
 ```
 
@@ -1896,7 +1891,7 @@ console.log(user.name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ### Bracket Notation
@@ -1908,7 +1903,7 @@ console.log(user["age"]);
 Output:
 
 ```javascript
-25
+25;
 ```
 
 ---
@@ -1947,7 +1942,7 @@ const user = {
 
   greet() {
     console.log(`Hello ${this.name}`);
-  }
+  },
 };
 
 user.greet();
@@ -1984,7 +1979,7 @@ console.log(fruits[0]);
 Output:
 
 ```javascript
-Apple
+Apple;
 ```
 
 ---
@@ -2047,12 +2042,12 @@ fruits.forEach((fruit) => {
 
 # Object vs Array
 
-| Feature | Object | Array |
-|----------|---------|--------|
-| Data Storage | Key-Value Pairs | Ordered List |
-| Access | Key | Index |
-| Example | user.name | fruits[0] |
-| Use Case | Related Properties | Collection of Items |
+| Feature      | Object             | Array               |
+| ------------ | ------------------ | ------------------- |
+| Data Storage | Key-Value Pairs    | Ordered List        |
+| Access       | Key                | Index               |
+| Example      | user.name          | fruits[0]           |
+| Use Case     | Related Properties | Collection of Items |
 
 ---
 
@@ -2064,7 +2059,7 @@ fruits.forEach((fruit) => {
 const employee = {
   id: 1,
   name: "John",
-  role: "Developer"
+  role: "Developer",
 };
 ```
 
@@ -2100,12 +2095,12 @@ This is the most common structure used in APIs and React applications.
 const users = [
   {
     id: 1,
-    name: "John"
+    name: "John",
   },
   {
     id: 2,
-    name: "Peter"
-  }
+    name: "Peter",
+  },
 ];
 ```
 
@@ -2118,7 +2113,7 @@ console.log(users[0].name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ---
@@ -2154,12 +2149,7 @@ Object.values(user);
 Yes.
 
 ```javascript
-const data = [
-  "John",
-  25,
-  true,
-  { city: "Bhubaneswar" }
-];
+const data = ["John", 25, true, { city: "Bhubaneswar" }];
 ```
 
 ---
@@ -2179,7 +2169,7 @@ Example:
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
 const users = ["John", "Peter", "Sam"];
@@ -2190,7 +2180,6 @@ const users = ["John", "Peter", "Sam"];
 # One-Line Interview Summary
 
 Objects store data as key-value pairs, while arrays store multiple values in an ordered list, and both are reference data types in JavaScript.
-
 
 # Question: What is Destructuring in JavaScript?
 
@@ -2214,7 +2203,7 @@ Instead of accessing properties one by one:
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
 console.log(user.name);
@@ -2226,7 +2215,7 @@ We can use destructuring:
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
 const { name, age } = user;
@@ -2238,8 +2227,8 @@ console.log(age);
 Output:
 
 ```javascript
-John
-25
+John;
+25;
 ```
 
 ---
@@ -2249,7 +2238,7 @@ John
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
 const { name: userName, age: userAge } = user;
@@ -2261,8 +2250,8 @@ console.log(userAge);
 Output:
 
 ```javascript
-John
-25
+John;
+25;
 ```
 
 ---
@@ -2271,7 +2260,7 @@ John
 
 ```javascript
 const user = {
-  name: "John"
+  name: "John",
 };
 
 const { name, city = "Bhubaneswar" } = user;
@@ -2282,7 +2271,7 @@ console.log(city);
 Output:
 
 ```javascript
-Bhubaneswar
+Bhubaneswar;
 ```
 
 ---
@@ -2312,8 +2301,8 @@ console.log(second);
 Output:
 
 ```javascript
-Apple
-Mango
+Apple;
+Mango;
 ```
 
 ---
@@ -2332,8 +2321,8 @@ console.log(third);
 Output:
 
 ```javascript
-Apple
-Orange
+Apple;
+Orange;
 ```
 
 ---
@@ -2352,8 +2341,7 @@ console.log(remaining);
 Output:
 
 ```javascript
-Apple
-["Mango", "Orange", "Banana"]
+Apple[("Mango", "Orange", "Banana")];
 ```
 
 ---
@@ -2483,7 +2471,6 @@ const [first] = fruits;
 
 Destructuring is an ES6 feature that allows us to extract values from objects and arrays and assign them to variables in a concise and readable way.
 
-
 # Question: What are Spread (...) and Rest (...) Operators in JavaScript?
 
 ## Interview Answer
@@ -2520,7 +2507,7 @@ console.log(arr2);
 Output:
 
 ```javascript
-[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5];
 ```
 
 ---
@@ -2538,7 +2525,7 @@ console.log(copy);
 Output:
 
 ```javascript
-[1, 2, 3]
+[1, 2, 3];
 ```
 
 ---
@@ -2557,7 +2544,7 @@ console.log(merged);
 Output:
 
 ```javascript
-[1, 2, 3, 4]
+[1, 2, 3, 4];
 ```
 
 ---
@@ -2566,12 +2553,12 @@ Output:
 
 ```javascript
 const user = {
-  name: "John"
+  name: "John",
 };
 
 const updatedUser = {
   ...user,
-  age: 25
+  age: 25,
 };
 
 console.log(updatedUser);
@@ -2593,7 +2580,7 @@ Output:
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
 const copy = { ...user };
@@ -2618,7 +2605,7 @@ sum(10, 20, 30, 40);
 Output:
 
 ```javascript
-[10, 20, 30, 40]
+[10, 20, 30, 40];
 ```
 
 ---
@@ -2636,7 +2623,7 @@ console.log(sum(10, 20, 30));
 Output:
 
 ```javascript
-60
+60;
 ```
 
 ---
@@ -2655,8 +2642,7 @@ console.log(remaining);
 Output:
 
 ```javascript
-Apple
-["Mango", "Orange", "Banana"]
+Apple[("Mango", "Orange", "Banana")];
 ```
 
 ---
@@ -2667,7 +2653,7 @@ Apple
 const user = {
   name: "John",
   age: 25,
-  city: "Bhubaneswar"
+  city: "Bhubaneswar",
 };
 
 const { name, ...details } = user;
@@ -2691,12 +2677,12 @@ John
 
 # Spread vs Rest
 
-| Feature | Spread Operator | Rest Operator |
-|----------|----------------|---------------|
-| Purpose | Expands Values | Collects Values |
-| Usage | Arrays, Objects, Function Calls | Function Parameters, Destructuring |
-| Result | Multiple Values | Single Array/Object |
-| Direction | One → Many | Many → One |
+| Feature   | Spread Operator                 | Rest Operator                      |
+| --------- | ------------------------------- | ---------------------------------- |
+| Purpose   | Expands Values                  | Collects Values                    |
+| Usage     | Arrays, Objects, Function Calls | Function Parameters, Destructuring |
+| Result    | Multiple Values                 | Single Array/Object                |
+| Direction | One → Many                      | Many → One                         |
 
 ---
 
@@ -2733,7 +2719,7 @@ show(1, 2, 3);
 Output:
 
 ```javascript
-[1, 2, 3]
+[1, 2, 3];
 ```
 
 Values are collected.
@@ -2747,7 +2733,7 @@ Values are collected.
 ```javascript
 setUser({
   ...user,
-  name: "John"
+  name: "John",
 });
 ```
 
@@ -2800,7 +2786,7 @@ Spread Operator.
 ```javascript
 setState({
   ...state,
-  name: "John"
+  name: "John",
 });
 ```
 
@@ -2830,7 +2816,6 @@ function sum(...numbers) {}
 
 The Spread Operator expands elements from arrays or objects, while the Rest Operator collects multiple values into a single array or object using the same `...` syntax.
 
-
 # Question: What are Template Literals in JavaScript?
 
 ## Interview Answer
@@ -2846,7 +2831,7 @@ Template Literals = Strings + Variables + Expressions
 Use backticks:
 
 ```javascript
-` `
+` `;
 ```
 
 ---
@@ -2930,7 +2915,7 @@ console.log(`Sum = ${a + b}`);
 Output:
 
 ```javascript
-Sum = 30
+Sum = 30;
 ```
 
 ---
@@ -2940,10 +2925,7 @@ Sum = 30
 Before ES6:
 
 ```javascript
-const text =
-  "Hello\n" +
-  "Welcome\n" +
-  "To JavaScript";
+const text = "Hello\n" + "Welcome\n" + "To JavaScript";
 ```
 
 ---
@@ -2995,7 +2977,7 @@ Creating dynamic messages:
 ```javascript
 const user = {
   name: "John",
-  role: "Developer"
+  role: "Developer",
 };
 
 const message = `
@@ -3022,12 +3004,12 @@ Template literals are commonly used for dynamic UI text.
 
 # Template Literals vs String Concatenation
 
-| Feature | String Concatenation | Template Literals |
-|----------|---------------------|------------------|
-| Readability | Less | Better |
-| Variables | `+` Operator | `${}` |
-| Multi-Line Support | Difficult | Easy |
-| Expressions | Less Clean | Cleaner |
+| Feature            | String Concatenation | Template Literals |
+| ------------------ | -------------------- | ----------------- |
+| Readability        | Less                 | Better            |
+| Variables          | `+` Operator         | `${}`             |
+| Multi-Line Support | Difficult            | Easy              |
+| Expressions        | Less Clean           | Cleaner           |
 
 ---
 
@@ -3038,14 +3020,14 @@ Template literals are commonly used for dynamic UI text.
 Backticks:
 
 ```javascript
-` `
+` `;
 ```
 
 Not:
 
 ```javascript
-' '
-" "
+" ";
+" ";
 ```
 
 ### What is String Interpolation?
@@ -3061,7 +3043,7 @@ ${}
 Yes.
 
 ```javascript
-`${10 + 20}`
+`${10 + 20}`;
 ```
 
 ### Can Template Literals create multi-line strings?
@@ -3099,7 +3081,6 @@ Template Literals provide cleaner syntax, string interpolation, and multi-line s
 # One-Line Interview Summary
 
 Template Literals are ES6 strings enclosed in backticks that allow string interpolation, multi-line strings, and embedded expressions using `${}` syntax.
-
 
 # Question: What is the map() Method in JavaScript?
 
@@ -3140,7 +3121,7 @@ console.log(doubled);
 Output:
 
 ```javascript
-[2, 4, 6, 8]
+[2, 4, 6, 8];
 ```
 
 ---
@@ -3150,7 +3131,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3, 4];
 
-const doubled = numbers.map(num => num * 2);
+const doubled = numbers.map((num) => num * 2);
 
 console.log(doubled);
 ```
@@ -3158,7 +3139,7 @@ console.log(doubled);
 Output:
 
 ```javascript
-[2, 4, 6, 8]
+[2, 4, 6, 8];
 ```
 
 ---
@@ -3168,7 +3149,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3];
 
-const doubled = numbers.map(num => num * 2);
+const doubled = numbers.map((num) => num * 2);
 
 console.log(numbers);
 console.log(doubled);
@@ -3177,8 +3158,7 @@ console.log(doubled);
 Output:
 
 ```javascript
-[1, 2, 3]
-[2, 4, 6]
+[1, 2, 3][(2, 4, 6)];
 ```
 
 ---
@@ -3188,7 +3168,7 @@ Output:
 ```javascript
 const users = ["john", "peter", "sam"];
 
-const upperCaseUsers = users.map(user => user.toUpperCase());
+const upperCaseUsers = users.map((user) => user.toUpperCase());
 
 console.log(upperCaseUsers);
 ```
@@ -3196,7 +3176,7 @@ console.log(upperCaseUsers);
 Output:
 
 ```javascript
-["JOHN", "PETER", "SAM"]
+["JOHN", "PETER", "SAM"];
 ```
 
 ---
@@ -3207,10 +3187,10 @@ Output:
 const users = [
   { id: 1, name: "John" },
   { id: 2, name: "Peter" },
-  { id: 3, name: "Sam" }
+  { id: 3, name: "Sam" },
 ];
 
-const names = users.map(user => user.name);
+const names = users.map((user) => user.name);
 
 console.log(names);
 ```
@@ -3218,7 +3198,7 @@ console.log(names);
 Output:
 
 ```javascript
-["John", "Peter", "Sam"]
+["John", "Peter", "Sam"];
 ```
 
 ---
@@ -3246,7 +3226,7 @@ function App() {
 # Parameters of map()
 
 ```javascript
-array.map((element, index, array) => {})
+array.map((element, index, array) => {});
 ```
 
 ### element
@@ -3254,7 +3234,7 @@ array.map((element, index, array) => {})
 Current item being processed.
 
 ```javascript
-num
+num;
 ```
 
 ### index
@@ -3270,7 +3250,7 @@ Current position of the item.
 The original array.
 
 ```javascript
-numbers
+numbers;
 ```
 
 ---
@@ -3297,12 +3277,12 @@ Output:
 
 # map() vs forEach()
 
-| Feature | map() | forEach() |
-|----------|--------|----------|
-| Returns New Array | Yes | No |
-| Used for Transformation | Yes | No |
-| Can Chain Methods | Yes | No |
-| Modifies Original Array | No | No |
+| Feature                 | map() | forEach() |
+| ----------------------- | ----- | --------- |
+| Returns New Array       | Yes   | No        |
+| Used for Transformation | Yes   | No        |
+| Can Chain Methods       | Yes   | No        |
+| Modifies Original Array | No    | No        |
 
 ---
 
@@ -3313,7 +3293,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3];
 
-const result = numbers.map(num => num * 2);
+const result = numbers.map((num) => num * 2);
 
 console.log(result);
 ```
@@ -3321,7 +3301,7 @@ console.log(result);
 Output:
 
 ```javascript
-[2, 4, 6]
+[2, 4, 6];
 ```
 
 ---
@@ -3331,7 +3311,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3];
 
-const result = numbers.forEach(num => num * 2);
+const result = numbers.forEach((num) => num * 2);
 
 console.log(result);
 ```
@@ -3339,7 +3319,7 @@ console.log(result);
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ---
@@ -3377,7 +3357,7 @@ No.
 Returns a new array.
 
 ```javascript
-const result = numbers.map(num => num * 2);
+const result = numbers.map((num) => num * 2);
 ```
 
 ### forEach()
@@ -3385,7 +3365,7 @@ const result = numbers.map(num => num * 2);
 Returns `undefined`.
 
 ```javascript
-numbers.forEach(num => console.log(num));
+numbers.forEach((num) => console.log(num));
 ```
 
 Use `map()` when you need a transformed array.
@@ -3397,9 +3377,6 @@ Use `forEach()` when you only need to perform an action.
 # One-Line Interview Summary
 
 The `map()` method iterates over an array, applies a function to each element, and returns a new transformed array without modifying the original array.
-
-
-
 
 # Question: What is the filter() Method in JavaScript?
 
@@ -3435,7 +3412,7 @@ If the condition returns:
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6];
 
-const evenNumbers = numbers.filter(num => num % 2 === 0);
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
 
 console.log(evenNumbers);
 ```
@@ -3443,7 +3420,7 @@ console.log(evenNumbers);
 Output:
 
 ```javascript
-[2, 4, 6]
+[2, 4, 6];
 ```
 
 ---
@@ -3453,7 +3430,7 @@ Output:
 ```javascript
 const numbers = [10, 20, 30, 40, 50];
 
-const result = numbers.filter(num => num > 25);
+const result = numbers.filter((num) => num > 25);
 
 console.log(result);
 ```
@@ -3461,7 +3438,7 @@ console.log(result);
 Output:
 
 ```javascript
-[30, 40, 50]
+[30, 40, 50];
 ```
 
 ---
@@ -3471,7 +3448,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3, 4];
 
-const result = numbers.filter(num => num > 2);
+const result = numbers.filter((num) => num > 2);
 
 console.log(numbers);
 console.log(result);
@@ -3480,8 +3457,7 @@ console.log(result);
 Output:
 
 ```javascript
-[1, 2, 3, 4]
-[3, 4]
+[1, 2, 3, 4][(3, 4)];
 ```
 
 ---
@@ -3492,10 +3468,10 @@ Output:
 const users = [
   { id: 1, active: true },
   { id: 2, active: false },
-  { id: 3, active: true }
+  { id: 3, active: true },
 ];
 
-const activeUsers = users.filter(user => user.active);
+const activeUsers = users.filter((user) => user.active);
 
 console.log(activeUsers);
 ```
@@ -3505,8 +3481,8 @@ Output:
 ```javascript
 [
   { id: 1, active: true },
-  { id: 3, active: true }
-]
+  { id: 3, active: true },
+];
 ```
 
 ---
@@ -3519,12 +3495,10 @@ Filter products by price.
 const products = [
   { name: "Laptop", price: 50000 },
   { name: "Mouse", price: 500 },
-  { name: "Keyboard", price: 1000 }
+  { name: "Keyboard", price: 1000 },
 ];
 
-const expensiveProducts = products.filter(
-  product => product.price > 1000
-);
+const expensiveProducts = products.filter((product) => product.price > 1000);
 
 console.log(expensiveProducts);
 ```
@@ -3536,15 +3510,15 @@ console.log(expensiveProducts);
 ```javascript
 const users = [
   { id: 1, active: true },
-  { id: 2, active: false }
+  { id: 2, active: false },
 ];
 
 function App() {
   return (
     <div>
       {users
-        .filter(user => user.active)
-        .map(user => (
+        .filter((user) => user.active)
+        .map((user) => (
           <h3 key={user.id}>{user.id}</h3>
         ))}
     </div>
@@ -3557,7 +3531,7 @@ function App() {
 # Parameters of filter()
 
 ```javascript
-array.filter((element, index, array) => {})
+array.filter((element, index, array) => {});
 ```
 
 ### element
@@ -3587,19 +3561,19 @@ console.log(result);
 Output:
 
 ```javascript
-["Mango", "Orange"]
+["Mango", "Orange"];
 ```
 
 ---
 
 # filter() vs map()
 
-| Feature | filter() | map() |
-|----------|----------|--------|
-| Purpose | Select Elements | Transform Elements |
-| Returns | Filtered Array | New Transformed Array |
-| Array Size | Can Be Smaller | Usually Same Size |
-| Condition Required | Yes | No |
+| Feature            | filter()        | map()                 |
+| ------------------ | --------------- | --------------------- |
+| Purpose            | Select Elements | Transform Elements    |
+| Returns            | Filtered Array  | New Transformed Array |
+| Array Size         | Can Be Smaller  | Usually Same Size     |
+| Condition Required | Yes             | No                    |
 
 ---
 
@@ -3610,7 +3584,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3, 4];
 
-const result = numbers.filter(num => num > 2);
+const result = numbers.filter((num) => num > 2);
 
 console.log(result);
 ```
@@ -3618,7 +3592,7 @@ console.log(result);
 Output:
 
 ```javascript
-[3, 4]
+[3, 4];
 ```
 
 ---
@@ -3628,7 +3602,7 @@ Output:
 ```javascript
 const numbers = [1, 2, 3, 4];
 
-const result = numbers.map(num => num * 2);
+const result = numbers.map((num) => num * 2);
 
 console.log(result);
 ```
@@ -3636,7 +3610,7 @@ console.log(result);
 Output:
 
 ```javascript
-[2, 4, 6, 8]
+[2, 4, 6, 8];
 ```
 
 ---
@@ -3658,7 +3632,7 @@ A new array containing only the elements that satisfy the condition.
 Yes.
 
 ```javascript
-const result = [1, 2, 3].filter(num => num > 10);
+const result = [1, 2, 3].filter((num) => num > 10);
 
 console.log(result);
 ```
@@ -3666,7 +3640,7 @@ console.log(result);
 Output:
 
 ```javascript
-[]
+[];
 ```
 
 ### Can filter() be chained with map()?
@@ -3674,9 +3648,7 @@ Output:
 Yes.
 
 ```javascript
-const result = numbers
-  .filter(num => num > 2)
-  .map(num => num * 2);
+const result = numbers.filter((num) => num > 2).map((num) => num * 2);
 ```
 
 ---
@@ -3690,7 +3662,7 @@ const result = numbers
 Transforms every element and returns a new array.
 
 ```javascript
-numbers.map(num => num * 2);
+numbers.map((num) => num * 2);
 ```
 
 ### filter()
@@ -3698,7 +3670,7 @@ numbers.map(num => num * 2);
 Returns only elements that match a condition.
 
 ```javascript
-numbers.filter(num => num > 2);
+numbers.filter((num) => num > 2);
 ```
 
 ---
@@ -3706,8 +3678,6 @@ numbers.filter(num => num > 2);
 # One-Line Interview Summary
 
 The `filter()` method creates a new array containing only the elements that satisfy a specified condition without modifying the original array.
-
-
 
 # Question: What is the reduce() Method in JavaScript?
 
@@ -3763,7 +3733,7 @@ console.log(sum);
 Output:
 
 ```javascript
-10
+10;
 ```
 
 ---
@@ -3775,16 +3745,16 @@ const numbers = [1, 2, 3, 4];
 ```
 
 | Iteration | acc | curr | Result |
-|------------|-----|------|---------|
-| 1 | 0 | 1 | 1 |
-| 2 | 1 | 2 | 3 |
-| 3 | 3 | 3 | 6 |
-| 4 | 6 | 4 | 10 |
+| --------- | --- | ---- | ------ |
+| 1         | 0   | 1    | 1      |
+| 2         | 1   | 2    | 3      |
+| 3         | 3   | 3    | 6      |
+| 4         | 6   | 4    | 10     |
 
 Final Result:
 
 ```javascript
-10
+10;
 ```
 
 ---
@@ -3792,10 +3762,7 @@ Final Result:
 # Short Form
 
 ```javascript
-const sum = numbers.reduce(
-  (acc, curr) => acc + curr,
-  0
-);
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
 ```
 
 ---
@@ -3815,7 +3782,7 @@ console.log(max);
 Output:
 
 ```javascript
-50
+50;
 ```
 
 ---
@@ -3826,7 +3793,7 @@ Output:
 const products = [
   { name: "Laptop", price: 50000 },
   { name: "Mouse", price: 500 },
-  { name: "Keyboard", price: 1000 }
+  { name: "Keyboard", price: 1000 },
 ];
 
 const total = products.reduce((acc, product) => {
@@ -3839,7 +3806,7 @@ console.log(total);
 Output:
 
 ```javascript
-51500
+51500;
 ```
 
 ---
@@ -3847,13 +3814,7 @@ Output:
 # Count Occurrences
 
 ```javascript
-const fruits = [
-  "apple",
-  "banana",
-  "apple",
-  "orange",
-  "apple"
-];
+const fruits = ["apple", "banana", "apple", "orange", "apple"];
 
 const count = fruits.reduce((acc, fruit) => {
   acc[fruit] = (acc[fruit] || 0) + 1;
@@ -3880,32 +3841,25 @@ Output:
 Calculate cart total.
 
 ```javascript
-const cart = [
-  { price: 1000 },
-  { price: 2000 },
-  { price: 500 }
-];
+const cart = [{ price: 1000 }, { price: 2000 }, { price: 500 }];
 
-const totalPrice = cart.reduce(
-  (acc, item) => acc + item.price,
-  0
-);
+const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
 ```
 
 Output:
 
 ```javascript
-3500
+3500;
 ```
 
 ---
 
 # reduce() vs map() vs filter()
 
-| Method | Purpose | Returns |
-|----------|----------|----------|
-| map() | Transform Elements | New Array |
-| filter() | Select Elements | New Array |
+| Method   | Purpose                       | Returns      |
+| -------- | ----------------------------- | ------------ |
+| map()    | Transform Elements            | New Array    |
+| filter() | Select Elements               | New Array    |
 | reduce() | Convert Array to Single Value | Single Value |
 
 ---
@@ -3915,13 +3869,13 @@ Output:
 ## map()
 
 ```javascript
-[1, 2, 3].map(num => num * 2);
+[1, 2, 3].map((num) => num * 2);
 ```
 
 Output:
 
 ```javascript
-[2, 4, 6]
+[2, 4, 6];
 ```
 
 ---
@@ -3929,13 +3883,13 @@ Output:
 ## filter()
 
 ```javascript
-[1, 2, 3].filter(num => num > 1);
+[1, 2, 3].filter((num) => num > 1);
 ```
 
 Output:
 
 ```javascript
-[2, 3]
+[2, 3];
 ```
 
 ---
@@ -3949,7 +3903,7 @@ Output:
 Output:
 
 ```javascript
-6
+6;
 ```
 
 ---
@@ -4005,7 +3959,7 @@ const result = arr.reduce((acc, item) => {
 Transforms every element.
 
 ```javascript
-arr.map(item => item * 2);
+arr.map((item) => item * 2);
 ```
 
 Returns:
@@ -4021,7 +3975,7 @@ New Array
 Selects matching elements.
 
 ```javascript
-arr.filter(item => item > 2);
+arr.filter((item) => item > 2);
 ```
 
 Returns:
@@ -4051,7 +4005,6 @@ Single Value
 # One-Line Interview Summary
 
 The `reduce()` method processes all elements of an array and reduces them into a single value using an accumulator, making it useful for calculations, totals, counting, and data transformation.
-
 
 # Question: What is the find() Method in JavaScript?
 
@@ -4086,7 +4039,7 @@ array.find((element) => {
 ```javascript
 const numbers = [10, 20, 30, 40, 50];
 
-const result = numbers.find(num => num > 25);
+const result = numbers.find((num) => num > 25);
 
 console.log(result);
 ```
@@ -4094,7 +4047,7 @@ console.log(result);
 Output:
 
 ```javascript
-30
+30;
 ```
 
 Explanation:
@@ -4113,10 +4066,10 @@ Explanation:
 const users = [
   { id: 1, name: "John" },
   { id: 2, name: "Peter" },
-  { id: 3, name: "Sam" }
+  { id: 3, name: "Sam" },
 ];
 
-const user = users.find(user => user.id === 2);
+const user = users.find((user) => user.id === 2);
 
 console.log(user);
 ```
@@ -4137,7 +4090,7 @@ Output:
 ```javascript
 const numbers = [10, 20, 30];
 
-const result = numbers.find(num => num > 100);
+const result = numbers.find((num) => num > 100);
 
 console.log(result);
 ```
@@ -4145,7 +4098,7 @@ console.log(result);
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ---
@@ -4158,12 +4111,10 @@ Finding a product by ID from API data.
 const products = [
   { id: 1, name: "Laptop" },
   { id: 2, name: "Mouse" },
-  { id: 3, name: "Keyboard" }
+  { id: 3, name: "Keyboard" },
 ];
 
-const product = products.find(
-  product => product.id === 3
-);
+const product = products.find((product) => product.id === 3);
 
 console.log(product);
 ```
@@ -4186,8 +4137,7 @@ Output:
 Returns the first matching element.
 
 ```javascript
-const result = [1, 2, 3, 4, 5]
-  .find(num => num > 2);
+const result = [1, 2, 3, 4, 5].find((num) => num > 2);
 
 console.log(result);
 ```
@@ -4195,7 +4145,7 @@ console.log(result);
 Output:
 
 ```javascript
-3
+3;
 ```
 
 ---
@@ -4205,8 +4155,7 @@ Output:
 Returns all matching elements.
 
 ```javascript
-const result = [1, 2, 3, 4, 5]
-  .filter(num => num > 2);
+const result = [1, 2, 3, 4, 5].filter((num) => num > 2);
 
 console.log(result);
 ```
@@ -4214,7 +4163,7 @@ console.log(result);
 Output:
 
 ```javascript
-[3, 4, 5]
+[3, 4, 5];
 ```
 
 ---
@@ -4230,7 +4179,7 @@ The first matching element.
 It returns:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ### Does find() return an array?
@@ -4248,7 +4197,6 @@ When we need only one matching item from an array.
 # One-Line Interview Summary
 
 The `find()` method returns the first element in an array that satisfies a condition and returns `undefined` if no matching element is found.
-
 
 # Question: What is the some() Method in JavaScript?
 
@@ -4290,7 +4238,7 @@ true or false
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 
-const result = numbers.some(num => num > 3);
+const result = numbers.some((num) => num > 3);
 
 console.log(result);
 ```
@@ -4298,7 +4246,7 @@ console.log(result);
 Output:
 
 ```javascript
-true
+true;
 ```
 
 Explanation:
@@ -4317,7 +4265,7 @@ As soon as it finds `4`, it returns `true`.
 ```javascript
 const numbers = [1, 2, 3];
 
-const result = numbers.some(num => num > 10);
+const result = numbers.some((num) => num > 10);
 
 console.log(result);
 ```
@@ -4325,7 +4273,7 @@ console.log(result);
 Output:
 
 ```javascript
-false
+false;
 ```
 
 ---
@@ -4336,12 +4284,10 @@ false
 const users = [
   { id: 1, active: false },
   { id: 2, active: false },
-  { id: 3, active: true }
+  { id: 3, active: true },
 ];
 
-const hasActiveUser = users.some(
-  user => user.active
-);
+const hasActiveUser = users.some((user) => user.active);
 
 console.log(hasActiveUser);
 ```
@@ -4349,7 +4295,7 @@ console.log(hasActiveUser);
 Output:
 
 ```javascript
-true
+true;
 ```
 
 ---
@@ -4362,12 +4308,10 @@ Check if a product is out of stock.
 const products = [
   { name: "Laptop", stock: 10 },
   { name: "Mouse", stock: 0 },
-  { name: "Keyboard", stock: 5 }
+  { name: "Keyboard", stock: 5 },
 ];
 
-const hasOutOfStock = products.some(
-  product => product.stock === 0
-);
+const hasOutOfStock = products.some((product) => product.stock === 0);
 
 console.log(hasOutOfStock);
 ```
@@ -4375,7 +4319,7 @@ console.log(hasOutOfStock);
 Output:
 
 ```javascript
-true
+true;
 ```
 
 ---
@@ -4389,7 +4333,7 @@ Checks if at least one element matches.
 ```javascript
 const numbers = [2, 4, 6, 7];
 
-const result = numbers.some(num => num % 2 !== 0);
+const result = numbers.some((num) => num % 2 !== 0);
 
 console.log(result);
 ```
@@ -4397,7 +4341,7 @@ console.log(result);
 Output:
 
 ```javascript
-true
+true;
 ```
 
 Because `7` is odd.
@@ -4411,7 +4355,7 @@ Checks if all elements match.
 ```javascript
 const numbers = [2, 4, 6, 7];
 
-const result = numbers.every(num => num % 2 === 0);
+const result = numbers.every((num) => num % 2 === 0);
 
 console.log(result);
 ```
@@ -4419,7 +4363,7 @@ console.log(result);
 Output:
 
 ```javascript
-false
+false;
 ```
 
 Because `7` is not even.
@@ -4428,10 +4372,10 @@ Because `7` is not even.
 
 # some() vs find()
 
-| Method | Returns |
-|----------|----------|
-| some() | true / false |
-| find() | First Matching Element |
+| Method   | Returns                    |
+| -------- | -------------------------- |
+| some()   | true / false               |
+| find()   | First Matching Element     |
 | filter() | Array of Matching Elements |
 
 ---
@@ -4439,13 +4383,13 @@ Because `7` is not even.
 ## some()
 
 ```javascript
-const result = [1, 2, 3].some(num => num > 2);
+const result = [1, 2, 3].some((num) => num > 2);
 ```
 
 Output:
 
 ```javascript
-true
+true;
 ```
 
 ---
@@ -4453,13 +4397,13 @@ true
 ## find()
 
 ```javascript
-const result = [1, 2, 3].find(num => num > 2);
+const result = [1, 2, 3].find((num) => num > 2);
 ```
 
 Output:
 
 ```javascript
-3
+3;
 ```
 
 ---
@@ -4501,7 +4445,7 @@ When we only need to know whether at least one matching element exists.
 At least one element must satisfy the condition.
 
 ```javascript
-numbers.some(num => num > 5);
+numbers.some((num) => num > 5);
 ```
 
 ---
@@ -4511,7 +4455,7 @@ numbers.some(num => num > 5);
 All elements must satisfy the condition.
 
 ```javascript
-numbers.every(num => num > 5);
+numbers.every((num) => num > 5);
 ```
 
 ---
@@ -4519,7 +4463,6 @@ numbers.every(num => num > 5);
 # One-Line Interview Summary
 
 The `some()` method checks whether at least one element in an array satisfies a condition and returns `true` or `false`.
-
 
 # Question: What is the sort() Method in JavaScript?
 
@@ -4562,7 +4505,7 @@ console.log(fruits);
 Output:
 
 ```javascript
-["Apple", "Mango", "Orange"]
+["Apple", "Mango", "Orange"];
 ```
 
 ---
@@ -4580,7 +4523,7 @@ console.log(numbers);
 Output:
 
 ```javascript
-[10, 100, 25, 5]
+[10, 100, 25, 5];
 ```
 
 ### Why?
@@ -4588,10 +4531,10 @@ Output:
 By default, `sort()` converts numbers to strings.
 
 ```javascript
-"10"
-"100"
-"25"
-"5"
+"10";
+"100";
+"25";
+"5";
 ```
 
 Then it sorts alphabetically.
@@ -4603,7 +4546,7 @@ Then it sorts alphabetically.
 Use:
 
 ```javascript
-(a, b) => a - b
+(a, b) => a - b;
 ```
 
 ## Example
@@ -4619,7 +4562,7 @@ console.log(numbers);
 Output:
 
 ```javascript
-[5, 10, 25, 100]
+[5, 10, 25, 100];
 ```
 
 ---
@@ -4629,7 +4572,7 @@ Output:
 Use:
 
 ```javascript
-(a, b) => b - a
+(a, b) => b - a;
 ```
 
 ## Example
@@ -4645,7 +4588,7 @@ console.log(numbers);
 Output:
 
 ```javascript
-[100, 25, 10, 5]
+[100, 25, 10, 5];
 ```
 
 ---
@@ -4653,7 +4596,7 @@ Output:
 # How Compare Function Works
 
 ```javascript
-(a, b) => a - b
+(a, b) => a - b;
 ```
 
 ### If Result < 0
@@ -4686,7 +4629,7 @@ Very common in React and API data.
 const users = [
   { name: "John", age: 30 },
   { name: "Peter", age: 20 },
-  { name: "Sam", age: 25 }
+  { name: "Sam", age: 25 },
 ];
 
 users.sort((a, b) => a.age - b.age);
@@ -4700,8 +4643,8 @@ Output:
 [
   { name: "Peter", age: 20 },
   { name: "Sam", age: 25 },
-  { name: "John", age: 30 }
-]
+  { name: "John", age: 30 },
+];
 ```
 
 ---
@@ -4709,15 +4652,9 @@ Output:
 # Sort by Name
 
 ```javascript
-const users = [
-  { name: "John" },
-  { name: "Peter" },
-  { name: "Sam" }
-];
+const users = [{ name: "John" }, { name: "Peter" }, { name: "Sam" }];
 
-users.sort((a, b) =>
-  a.name.localeCompare(b.name)
-);
+users.sort((a, b) => a.name.localeCompare(b.name));
 
 console.log(users);
 ```
@@ -4725,11 +4662,7 @@ console.log(users);
 Output:
 
 ```javascript
-[
-  { name: "John" },
-  { name: "Peter" },
-  { name: "Sam" }
-]
+[{ name: "John" }, { name: "Peter" }, { name: "Sam" }];
 ```
 
 ---
@@ -4749,7 +4682,7 @@ console.log(numbers);
 Output:
 
 ```javascript
-[1, 2, 3]
+[1, 2, 3];
 ```
 
 The original array is changed.
@@ -4761,9 +4694,7 @@ The original array is changed.
 ```javascript
 const numbers = [3, 1, 2];
 
-const sorted = [...numbers].sort(
-  (a, b) => a - b
-);
+const sorted = [...numbers].sort((a, b) => a - b);
 
 console.log(numbers);
 console.log(sorted);
@@ -4772,8 +4703,7 @@ console.log(sorted);
 Output:
 
 ```javascript
-[3, 1, 2]
-[1, 2, 3]
+[3, 1, 2][(1, 2, 3)];
 ```
 
 ---
@@ -4783,9 +4713,7 @@ Output:
 Sort products by price.
 
 ```javascript
-const sortedProducts = [...products].sort(
-  (a, b) => a.price - b.price
-);
+const sortedProducts = [...products].sort((a, b) => a.price - b.price);
 ```
 
 ---
@@ -4827,7 +4755,7 @@ Yes.
 Output:
 
 ```javascript
-[10, 100, 5]
+[10, 100, 5];
 ```
 
 ### Answer
@@ -4843,7 +4771,7 @@ Correct way:
 Output:
 
 ```javascript
-[5, 10, 100]
+[5, 10, 100];
 ```
 
 ---
@@ -4851,7 +4779,6 @@ Output:
 # One-Line Interview Summary
 
 The `sort()` method is used to arrange array elements in a specific order, and for numeric sorting we use a compare function such as `(a, b) => a - b` for ascending order.
-
 
 # Question: What is the Difference Between slice() and splice() in JavaScript?
 
@@ -4900,9 +4827,7 @@ console.log(fruits);
 Output:
 
 ```javascript
-["Mango", "Orange"]
-
-["Apple", "Mango", "Orange", "Banana"]
+["Mango", "Orange"][("Apple", "Mango", "Orange", "Banana")];
 ```
 
 Original array remains unchanged.
@@ -4936,7 +4861,7 @@ console.log(fruits);
 Output:
 
 ```javascript
-["Apple", "Banana"]
+["Apple", "Banana"];
 ```
 
 ---
@@ -4954,7 +4879,7 @@ console.log(fruits);
 Output:
 
 ```javascript
-["Apple", "Mango", "Orange"]
+["Apple", "Mango", "Orange"];
 ```
 
 ---
@@ -4972,20 +4897,20 @@ console.log(fruits);
 Output:
 
 ```javascript
-["Apple", "Banana", "Orange"]
+["Apple", "Banana", "Orange"];
 ```
 
 ---
 
 # slice() vs splice()
 
-| Feature | slice() | splice() |
-|----------|----------|----------|
-| Purpose | Extract Elements | Add, Remove, Replace |
-| Returns | New Array | Removed Elements |
-| Modifies Original Array | No | Yes |
-| Common Use | Copying Data | Updating Data |
-| Mutation | Non-Mutating | Mutating |
+| Feature                 | slice()          | splice()             |
+| ----------------------- | ---------------- | -------------------- |
+| Purpose                 | Extract Elements | Add, Remove, Replace |
+| Returns                 | New Array        | Removed Elements     |
+| Modifies Original Array | No               | Yes                  |
+| Common Use              | Copying Data     | Updating Data        |
+| Mutation                | Non-Mutating     | Mutating             |
 
 ---
 
@@ -5005,9 +4930,7 @@ console.log(arr);
 Output:
 
 ```javascript
-[2, 3]
-
-[1, 2, 3, 4]
+[2, 3][(1, 2, 3, 4)];
 ```
 
 ---
@@ -5025,7 +4948,7 @@ console.log(arr);
 Output:
 
 ```javascript
-[1, 4]
+[1, 4];
 ```
 
 Original array is changed.
@@ -5049,13 +4972,13 @@ It changes the original array.
 ### Which method is used to copy part of an array?
 
 ```javascript
-slice()
+slice();
 ```
 
 ### Which method is used to add or remove elements?
 
 ```javascript
-splice()
+splice();
 ```
 
 ---
@@ -5067,7 +4990,7 @@ splice()
 ### Non-Mutating
 
 ```javascript
-slice()
+slice();
 ```
 
 Original array remains unchanged.
@@ -5075,7 +4998,7 @@ Original array remains unchanged.
 ### Mutating
 
 ```javascript
-splice()
+splice();
 ```
 
 Original array is modified.
@@ -5086,9 +5009,7 @@ Original array is modified.
 
 `slice()` returns a portion of an array without changing the original array, while `splice()` adds, removes, or replaces elements and modifies the original array.
 
-
 "The main difference is that slice() creates a copy of a portion of an array without modifying the original array, whereas splice() is used to add, remove, or replace elements and directly modifies the original array. slice() is non-mutating, while splice() is mutating."
-
 
 # Question: How Do You Select Elements in JavaScript?
 
@@ -5137,8 +5058,7 @@ Selects an element using its id.
 ## JavaScript
 
 ```javascript
-const heading =
-  document.getElementById("title");
+const heading = document.getElementById("title");
 
 console.log(heading);
 ```
@@ -5159,8 +5079,7 @@ Selects the first matching element.
 ## JavaScript
 
 ```javascript
-const element =
-  document.querySelector(".text");
+const element = document.querySelector(".text");
 
 console.log(element);
 ```
@@ -5190,8 +5109,7 @@ Selects all matching elements.
 ## JavaScript
 
 ```javascript
-const elements =
-  document.querySelectorAll(".text");
+const elements = document.querySelectorAll(".text");
 
 console.log(elements);
 ```
@@ -5199,7 +5117,7 @@ console.log(elements);
 Output:
 
 ```javascript
-NodeList(3)
+NodeList(3);
 ```
 
 ---
@@ -5207,10 +5125,9 @@ NodeList(3)
 # Loop Through Elements
 
 ```javascript
-const elements =
-  document.querySelectorAll(".text");
+const elements = document.querySelectorAll(".text");
 
-elements.forEach(item => {
+elements.forEach((item) => {
   console.log(item.textContent);
 });
 ```
@@ -5218,9 +5135,9 @@ elements.forEach(item => {
 Output:
 
 ```javascript
-One
-Two
-Three
+One;
+Two;
+Three;
 ```
 
 ---
@@ -5230,14 +5147,13 @@ Three
 Selects elements by class name.
 
 ```javascript
-const elements =
-  document.getElementsByClassName("text");
+const elements = document.getElementsByClassName("text");
 ```
 
 Returns:
 
 ```javascript
-HTMLCollection
+HTMLCollection;
 ```
 
 ---
@@ -5247,14 +5163,13 @@ HTMLCollection
 Selects elements by tag name.
 
 ```javascript
-const headings =
-  document.getElementsByTagName("h1");
+const headings = document.getElementsByTagName("h1");
 ```
 
 Returns:
 
 ```javascript
-HTMLCollection
+HTMLCollection;
 ```
 
 ---
@@ -5282,7 +5197,7 @@ document.querySelector(".text");
 Returns:
 
 ```javascript
-NodeList
+NodeList;
 ```
 
 Example:
@@ -5296,8 +5211,7 @@ document.querySelectorAll(".text");
 # Real-World Example
 
 ```javascript
-const button =
-  document.querySelector("#btn");
+const button = document.querySelector("#btn");
 
 button.addEventListener("click", () => {
   console.log("Button Clicked");
@@ -5311,31 +5225,31 @@ button.addEventListener("click", () => {
 ### Which method selects an element by ID?
 
 ```javascript
-document.getElementById()
+document.getElementById();
 ```
 
 ### Which method selects the first matching element?
 
 ```javascript
-document.querySelector()
+document.querySelector();
 ```
 
 ### Which method selects multiple elements?
 
 ```javascript
-document.querySelectorAll()
+document.querySelectorAll();
 ```
 
 ### What does querySelectorAll() return?
 
 ```javascript
-NodeList
+NodeList;
 ```
 
 ### What does getElementsByClassName() return?
 
 ```javascript
-HTMLCollection
+HTMLCollection;
 ```
 
 ---
@@ -5365,7 +5279,7 @@ All Matching Elements
 as a:
 
 ```javascript
-NodeList
+NodeList;
 ```
 
 ---
@@ -5373,7 +5287,6 @@ NodeList
 # One-Line Interview Summary
 
 JavaScript uses methods like `getElementById()`, `querySelector()`, and `querySelectorAll()` to select HTML elements from the DOM for manipulation.
-
 
 # Question: What are Event Bubbling and Event Capturing in JavaScript?
 
@@ -5426,9 +5339,7 @@ Bubbling = Coming Up
 
 ```html
 <div id="parent">
-  <button id="child">
-    Click Me
-  </button>
+  <button id="child">Click Me</button>
 </div>
 ```
 
@@ -5437,23 +5348,19 @@ Bubbling = Coming Up
 # Event Bubbling
 
 ```javascript
-document
-  .getElementById("parent")
-  .addEventListener("click", () => {
-    console.log("Parent Clicked");
-  });
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent Clicked");
+});
 
-document
-  .getElementById("child")
-  .addEventListener("click", () => {
-    console.log("Button Clicked");
-  });
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Button Clicked");
+});
 ```
 
 Click:
 
 ```javascript
-Button
+Button;
 ```
 
 Output:
@@ -5470,7 +5377,7 @@ Parent Clicked
 Event starts from:
 
 ```javascript
-Button
+Button;
 ```
 
 Then moves upward:
@@ -5496,17 +5403,13 @@ Event Bubbling
 To enable capturing:
 
 ```javascript
-addEventListener(
-  "click",
-  callback,
-  true
-);
+addEventListener("click", callback, true);
 ```
 
 Third argument:
 
 ```javascript
-true
+true;
 ```
 
 means:
@@ -5520,32 +5423,28 @@ Capturing Mode
 ## Example
 
 ```javascript
-document
-  .getElementById("parent")
-  .addEventListener(
-    "click",
-    () => {
-      console.log("Parent");
-    },
-    true
-  );
+document.getElementById("parent").addEventListener(
+  "click",
+  () => {
+    console.log("Parent");
+  },
+  true,
+);
 
-document
-  .getElementById("child")
-  .addEventListener(
-    "click",
-    () => {
-      console.log("Button");
-    },
-    true
-  );
+document.getElementById("child").addEventListener(
+  "click",
+  () => {
+    console.log("Button");
+  },
+  true,
+);
 ```
 
 Output:
 
 ```javascript
-Parent
-Button
+Parent;
+Button;
 ```
 
 ---
@@ -5601,19 +5500,17 @@ Document
 Used to stop event bubbling.
 
 ```javascript
-document
-  .getElementById("child")
-  .addEventListener("click", (event) => {
-    event.stopPropagation();
+document.getElementById("child").addEventListener("click", (event) => {
+  event.stopPropagation();
 
-    console.log("Button");
-  });
+  console.log("Button");
+});
 ```
 
 Output:
 
 ```javascript
-Button
+Button;
 ```
 
 Parent event will not run.
@@ -5669,11 +5566,7 @@ Event Bubbling
 ### How do we enable Capturing?
 
 ```javascript
-addEventListener(
-  "click",
-  callback,
-  true
-);
+addEventListener("click", callback, true);
 ```
 
 ---
@@ -5692,9 +5585,7 @@ event.stopPropagation();
 
 ```javascript
 <div id="parent">
-  <button id="child">
-    Click
-  </button>
+  <button id="child">Click</button>
 </div>
 ```
 
@@ -5713,8 +5604,8 @@ Clicking the button:
 Output:
 
 ```javascript
-Child
-Parent
+Child;
+Parent;
 ```
 
 Because:
@@ -5730,7 +5621,6 @@ runs from child to parent.
 # One-Line Interview Summary
 
 Event Bubbling moves events from child to parent, while Event Capturing moves events from parent to child. By default, JavaScript uses Event Bubbling.
-
 
 # Question: What is Event Delegation in JavaScript?
 
@@ -5782,10 +5672,9 @@ Event Bubbling
 ```
 
 ```javascript
-const buttons =
-  document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
     console.log("Clicked");
   });
@@ -5817,8 +5706,7 @@ Many Event Listeners
 ## JavaScript
 
 ```javascript
-const container =
-  document.getElementById("container");
+const container = document.getElementById("container");
 
 container.addEventListener("click", (event) => {
   console.log(event.target.textContent);
@@ -5854,7 +5742,7 @@ The parent catches the event.
 We identify the clicked element using:
 
 ```javascript
-event.target
+event.target;
 ```
 
 ---
@@ -5892,19 +5780,17 @@ is returned.
 ```
 
 ```javascript
-document
-  .getElementById("menu")
-  .addEventListener("click", (event) => {
-    console.log(event.target.textContent);
-  });
+document.getElementById("menu").addEventListener("click", (event) => {
+  console.log(event.target.textContent);
+});
 ```
 
 Output:
 
 ```javascript
-Home
-About
-Contact
+Home;
+About;
+Contact;
 ```
 
 ---
@@ -5912,8 +5798,7 @@ Contact
 # Dynamic Elements Example
 
 ```javascript
-const list =
-  document.getElementById("list");
+const list = document.getElementById("list");
 
 list.addEventListener("click", (event) => {
   console.log(event.target.textContent);
@@ -5963,7 +5848,7 @@ Event Bubbling
 ### Which property identifies the clicked element?
 
 ```javascript
-event.target
+event.target;
 ```
 
 ### Why use Event Delegation?
@@ -6008,7 +5893,6 @@ Less memory and better performance.
 
 Event Delegation is a technique where a single event listener is attached to a parent element to handle events from its child elements using Event Bubbling.
 
-
 # Question: How Do You Create and Remove Elements in JavaScript?
 
 ## 20-Second Interview Answer
@@ -6038,9 +5922,9 @@ Create → Add → Remove
 ```
 
 ```javascript
-createElement()
-appendChild()
-remove()
+createElement();
+appendChild();
+remove();
 ```
 
 ---
@@ -6048,8 +5932,7 @@ remove()
 # Creating an Element
 
 ```javascript
-const heading =
-  document.createElement("h1");
+const heading = document.createElement("h1");
 
 console.log(heading);
 ```
@@ -6067,8 +5950,7 @@ Element is created but not visible yet.
 # Adding Text
 
 ```javascript
-const heading =
-  document.createElement("h1");
+const heading = document.createElement("h1");
 
 heading.textContent = "Hello World";
 ```
@@ -6094,14 +5976,11 @@ Output:
 ## JavaScript
 
 ```javascript
-const heading =
-  document.createElement("h1");
+const heading = document.createElement("h1");
 
 heading.textContent = "Hello World";
 
-document
-  .getElementById("container")
-  .appendChild(heading);
+document.getElementById("container").appendChild(heading);
 ```
 
 Output:
@@ -6117,8 +5996,7 @@ Output:
 # Using append()
 
 ```javascript
-const para =
-  document.createElement("p");
+const para = document.createElement("p");
 
 para.textContent = "Paragraph";
 
@@ -6154,9 +6032,7 @@ parent.append("Hello");
 ## HTML
 
 ```html
-<h1 id="title">
-  Hello World
-</h1>
+<h1 id="title">Hello World</h1>
 ```
 
 ---
@@ -6164,8 +6040,7 @@ parent.append("Hello");
 ## JavaScript
 
 ```javascript
-const element =
-  document.getElementById("title");
+const element = document.getElementById("title");
 
 element.remove();
 ```
@@ -6183,11 +6058,9 @@ The element is removed from the DOM.
 ```
 
 ```javascript
-const parent =
-  document.getElementById("parent");
+const parent = document.getElementById("parent");
 
-const child =
-  document.getElementById("child");
+const child = document.getElementById("child");
 
 parent.removeChild(child);
 ```
@@ -6199,14 +6072,11 @@ parent.removeChild(child);
 ## Add List Item
 
 ```javascript
-const li =
-  document.createElement("li");
+const li = document.createElement("li");
 
 li.textContent = "New Item";
 
-document
-  .querySelector("ul")
-  .appendChild(li);
+document.querySelector("ul").appendChild(li);
 ```
 
 ---
@@ -6214,9 +6084,7 @@ document
 ## Remove List Item
 
 ```javascript
-document
-  .querySelector("li")
-  .remove();
+document.querySelector("li").remove();
 ```
 
 ---
@@ -6226,25 +6094,25 @@ document
 ### Which method creates an element?
 
 ```javascript
-document.createElement()
+document.createElement();
 ```
 
 ### Which method adds an element to the DOM?
 
 ```javascript
-appendChild()
+appendChild();
 ```
 
 or
 
 ```javascript
-append()
+append();
 ```
 
 ### Which method removes an element?
 
 ```javascript
-remove()
+remove();
 ```
 
 ### What is the difference between append() and appendChild()?
@@ -6260,8 +6128,7 @@ remove()
 ## How do you create and add a new div?
 
 ```javascript
-const div =
-  document.createElement("div");
+const div = document.createElement("div");
 
 div.textContent = "Hello";
 

@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #202124;
+  background: #f5f7fb;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  color: white;
+  background: #2457d6;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  color: white;
+  background: #172554;
+}
+
+.header nav {
+  display: flex;
+  gap: 16px;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.header a.active {
+  text-decoration: underline;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+.create-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.create-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.project-list {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-list li {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+}
+
+.project-list p {
+  margin-bottom: 0;
+  color: #5b6472;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+@media (max-width: 560px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .create-form {
+    flex-direction: column;
+  }
+}

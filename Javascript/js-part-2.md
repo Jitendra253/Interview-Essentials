@@ -74,8 +74,8 @@ console.log(add(10, 20));
 Output:
 
 ```javascript
-0
-30
+0;
+30;
 ```
 
 ---
@@ -95,7 +95,7 @@ console.log(greet(undefined));
 Output:
 
 ```javascript
-Guest
+Guest;
 ```
 
 ---
@@ -115,7 +115,7 @@ console.log(greet(null));
 Output:
 
 ```javascript
-null
+null;
 ```
 
 ### Important Interview Point
@@ -123,16 +123,16 @@ null
 Default values are used only when the argument is:
 
 ```javascript
-undefined
+undefined;
 ```
 
 Not when it is:
 
 ```javascript
-null
-0
-false
-""
+null;
+0;
+false;
+("");
 ```
 
 ---
@@ -140,13 +140,10 @@ false
 # Example with Objects
 
 ```javascript
-function createUser(
-  name = "Guest",
-  age = 18
-) {
+function createUser(name = "Guest", age = 18) {
   return {
     name,
-    age
+    age,
   };
 }
 
@@ -169,13 +166,8 @@ Output:
 API Pagination
 
 ```javascript
-function getUsers(
-  page = 1,
-  limit = 10
-) {
-  console.log(
-    `Page: ${page}, Limit: ${limit}`
-  );
+function getUsers(page = 1, limit = 10) {
+  console.log(`Page: ${page}, Limit: ${limit}`);
 }
 
 getUsers();
@@ -210,7 +202,7 @@ greet(null);
 returns:
 
 ```javascript
-null
+null;
 ```
 
 ### When were Default Parameters introduced?
@@ -236,9 +228,9 @@ greet(null);
 Output:
 
 ```javascript
-Guest
-Guest
-null
+Guest;
+Guest;
+null;
 ```
 
 ### Explanation
@@ -282,7 +274,7 @@ console.log(user.address.city);
 Output:
 
 ```javascript
-TypeError
+TypeError;
 ```
 
 ### Why?
@@ -290,7 +282,7 @@ TypeError
 Because:
 
 ```javascript
-user.address
+user.address;
 ```
 
 is `undefined`, and JavaScript cannot read `city` from `undefined`.
@@ -308,7 +300,7 @@ console.log(user.address?.city);
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 No error occurs.
@@ -321,8 +313,8 @@ No error occurs.
 const user = {
   name: "John",
   address: {
-    city: "Bhubaneswar"
-  }
+    city: "Bhubaneswar",
+  },
 };
 
 console.log(user.address?.city);
@@ -331,7 +323,7 @@ console.log(user.address?.city);
 Output:
 
 ```javascript
-Bhubaneswar
+Bhubaneswar;
 ```
 
 ---
@@ -342,20 +334,18 @@ Bhubaneswar
 const user = {
   profile: {
     address: {
-      city: "Bhubaneswar"
-    }
-  }
+      city: "Bhubaneswar",
+    },
+  },
 };
 
-console.log(
-  user.profile?.address?.city
-);
+console.log(user.profile?.address?.city);
 ```
 
 Output:
 
 ```javascript
-Bhubaneswar
+Bhubaneswar;
 ```
 
 ---
@@ -365,15 +355,13 @@ Bhubaneswar
 ```javascript
 const user = {};
 
-console.log(
-  user.profile?.address?.city
-);
+console.log(user.profile?.address?.city);
 ```
 
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ---
@@ -383,8 +371,8 @@ undefined
 ```javascript
 const users = [
   {
-    name: "John"
-  }
+    name: "John",
+  },
 ];
 
 console.log(users[0]?.name);
@@ -394,8 +382,8 @@ console.log(users[1]?.name);
 Output:
 
 ```javascript
-John
-undefined
+John;
+undefined;
 ```
 
 ---
@@ -406,7 +394,7 @@ undefined
 const user = {
   greet() {
     console.log("Hello");
-  }
+  },
 };
 
 user.greet?.();
@@ -415,7 +403,7 @@ user.greet?.();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 If the function does not exist:
@@ -427,7 +415,7 @@ user.sayHi?.();
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 No error occurs.
@@ -440,20 +428,18 @@ No error occurs.
 const response = {
   data: {
     user: {
-      name: "John"
-    }
-  }
+      name: "John",
+    },
+  },
 };
 
-console.log(
-  response.data?.user?.name
-);
+console.log(response.data?.user?.name);
 ```
 
 Output:
 
 ```javascript
-John
+John;
 ```
 
 This is very common when working with APIs because some fields may be missing.
@@ -465,10 +451,7 @@ This is very common when working with APIs because some fields may be missing.
 ## Traditional Way
 
 ```javascript
-const city =
-  user &&
-  user.address &&
-  user.address.city;
+const city = user && user.address && user.address.city;
 ```
 
 ---
@@ -490,8 +473,7 @@ Provide a default value if the result is `undefined`.
 ```javascript
 const user = {};
 
-const city =
-  user.address?.city ?? "Not Available";
+const city = user.address?.city ?? "Not Available";
 
 console.log(city);
 ```
@@ -509,7 +491,7 @@ Not Available
 ### What does Optional Chaining return if a property does not exist?
 
 ```javascript
-undefined
+undefined;
 ```
 
 ### Does Optional Chaining throw an error?
@@ -541,7 +523,7 @@ console.log(user.address?.city);
 Output:
 
 ```javascript
-undefined
+undefined;
 ```
 
 ### Why?
@@ -554,7 +536,6 @@ Because `address` does not exist, so Optional Chaining stops execution and retur
 
 Optional Chaining (`?.`) is an ES2020 feature that safely accesses nested properties and returns `undefined` instead of throwing an error when a property is missing.
 
-
 # Question: What is the Nullish Coalescing Operator (??) in JavaScript?
 
 ## Interview Answer
@@ -566,7 +547,7 @@ It is commonly used to provide default values while preserving valid values like
 ## Easy Remember
 
 ```javascript
-value ?? defaultValue
+value ?? defaultValue;
 ```
 
 Meaning:
@@ -596,7 +577,7 @@ console.log(result);
 Output:
 
 ```javascript
-Guest
+Guest;
 ```
 
 Because `name` is `null`.
@@ -616,7 +597,7 @@ console.log(result);
 Output:
 
 ```javascript
-Guest
+Guest;
 ```
 
 Because `name` is `undefined`.
@@ -636,7 +617,7 @@ console.log(result);
 Output:
 
 ```javascript
-0
+0;
 ```
 
 Because `0` is a valid value and is not `null` or `undefined`.
@@ -660,7 +641,7 @@ console.log(result);
 Output:
 
 ```javascript
-10
+10;
 ```
 
 Because `0` is considered falsy.
@@ -680,7 +661,7 @@ console.log(result);
 Output:
 
 ```javascript
-0
+0;
 ```
 
 This is usually the desired behavior.
@@ -689,13 +670,13 @@ This is usually the desired behavior.
 
 # Comparison: || vs ??
 
-| Value | value \|\| "Default" | value ?? "Default" |
-|---------|--------------------|--------------------|
-| null | Default | Default |
-| undefined | Default | Default |
-| 0 | Default | 0 |
-| false | Default | false |
-| "" | Default | "" |
+| Value     | value \|\| "Default" | value ?? "Default" |
+| --------- | -------------------- | ------------------ |
+| null      | Default              | Default            |
+| undefined | Default              | Default            |
+| 0         | Default              | 0                  |
+| false     | Default              | false              |
+| ""        | Default              | ""                 |
 
 ---
 
@@ -705,7 +686,7 @@ API Response
 
 ```javascript
 const user = {
-  age: 0
+  age: 0,
 };
 
 const age = user.age ?? 18;
@@ -716,7 +697,7 @@ console.log(age);
 Output:
 
 ```javascript
-0
+0;
 ```
 
 Using `||` would incorrectly return `18`.
@@ -730,8 +711,7 @@ Very common together.
 ```javascript
 const user = {};
 
-const city =
-  user.address?.city ?? "Not Available";
+const city = user.address?.city ?? "Not Available";
 
 console.log(city);
 ```
@@ -751,8 +731,8 @@ Not Available
 Only:
 
 ```javascript
-null
-undefined
+null;
+undefined;
 ```
 
 ### Does 0 trigger the default value?
@@ -760,13 +740,13 @@ undefined
 No.
 
 ```javascript
-0 ?? 10
+0 ?? 10;
 ```
 
 Output:
 
 ```javascript
-0
+0;
 ```
 
 ### Does false trigger the default value?
@@ -774,13 +754,13 @@ Output:
 No.
 
 ```javascript
-false ?? true
+false ?? true;
 ```
 
 Output:
 
 ```javascript
-false
+false;
 ```
 
 ### Which JavaScript version introduced ??
@@ -798,13 +778,13 @@ ES2020.
 Returns the right value for any falsy value.
 
 ```javascript
-0 || 100
+0 || 100;
 ```
 
 Output:
 
 ```javascript
-100
+100;
 ```
 
 ---
@@ -814,13 +794,13 @@ Output:
 Returns the right value only for `null` or `undefined`.
 
 ```javascript
-0 ?? 100
+0 ?? 100;
 ```
 
 Output:
 
 ```javascript
-0
+0;
 ```
 
 ---
@@ -828,8 +808,6 @@ Output:
 # One-Line Interview Summary
 
 The Nullish Coalescing Operator (`??`) returns a default value only when the left-hand value is `null` or `undefined`, making it safer than `||` when working with valid falsy values like `0`, `false`, and `""`.
-
-
 
 # Question: What are Modules in JavaScript? Explain Import and Export.
 
@@ -856,7 +834,7 @@ JavaScript provides:
 Without modules, all code exists in a single file.
 
 ```javascript
-app.js
+app.js;
 ```
 
 As applications grow, managing code becomes difficult.
@@ -896,8 +874,8 @@ console.log(add(10, 20));
 Output:
 
 ```javascript
-3.14
-30
+3.14;
+30;
 ```
 
 ---
@@ -971,7 +949,7 @@ greet();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 ---
@@ -988,11 +966,11 @@ This works because default exports can be imported with any name.
 
 # Named Export vs Default Export
 
-| Feature | Named Export | Default Export |
-|----------|-------------|---------------|
-| Number Allowed | Multiple | One |
-| Import Syntax | {} Required | {} Not Required |
-| Name Must Match | Yes | No |
+| Feature         | Named Export | Default Export  |
+| --------------- | ------------ | --------------- |
+| Number Allowed  | Multiple     | One             |
+| Import Syntax   | {} Required  | {} Not Required |
+| Name Must Match | Yes          | No              |
 
 ---
 
@@ -1038,8 +1016,8 @@ console.log(MathUtils.add(10, 20));
 Output:
 
 ```javascript
-3.14
-30
+3.14;
+30;
 ```
 
 ---
@@ -1139,7 +1117,6 @@ import { name } from "./file.js";
 
 Modules allow JavaScript code to be split into reusable files, where `export` shares variables, functions, or classes and `import` brings them into other files.
 
-
 # Question: What is a Callback Function in JavaScript?
 
 ## Interview Answer
@@ -1192,7 +1169,7 @@ function processUser(callback) {
   callback("John");
 }
 
-processUser(function(name) {
+processUser(function (name) {
   console.log(`Hello ${name}`);
 });
 ```
@@ -1212,7 +1189,7 @@ function processUser(callback) {
   callback("John");
 }
 
-processUser(name => {
+processUser((name) => {
   console.log(`Hello ${name}`);
 });
 ```
@@ -1250,7 +1227,7 @@ The arrow function is the callback.
 ```javascript
 const numbers = [1, 2, 3];
 
-const result = numbers.map(num => num * 2);
+const result = numbers.map((num) => num * 2);
 
 console.log(result);
 ```
@@ -1258,13 +1235,13 @@ console.log(result);
 Output:
 
 ```javascript
-[2, 4, 6]
+[2, 4, 6];
 ```
 
 The function:
 
 ```javascript
-num => num * 2
+(num) => num * 2;
 ```
 
 is a callback.
@@ -1300,11 +1277,7 @@ function calculate(a, b, callback) {
   return callback(a, b);
 }
 
-const result = calculate(
-  10,
-  20,
-  (x, y) => x + y
-);
+const result = calculate(10, 20, (x, y) => x + y);
 
 console.log(result);
 ```
@@ -1312,7 +1285,7 @@ console.log(result);
 Output:
 
 ```javascript
-30
+30;
 ```
 
 ---
@@ -1348,9 +1321,9 @@ The callback runs after the timer completes.
 When many nested callbacks are used, code becomes difficult to read.
 
 ```javascript
-getUser(function(user) {
-  getPosts(user.id, function(posts) {
-    getComments(posts[0].id, function(comments) {
+getUser(function (user) {
+  getPosts(user.id, function (posts) {
+    getComments(posts[0].id, function (comments) {
       console.log(comments);
     });
   });
@@ -1402,13 +1375,13 @@ Deeply nested callbacks that make code hard to read and maintain.
 Yes.
 
 ```javascript
-numbers.map(num => num * 2);
+numbers.map((num) => num * 2);
 ```
 
 The function:
 
 ```javascript
-num => num * 2
+(num) => num * 2;
 ```
 
 is a callback function executed for each array element.
@@ -1418,7 +1391,6 @@ is a callback function executed for each array element.
 # One-Line Interview Summary
 
 A Callback Function is a function passed as an argument to another function and executed later, commonly used in array methods, events, and asynchronous programming.
-
 
 # Question: What are Promises in JavaScript?
 
@@ -1444,7 +1416,6 @@ A Promise can be in one of three states:
 2. Fulfilled
 3. Rejected
 
-
 ---
 
 # Promise States
@@ -1454,7 +1425,7 @@ A Promise can be in one of three states:
 Operation is still running.
 
 ```javascript
-Pending
+Pending;
 ```
 
 ---
@@ -1464,7 +1435,7 @@ Pending
 Operation completed successfully.
 
 ```javascript
-Resolved
+Resolved;
 ```
 
 ---
@@ -1474,7 +1445,7 @@ Resolved
 Operation failed.
 
 ```javascript
-Rejected
+Rejected;
 ```
 
 ---
@@ -1505,10 +1476,10 @@ Use:
 
 ```javascript
 promise
-  .then(result => {
+  .then((result) => {
     console.log(result);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -1530,7 +1501,7 @@ const promise = new Promise((resolve) => {
   }, 2000);
 });
 
-promise.then(data => {
+promise.then((data) => {
   console.log(data);
 });
 ```
@@ -1551,10 +1522,10 @@ const promise = new Promise((resolve, reject) => {
 });
 
 promise
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -1573,10 +1544,10 @@ Runs whether the Promise succeeds or fails.
 
 ```javascript
 promise
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   })
   .finally(() => {
@@ -1590,9 +1561,9 @@ promise
 
 ```javascript
 Promise.resolve(10)
-  .then(num => num * 2)
-  .then(num => num + 5)
-  .then(result => {
+  .then((num) => num * 2)
+  .then((num) => num + 5)
+  .then((result) => {
     console.log(result);
   });
 ```
@@ -1600,7 +1571,7 @@ Promise.resolve(10)
 Output:
 
 ```javascript
-25
+25;
 ```
 
 ---
@@ -1609,11 +1580,11 @@ Output:
 
 ```javascript
 fetch("https://dummyjson.com/products")
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -1625,9 +1596,9 @@ fetch("https://dummyjson.com/products")
 Before Promises:
 
 ```javascript
-getUser(function(user) {
-  getPosts(user.id, function(posts) {
-    getComments(posts[0].id, function(comments) {
+getUser(function (user) {
+  getPosts(user.id, function (posts) {
+    getComments(posts[0].id, function (comments) {
       console.log(comments);
     });
   });
@@ -1651,8 +1622,7 @@ Promises make code cleaner and easier to manage.
 Creates a resolved promise.
 
 ```javascript
-Promise.resolve("Success")
-  .then(data => console.log(data));
+Promise.resolve("Success").then((data) => console.log(data));
 ```
 
 ---
@@ -1662,8 +1632,7 @@ Promise.resolve("Success")
 Creates a rejected promise.
 
 ```javascript
-Promise.reject("Error")
-  .catch(error => console.log(error));
+Promise.reject("Error").catch((error) => console.log(error));
 ```
 
 ---
@@ -1673,11 +1642,7 @@ Promise.reject("Error")
 Runs multiple promises in parallel.
 
 ```javascript
-Promise.all([
-  Promise.resolve("A"),
-  Promise.resolve("B")
-])
-.then(result => {
+Promise.all([Promise.resolve("A"), Promise.resolve("B")]).then((result) => {
   console.log(result);
 });
 ```
@@ -1685,19 +1650,19 @@ Promise.all([
 Output:
 
 ```javascript
-["A", "B"]
+["A", "B"];
 ```
 
 ---
 
 # Promises vs Callbacks
 
-| Feature | Callbacks | Promises |
-|----------|----------|----------|
-| Readability | Lower | Better |
-| Callback Hell | Possible | Avoided |
-| Error Handling | Difficult | Easier |
-| Chaining | Difficult | Easy |
+| Feature        | Callbacks | Promises |
+| -------------- | --------- | -------- |
+| Readability    | Lower     | Better   |
+| Callback Hell  | Possible  | Avoided  |
+| Error Handling | Difficult | Easier   |
+| Chaining       | Difficult | Easy     |
 
 ---
 
@@ -1740,7 +1705,7 @@ An object representing the future result of an asynchronous operation.
 ### Callback
 
 ```javascript
-getData(function(data) {
+getData(function (data) {
   console.log(data);
 });
 ```
@@ -1749,10 +1714,10 @@ getData(function(data) {
 
 ```javascript
 getData()
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -1764,9 +1729,6 @@ Promises provide cleaner code and better error handling.
 # One-Line Interview Summary
 
 A Promise is an object that represents the eventual success or failure of an asynchronous operation and helps manage async code using `.then()`, `.catch()`, and `.finally()`.
-
-
-
 
 # Question: What are Async and Await in JavaScript?
 
@@ -1874,7 +1836,7 @@ fetchUser();
 Output (after 2 seconds):
 
 ```javascript
-John
+John;
 ```
 
 ---
@@ -1883,10 +1845,10 @@ John
 
 ```javascript
 getUser()
-  .then(user => {
+  .then((user) => {
     console.log(user);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -1938,9 +1900,7 @@ async function getData() {
 ```javascript
 async function getProducts() {
   try {
-    const response = await fetch(
-      "https://dummyjson.com/products"
-    );
+    const response = await fetch("https://dummyjson.com/products");
 
     const data = await response.json();
 
@@ -1981,12 +1941,12 @@ async function fetchData() {
 
 # Async/Await vs Promise
 
-| Promise | Async/Await |
-|----------|------------|
-| Uses `.then()` | Uses `await` |
-| More Chaining | Cleaner Syntax |
-| Harder to Read | Easier to Read |
-| More Nested | Looks Synchronous |
+| Promise        | Async/Await       |
+| -------------- | ----------------- |
+| Uses `.then()` | Uses `await`      |
+| More Chaining  | Cleaner Syntax    |
+| Harder to Read | Easier to Read    |
+| More Nested    | Looks Synchronous |
 
 ---
 
@@ -2028,8 +1988,8 @@ try...catch
 
 ```javascript
 fetch(url)
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     console.log(data);
   });
 ```
@@ -2051,8 +2011,6 @@ Async/Await is easier to read and write.
 # One-Line Interview Summary
 
 Async/Await is a modern way to handle asynchronous operations using Promises, making asynchronous code easier to read and maintain.
-
-
 
 # Question: What is Promise Chaining in JavaScript?
 
@@ -2092,9 +2050,9 @@ Each step passes data to the next step.
 
 ```javascript
 Promise.resolve(10)
-  .then(num => num * 2)
-  .then(num => num + 5)
-  .then(result => {
+  .then((num) => num * 2)
+  .then((num) => num + 5)
+  .then((result) => {
     console.log(result);
   });
 ```
@@ -2102,7 +2060,7 @@ Promise.resolve(10)
 Output:
 
 ```javascript
-25
+25;
 ```
 
 ---
@@ -2110,37 +2068,37 @@ Output:
 # How It Works
 
 ```javascript
-Promise.resolve(10)
+Promise.resolve(10);
 ```
 
 Value:
 
 ```javascript
-10
+10;
 ```
 
 First `.then()`
 
 ```javascript
-10 * 2
+10 * 2;
 ```
 
 Result:
 
 ```javascript
-20
+20;
 ```
 
 Second `.then()`
 
 ```javascript
-20 + 5
+20 + 5;
 ```
 
 Result:
 
 ```javascript
-25
+25;
 ```
 
 ---
@@ -2149,10 +2107,10 @@ Result:
 
 ```javascript
 Promise.resolve(5)
-  .then(num => {
+  .then((num) => {
     return num * 2;
   })
-  .then(result => {
+  .then((result) => {
     console.log(result);
   });
 ```
@@ -2160,7 +2118,7 @@ Promise.resolve(5)
 Output:
 
 ```javascript
-10
+10;
 ```
 
 The returned value automatically goes to the next `.then()`.
@@ -2171,10 +2129,10 @@ The returned value automatically goes to the next `.then()`.
 
 ```javascript
 Promise.resolve(10)
-  .then(num => {
+  .then((num) => {
     return Promise.resolve(num * 2);
   })
-  .then(result => {
+  .then((result) => {
     console.log(result);
   });
 ```
@@ -2182,7 +2140,7 @@ Promise.resolve(10)
 Output:
 
 ```javascript
-20
+20;
 ```
 
 JavaScript waits for the returned Promise to complete.
@@ -2193,13 +2151,13 @@ JavaScript waits for the returned Promise to complete.
 
 ```javascript
 fetch("https://dummyjson.com/products")
-  .then(response => {
+  .then((response) => {
     return response.json();
   })
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -2210,9 +2168,9 @@ fetch("https://dummyjson.com/products")
 
 ```javascript
 fetch("https://dummyjson.com/products")
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.log(error));
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
 ---
@@ -2222,13 +2180,11 @@ fetch("https://dummyjson.com/products")
 Without chaining:
 
 ```javascript
-getUser()
-  .then(user => {
-    getPosts(user.id)
-      .then(posts => {
-        console.log(posts);
-      });
+getUser().then((user) => {
+  getPosts(user.id).then((posts) => {
+    console.log(posts);
   });
+});
 ```
 
 Nested code becomes harder to read.
@@ -2239,8 +2195,8 @@ Nested code becomes harder to read.
 
 ```javascript
 getUser()
-  .then(user => getPosts(user.id))
-  .then(posts => {
+  .then((user) => getPosts(user.id))
+  .then((posts) => {
     console.log(posts);
   });
 ```
@@ -2254,9 +2210,9 @@ Cleaner and easier to maintain.
 ## Callback Hell
 
 ```javascript
-getUser(function(user) {
-  getPosts(user.id, function(posts) {
-    getComments(posts[0].id, function(comments) {
+getUser(function (user) {
+  getPosts(user.id, function (posts) {
+    getComments(posts[0].id, function (comments) {
       console.log(comments);
     });
   });
@@ -2269,9 +2225,9 @@ getUser(function(user) {
 
 ```javascript
 getUser()
-  .then(user => getPosts(user.id))
-  .then(posts => getComments(posts[0].id))
-  .then(comments => {
+  .then((user) => getPosts(user.id))
+  .then((posts) => getComments(posts[0].id))
+  .then((comments) => {
     console.log(comments);
   });
 ```
@@ -2284,9 +2240,9 @@ Much cleaner.
 
 ```javascript
 getUser()
-  .then(user => getPosts(user.id))
-  .then(posts => console.log(posts))
-  .catch(error => {
+  .then((user) => getPosts(user.id))
+  .then((posts) => console.log(posts))
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -2331,10 +2287,10 @@ Using:
 
 ```javascript
 getUser()
-  .then(user => {
+  .then((user) => {
     return getPosts(user.id);
   })
-  .then(posts => {
+  .then((posts) => {
     console.log(posts);
   });
 ```
@@ -2350,7 +2306,6 @@ Without `return`, the next `.then()` will not receive the value.
 # One-Line Interview Summary
 
 Promise Chaining is the process of connecting multiple `.then()` methods where each step passes its result to the next step, making asynchronous code cleaner and easier to manage.
-
 
 # Question: What is Promise.all() in JavaScript?
 
@@ -2374,7 +2329,7 @@ It accepts an array of Promises and returns a single Promise.
 ## Easy Remember
 
 ```javascript
-Promise.all()
+Promise.all();
 ```
 
 Means:
@@ -2394,11 +2349,7 @@ Everything fails
 # Syntax
 
 ```javascript
-Promise.all([
-  promise1,
-  promise2,
-  promise3
-]);
+Promise.all([promise1, promise2, promise3]);
 ```
 
 ---
@@ -2410,12 +2361,7 @@ const promise1 = Promise.resolve("A");
 const promise2 = Promise.resolve("B");
 const promise3 = Promise.resolve("C");
 
-Promise.all([
-  promise1,
-  promise2,
-  promise3
-])
-.then(result => {
+Promise.all([promise1, promise2, promise3]).then((result) => {
   console.log(result);
 });
 ```
@@ -2423,7 +2369,7 @@ Promise.all([
 Output:
 
 ```javascript
-["A", "B", "C"]
+["A", "B", "C"];
 ```
 
 ---
@@ -2431,24 +2377,23 @@ Output:
 # Example with setTimeout
 
 ```javascript
-const p1 = new Promise(resolve => {
+const p1 = new Promise((resolve) => {
   setTimeout(() => resolve("User"), 1000);
 });
 
-const p2 = new Promise(resolve => {
+const p2 = new Promise((resolve) => {
   setTimeout(() => resolve("Posts"), 2000);
 });
 
-Promise.all([p1, p2])
-  .then(result => {
-    console.log(result);
-  });
+Promise.all([p1, p2]).then((result) => {
+  console.log(result);
+});
 ```
 
 Output (after 2 seconds):
 
 ```javascript
-["User", "Posts"]
+["User", "Posts"];
 ```
 
 Notice:
@@ -2465,10 +2410,10 @@ const p1 = Promise.resolve("Success");
 const p2 = Promise.reject("Error");
 
 Promise.all([p1, p2])
-  .then(result => {
+  .then((result) => {
     console.log(result);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -2476,7 +2421,7 @@ Promise.all([p1, p2])
 Output:
 
 ```javascript
-Error
+Error;
 ```
 
 The whole Promise fails.
@@ -2486,17 +2431,13 @@ The whole Promise fails.
 # Real-World API Example
 
 ```javascript
-Promise.all([
-  fetch("/users"),
-  fetch("/products"),
-  fetch("/orders")
-])
-.then(responses => {
-  console.log(responses);
-})
-.catch(error => {
-  console.log(error);
-});
+Promise.all([fetch("/users"), fetch("/products"), fetch("/orders")])
+  .then((responses) => {
+    console.log(responses);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 ```
 
 All API calls run in parallel.
@@ -2512,7 +2453,7 @@ async function getData() {
   try {
     const results = await Promise.all([
       Promise.resolve("User"),
-      Promise.resolve("Products")
+      Promise.resolve("Products"),
     ]);
 
     console.log(results);
@@ -2527,7 +2468,7 @@ getData();
 Output:
 
 ```javascript
-["User", "Products"]
+["User", "Products"];
 ```
 
 ---
@@ -2549,11 +2490,7 @@ Runs one after another.
 With `Promise.all()`:
 
 ```javascript
-await Promise.all([
-  getUsers(),
-  getProducts(),
-  getOrders()
-]);
+await Promise.all([getUsers(), getProducts(), getOrders()]);
 ```
 
 Runs all together.
@@ -2569,7 +2506,7 @@ Faster execution.
 If one fails:
 
 ```javascript
-Rejected
+Rejected;
 ```
 
 ---
@@ -2579,10 +2516,7 @@ Rejected
 Waits for all Promises, even if some fail.
 
 ```javascript
-Promise.allSettled([
-  promise1,
-  promise2
-]);
+Promise.allSettled([promise1, promise2]);
 ```
 
 Returns success and failure results.
@@ -2623,9 +2557,8 @@ When multiple independent async tasks can run at the same time.
 Promise.all([
   Promise.resolve(10),
   Promise.resolve(20),
-  Promise.resolve(30)
-])
-.then(result => {
+  Promise.resolve(30),
+]).then((result) => {
   console.log(result);
 });
 ```
@@ -2633,7 +2566,7 @@ Promise.all([
 Output:
 
 ```javascript
-[10, 20, 30]
+[10, 20, 30];
 ```
 
 Because all Promises resolved successfully.
@@ -2643,8 +2576,6 @@ Because all Promises resolved successfully.
 # One-Line Interview Summary
 
 `Promise.all()` runs multiple Promises in parallel, waits for all of them to resolve, and returns their results as an array, but rejects immediately if any Promise fails.
-
-
 
 # Question: What is the Fetch API in JavaScript?
 
@@ -2672,7 +2603,7 @@ The `fetch()` function returns a Promise.
 ## Easy Remember
 
 ```javascript
-fetch()
+fetch();
 ```
 
 Means:
@@ -2687,11 +2618,11 @@ Get Data From Server
 
 ```javascript
 fetch(url)
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -2702,11 +2633,11 @@ fetch(url)
 
 ```javascript
 fetch("https://dummyjson.com/products")
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -2718,7 +2649,7 @@ fetch("https://dummyjson.com/products")
 ## Step 1
 
 ```javascript
-fetch(url)
+fetch(url);
 ```
 
 Sends request to the server.
@@ -2726,7 +2657,7 @@ Sends request to the server.
 Returns:
 
 ```javascript
-Promise
+Promise;
 ```
 
 ---
@@ -2734,7 +2665,7 @@ Promise
 ## Step 2
 
 ```javascript
-response.json()
+response.json();
 ```
 
 Converts response into JavaScript object.
@@ -2758,9 +2689,7 @@ Gets the actual data.
 ```javascript
 async function getProducts() {
   try {
-    const response = await fetch(
-      "https://dummyjson.com/products"
-    );
+    const response = await fetch("https://dummyjson.com/products");
 
     const data = await response.json();
 
@@ -2797,27 +2726,27 @@ Used to send data.
 fetch("https://dummyjson.com/products/add", {
   method: "POST",
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    title: "New Product"
-  })
+    title: "New Product",
+  }),
 })
-.then(response => response.json())
-.then(data => console.log(data));
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 ```
 
 ---
 
 # Common HTTP Methods
 
-| Method | Purpose |
-|----------|----------|
-| GET | Get Data |
-| POST | Create Data |
-| PUT | Update Entire Data |
-| PATCH | Update Partial Data |
-| DELETE | Delete Data |
+| Method | Purpose             |
+| ------ | ------------------- |
+| GET    | Get Data            |
+| POST   | Create Data         |
+| PUT    | Update Entire Data  |
+| PATCH  | Update Partial Data |
+| DELETE | Delete Data         |
 
 ---
 
@@ -2859,8 +2788,8 @@ This will not work.
 
 ```javascript
 fetch(url)
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(data.products);
   });
 ```
@@ -2879,7 +2808,7 @@ const data = await response.json();
 Server sends data as JSON.
 
 ```javascript
-response.json()
+response.json();
 ```
 
 converts JSON into a JavaScript object.
@@ -2931,7 +2860,7 @@ const data = await response.json();
 First await:
 
 ```javascript
-await fetch(url)
+await fetch(url);
 ```
 
 Waits for the server response.
@@ -2939,7 +2868,7 @@ Waits for the server response.
 Second await:
 
 ```javascript
-await response.json()
+await response.json();
 ```
 
 Waits for JSON conversion.
@@ -2951,8 +2880,6 @@ Both operations are asynchronous.
 # One-Line Interview Summary
 
 The Fetch API is a built-in JavaScript API used to make HTTP requests, and it returns a Promise that can be handled using `.then()` or `async/await`.
-
-
 
 # Question: What is the Event Loop in JavaScript?
 
@@ -3071,9 +2998,9 @@ console.log("End");
 Output:
 
 ```javascript
-Start
-End
-Timer
+Start;
+End;
+Timer;
 ```
 
 ---
@@ -3089,7 +3016,7 @@ console.log("Start");
 Output:
 
 ```javascript
-Start
+Start;
 ```
 
 ---
@@ -3113,7 +3040,7 @@ console.log("End");
 Output:
 
 ```javascript
-End
+End;
 ```
 
 ---
@@ -3145,7 +3072,7 @@ Moves callback to Call Stack.
 Output:
 
 ```javascript
-Timer
+Timer;
 ```
 
 ---
@@ -3181,9 +3108,9 @@ console.log(3);
 Output:
 
 ```javascript
-1
-3
-2
+1;
+3;
+2;
 ```
 
 Why?
@@ -3237,9 +3164,9 @@ console.log("End");
 Output:
 
 ```javascript
-Start
-End
-Hello
+Start;
+End;
+Hello;
 ```
 
 ### Why?
@@ -3267,7 +3194,6 @@ So it executes after synchronous code finishes.
 
 The Event Loop is a mechanism that continuously checks the Call Stack and moves asynchronous callbacks from the Callback Queue to the Call Stack when the stack becomes empty.
 
-
 # Question: What is the Difference Between Microtasks and Macrotasks in JavaScript?
 
 ## 20-Second Interview Answer
@@ -3294,7 +3220,7 @@ Microtasks First
 and then:
 
 ```javascript
-Macrotasks
+Macrotasks;
 ```
 
 ---
@@ -3326,10 +3252,10 @@ Event Loop Rule:
 Examples:
 
 ```javascript
-Promise.then()
-Promise.catch()
-Promise.finally()
-queueMicrotask()
+Promise.then();
+Promise.catch();
+Promise.finally();
+queueMicrotask();
 ```
 
 These run before Macrotasks.
@@ -3360,10 +3286,9 @@ setTimeout(() => {
   console.log("Timeout");
 }, 0);
 
-Promise.resolve()
-  .then(() => {
-    console.log("Promise");
-  });
+Promise.resolve().then(() => {
+  console.log("Promise");
+});
 
 console.log("End");
 ```
@@ -3371,10 +3296,10 @@ console.log("End");
 Output:
 
 ```javascript
-Start
-End
-Promise
-Timeout
+Start;
+End;
+Promise;
+Timeout;
 ```
 
 ---
@@ -3390,7 +3315,7 @@ console.log("Start");
 Output:
 
 ```javascript
-Start
+Start;
 ```
 
 ---
@@ -3398,7 +3323,7 @@ Start
 ### Step 2
 
 ```javascript
-setTimeout()
+setTimeout();
 ```
 
 Goes to:
@@ -3412,7 +3337,7 @@ Macrotask Queue
 ### Step 3
 
 ```javascript
-Promise.then()
+Promise.then();
 ```
 
 Goes to:
@@ -3432,7 +3357,7 @@ console.log("End");
 Output:
 
 ```javascript
-End
+End;
 ```
 
 ---
@@ -3450,7 +3375,7 @@ Microtask Queue First
 Output:
 
 ```javascript
-Promise
+Promise;
 ```
 
 ---
@@ -3462,7 +3387,7 @@ Then Macrotask runs.
 Output:
 
 ```javascript
-Timeout
+Timeout;
 ```
 
 ---
@@ -3480,7 +3405,7 @@ Macrotask Queue
 Priority:
 
 ```javascript
-Microtask > Macrotask
+Microtask > Macrotask;
 ```
 
 ---
@@ -3494,10 +3419,9 @@ setTimeout(() => {
   console.log(2);
 }, 0);
 
-Promise.resolve()
-  .then(() => {
-    console.log(3);
-  });
+Promise.resolve().then(() => {
+  console.log(3);
+});
 
 console.log(4);
 ```
@@ -3505,10 +3429,10 @@ console.log(4);
 Output:
 
 ```javascript
-1
-4
-3
-2
+1;
+4;
+3;
+2;
 ```
 
 ---
@@ -3524,10 +3448,9 @@ setTimeout(() => {
   console.log("B");
 }, 0);
 
-Promise.resolve()
-  .then(() => {
-    console.log("C");
-  });
+Promise.resolve().then(() => {
+  console.log("C");
+});
 
 console.log("D");
 ```
@@ -3535,10 +3458,10 @@ console.log("D");
 Output:
 
 ```javascript
-A
-D
-C
-B
+A;
+D;
+C;
+B;
 ```
 
 ### Why?
@@ -3546,7 +3469,7 @@ B
 Because:
 
 ```javascript
-Promise.then()
+Promise.then();
 ```
 
 is a Microtask.
@@ -3554,7 +3477,7 @@ is a Microtask.
 and
 
 ```javascript
-setTimeout()
+setTimeout();
 ```
 
 is a Macrotask.
@@ -3588,19 +3511,19 @@ Yes.
 ### Which runs first?
 
 ```javascript
-Promise.then()
+Promise.then();
 ```
 
 or
 
 ```javascript
-setTimeout()
+setTimeout();
 ```
 
 Answer:
 
 ```javascript
-Promise.then()
+Promise.then();
 ```
 
 ---
@@ -3613,19 +3536,18 @@ Because Microtasks have higher priority than Macrotasks.
 
 # Quick Table
 
-| Microtasks | Macrotasks |
-|------------|------------|
-| Promise.then() | setTimeout() |
-| Promise.catch() | setInterval() |
-| Promise.finally() | DOM Events |
-| queueMicrotask() | setImmediate() |
+| Microtasks        | Macrotasks     |
+| ----------------- | -------------- |
+| Promise.then()    | setTimeout()   |
+| Promise.catch()   | setInterval()  |
+| Promise.finally() | DOM Events     |
+| queueMicrotask()  | setImmediate() |
 
 ---
 
 # One-Line Interview Summary
 
 Microtasks and Macrotasks are task queues used by the Event Loop, where Microtasks (Promises) always execute before Macrotasks (setTimeout, events).
-
 
 # Question: What is Execution Context in JavaScript?
 
@@ -3670,9 +3592,9 @@ JavaScript creates a workspace
 Then it stores:
 
 ```javascript
-Variables
-Functions
-this
+Variables;
+Functions;
+this;
 ```
 
 inside that workspace.
@@ -3756,8 +3678,8 @@ Global Execution Context
 Stores:
 
 ```javascript
-name
-greet()
+name;
+greet();
 ```
 
 ---
@@ -3779,7 +3701,7 @@ Function Execution Context
 Stores:
 
 ```javascript
-age
+age;
 ```
 
 ---
@@ -3818,7 +3740,7 @@ var a = 10;
 Memory Phase:
 
 ```javascript
-a = undefined
+a = undefined;
 ```
 
 This is why hoisting happens.
@@ -3836,7 +3758,7 @@ a = 10;
 Now:
 
 ```javascript
-a = 10
+a = 10;
 ```
 
 ---
@@ -3876,13 +3798,13 @@ Global Context
 ↓
 
 ```javascript
-one()
+one();
 ```
 
 ↓
 
 ```javascript
-two()
+two();
 ```
 
 ↓
@@ -3969,7 +3891,6 @@ JavaScript allocates memory for variables and functions before executing the cod
 
 Execution Context is the environment in which JavaScript code runs, storing variables, functions, and `this`, and it is managed using the Call Stack.
 
-
 # Question: What is the Call Stack in JavaScript?
 
 ## 20-Second Interview Answer
@@ -3990,7 +3911,7 @@ It keeps track of:
 The Call Stack follows:
 
 ```javascript
-LIFO
+LIFO;
 ```
 
 Meaning:
@@ -4058,7 +3979,7 @@ Global Context
 ↓
 
 ```javascript
-greet()
+greet();
 ```
 
 ↓
@@ -4098,7 +4019,7 @@ one();
 Global Execution Context enters stack.
 
 ```javascript
-Global
+Global;
 ```
 
 ---
@@ -4106,14 +4027,14 @@ Global
 ### Step 2
 
 ```javascript
-one()
+one();
 ```
 
 is called.
 
 ```javascript
-one()
-Global
+one();
+Global;
 ```
 
 ---
@@ -4121,15 +4042,15 @@ Global
 ### Step 3
 
 ```javascript
-two()
+two();
 ```
 
 is called.
 
 ```javascript
-two()
-one()
-Global
+two();
+one();
+Global;
 ```
 
 ---
@@ -4139,8 +4060,8 @@ Global
 `two()` completes.
 
 ```javascript
-one()
-Global
+one();
+Global;
 ```
 
 ---
@@ -4150,7 +4071,7 @@ Global
 `one()` completes.
 
 ```javascript
-Global
+Global;
 ```
 
 ---
@@ -4213,7 +4134,7 @@ Maximum call stack size exceeded
 Because:
 
 ```javascript
-test()
+test();
 ```
 
 keeps calling itself forever.
@@ -4275,7 +4196,7 @@ A data structure that manages function execution.
 ### Which principle does it follow?
 
 ```javascript
-LIFO
+LIFO;
 ```
 
 Last In, First Out.
@@ -4314,26 +4235,26 @@ two();
 Output:
 
 ```javascript
-One
-Two
+One;
+Two;
 ```
 
 ### Call Stack Flow
 
 ```javascript
-Global
+Global;
 ```
 
 ↓
 
 ```javascript
-two()
+two();
 ```
 
 ↓
 
 ```javascript
-one()
+one();
 ```
 
 ↓
@@ -4351,7 +4272,7 @@ two() removed
 ↓
 
 ```javascript
-Global
+Global;
 ```
 
 ---
@@ -4359,6 +4280,7 @@ Global
 # One-Line Interview Summary
 
 The Call Stack is a LIFO data structure that JavaScript uses to manage function calls and execution contexts.
+
 # Question: What are Prototype and Prototype Inheritance in JavaScript?
 
 ## 20-Second Interview Answer
@@ -4380,7 +4302,7 @@ This means objects can inherit properties and methods from other objects.
 Every JavaScript object has a hidden link to another object called:
 
 ```javascript
-Prototype
+Prototype;
 ```
 
 When a property is not found in the current object, JavaScript looks for it in its prototype.
@@ -4411,15 +4333,12 @@ JavaScript keeps searching until it finds the property.
 const person = {
   greet() {
     console.log("Hello");
-  }
+  },
 };
 
 const user = {};
 
-Object.setPrototypeOf(
-  user,
-  person
-);
+Object.setPrototypeOf(user, person);
 
 user.greet();
 ```
@@ -4427,7 +4346,7 @@ user.greet();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 ---
@@ -4435,19 +4354,19 @@ Hello
 # What Happened?
 
 ```javascript
-user
+user;
 ```
 
 does not have:
 
 ```javascript
-greet()
+greet();
 ```
 
 So JavaScript looks in:
 
 ```javascript
-person
+person;
 ```
 
 and finds it.
@@ -4487,7 +4406,7 @@ function Person(name) {
   this.name = name;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log(`Hello ${this.name}`);
 };
 
@@ -4512,7 +4431,7 @@ Without Prototype:
 function Person(name) {
   this.name = name;
 
-  this.greet = function() {
+  this.greet = function () {
     console.log("Hello");
   };
 }
@@ -4521,7 +4440,7 @@ function Person(name) {
 Every object gets its own copy of:
 
 ```javascript
-greet()
+greet();
 ```
 
 which wastes memory.
@@ -4531,10 +4450,9 @@ which wastes memory.
 # Better with Prototype
 
 ```javascript
-Person.prototype.greet =
-  function() {
-    console.log("Hello");
-  };
+Person.prototype.greet = function () {
+  console.log("Hello");
+};
 ```
 
 Now all objects share one method.
@@ -4550,8 +4468,7 @@ function Person(name) {
   this.name = name;
 }
 
-Person.prototype.country =
-  "India";
+Person.prototype.country = "India";
 
 const user1 = new Person("John");
 
@@ -4561,7 +4478,7 @@ console.log(user1.country);
 Output:
 
 ```javascript
-India
+India;
 ```
 
 Property is inherited from the prototype.
@@ -4577,9 +4494,7 @@ console.log(user1.__proto__);
 or
 
 ```javascript
-console.log(
-  Object.getPrototypeOf(user1)
-);
+console.log(Object.getPrototypeOf(user1));
 ```
 
 ---
@@ -4615,8 +4530,7 @@ Yes.
 ```javascript
 function Person() {}
 
-Person.prototype.city =
-  "Bhubaneswar";
+Person.prototype.city = "Bhubaneswar";
 
 const user = new Person();
 
@@ -4626,7 +4540,7 @@ console.log(user.city);
 Output:
 
 ```javascript
-Bhubaneswar
+Bhubaneswar;
 ```
 
 ### Why?
@@ -4634,13 +4548,13 @@ Bhubaneswar
 Because:
 
 ```javascript
-city
+city;
 ```
 
 is inherited from:
 
 ```javascript
-Person.prototype
+Person.prototype;
 ```
 
 ---
@@ -4648,6 +4562,7 @@ Person.prototype
 # One-Line Interview Summary
 
 A Prototype is an object used for inheritance in JavaScript, and Prototype Inheritance allows objects to access properties and methods from their prototype chain.
+
 # Question: What are Classes in JavaScript?
 
 ## 20-Second Interview Answer
@@ -4757,8 +4672,8 @@ console.log(user2.name);
 Output:
 
 ```javascript
-John
-David
+John;
+David;
 ```
 
 ---
@@ -4772,9 +4687,7 @@ class Person {
   }
 
   greet() {
-    console.log(
-      `Hello ${this.name}`
-    );
+    console.log(`Hello ${this.name}`);
   }
 }
 
@@ -4802,8 +4715,7 @@ class Person {
 
 class Student extends Person {}
 
-const student =
-  new Student();
+const student = new Student();
 
 student.greet();
 ```
@@ -4811,7 +4723,7 @@ student.greet();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 Student inherits from Person.
@@ -4832,16 +4744,11 @@ class Person {
 class Student extends Person {
   constructor(name, course) {
     super(name);
-
     this.course = course;
   }
 }
 
-const student =
-  new Student(
-    "John",
-    "React"
-  );
+const student = new Student("John", "React");
 
 console.log(student);
 ```
@@ -4924,7 +4831,7 @@ extends
 ### Which keyword calls the parent constructor?
 
 ```javascript
-super()
+super();
 ```
 
 ### Are Classes built on Prototypes?
@@ -4954,8 +4861,7 @@ class Person {}
 Instance of a class
 
 ```javascript
-const user =
-  new Person();
+const user = new Person();
 ```
 
 ---
@@ -5037,8 +4943,8 @@ console.log(b);
 Output:
 
 ```javascript
-10
-20
+10;
+20;
 ```
 
 ---
@@ -5046,25 +4952,25 @@ Output:
 # Why?
 
 ```javascript
-b
+b;
 ```
 
 gets a copy of:
 
 ```javascript
-a
+a;
 ```
 
 Changing:
 
 ```javascript
-b
+b;
 ```
 
 does not affect:
 
 ```javascript
-a
+a;
 ```
 
 ---
@@ -5094,7 +5000,7 @@ Used for:
 
 ```javascript
 const user1 = {
-  name: "John"
+  name: "John",
 };
 
 const user2 = user1;
@@ -5108,8 +5014,8 @@ console.log(user2.name);
 Output:
 
 ```javascript
-David
-David
+David;
+David;
 ```
 
 ---
@@ -5146,7 +5052,7 @@ console.log(arr1);
 Output:
 
 ```javascript
-[1, 2, 3, 4]
+[1, 2, 3, 4];
 ```
 
 Because both variables refer to the same array.
@@ -5159,11 +5065,11 @@ Use Spread Operator.
 
 ```javascript
 const user1 = {
-  name: "John"
+  name: "John",
 };
 
 const user2 = {
-  ...user1
+  ...user1,
 };
 
 user2.name = "David";
@@ -5174,7 +5080,7 @@ console.log(user1.name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 Now they are separate objects.
@@ -5196,7 +5102,7 @@ console.log(arr1);
 Output:
 
 ```javascript
-[1, 2, 3]
+[1, 2, 3];
 ```
 
 ---
@@ -5218,7 +5124,7 @@ console.log(value);
 Output:
 
 ```javascript
-10
+10;
 ```
 
 Primitive values are copied.
@@ -5233,7 +5139,7 @@ function update(user) {
 }
 
 const person = {
-  name: "John"
+  name: "John",
 };
 
 update(person);
@@ -5244,7 +5150,7 @@ console.log(person.name);
 Output:
 
 ```javascript
-David
+David;
 ```
 
 Object reference is passed.
@@ -5296,7 +5202,7 @@ If both variables reference the same object.
 ### How do we create a new copy of an array?
 
 ```javascript
-[ ...arr ]
+[...arr];
 ```
 
 ---
@@ -5307,7 +5213,7 @@ If both variables reference the same object.
 
 ```javascript
 const obj1 = {
-  name: "John"
+  name: "John",
 };
 
 const obj2 = obj1;
@@ -5320,7 +5226,7 @@ console.log(obj1.name);
 Output:
 
 ```javascript
-David
+David;
 ```
 
 Because both variables point to the same object.
@@ -5380,12 +5286,12 @@ But nested objects still share the same reference.
 const user1 = {
   name: "John",
   address: {
-    city: "Cuttack"
-  }
+    city: "Cuttack",
+  },
 };
 
 const user2 = {
-  ...user1
+  ...user1,
 };
 
 user2.name = "David";
@@ -5396,7 +5302,7 @@ console.log(user1.name);
 Output:
 
 ```javascript
-John
+John;
 ```
 
 Top-level property is copied.
@@ -5409,16 +5315,15 @@ Top-level property is copied.
 const user1 = {
   name: "John",
   address: {
-    city: "Cuttack"
-  }
+    city: "Cuttack",
+  },
 };
 
 const user2 = {
-  ...user1
+  ...user1,
 };
 
-user2.address.city =
-  "Bhubaneswar";
+user2.address.city = "Bhubaneswar";
 
 console.log(user1.address.city);
 ```
@@ -5426,7 +5331,7 @@ console.log(user1.address.city);
 Output:
 
 ```javascript
-Bhubaneswar
+Bhubaneswar;
 ```
 
 ---
@@ -5436,7 +5341,7 @@ Bhubaneswar
 Because:
 
 ```javascript
-address
+address;
 ```
 
 is still shared.
@@ -5458,15 +5363,14 @@ Same reference.
 
 ```javascript
 const copy = {
-  ...obj
+  ...obj,
 };
 ```
 
 or
 
 ```javascript
-const copy =
-  Object.assign({}, obj);
+const copy = Object.assign({}, obj);
 ```
 
 ---
@@ -5495,25 +5399,21 @@ Changes do not affect the original object.
 const user1 = {
   name: "John",
   address: {
-    city: "Cuttack"
-  }
+    city: "Cuttack",
+  },
 };
 
-const user2 =
-  structuredClone(user1);
+const user2 = structuredClone(user1);
 
-user2.address.city =
-  "Bhubaneswar";
+user2.address.city = "Bhubaneswar";
 
-console.log(
-  user1.address.city
-);
+console.log(user1.address.city);
 ```
 
 Output:
 
 ```javascript
-Cuttack
+Cuttack;
 ```
 
 Original object remains unchanged.
@@ -5525,8 +5425,7 @@ Original object remains unchanged.
 Modern JavaScript method.
 
 ```javascript
-const deepCopy =
-  structuredClone(obj);
+const deepCopy = structuredClone(obj);
 ```
 
 Creates a true deep copy.
@@ -5536,10 +5435,7 @@ Creates a true deep copy.
 # Older Method
 
 ```javascript
-const deepCopy =
-  JSON.parse(
-    JSON.stringify(obj)
-  );
+const deepCopy = JSON.parse(JSON.stringify(obj));
 ```
 
 ---
@@ -5547,7 +5443,7 @@ const deepCopy =
 # Limitation
 
 ```javascript
-JSON.stringify()
+JSON.stringify();
 ```
 
 does not handle:
@@ -5559,7 +5455,7 @@ does not handle:
 So:
 
 ```javascript
-structuredClone()
+structuredClone();
 ```
 
 is preferred.
@@ -5568,12 +5464,12 @@ is preferred.
 
 # Shallow Copy vs Deep Copy
 
-| Shallow Copy | Deep Copy |
-|-------------|-----------|
-| Copies first level only | Copies all levels |
+| Shallow Copy                   | Deep Copy                 |
+| ------------------------------ | ------------------------- |
+| Copies first level only        | Copies all levels         |
 | Nested objects share reference | Nested objects are copied |
-| Faster | Slightly slower |
-| Spread Operator | structuredClone() |
+| Faster                         | Slightly slower           |
+| Spread Operator                | structuredClone()         |
 
 ---
 
@@ -5617,14 +5513,14 @@ Deep Copy
 
 ```javascript
 const copy = {
-  ...obj
+  ...obj,
 };
 ```
 
 Answer:
 
 ```javascript
-No
+No;
 ```
 
 It creates a:
@@ -5699,10 +5595,7 @@ Close Browser
 ## Store Data
 
 ```javascript
-localStorage.setItem(
-  "name",
-  "Jitendra"
-);
+localStorage.setItem("name", "Jitendra");
 ```
 
 ---
@@ -5710,8 +5603,7 @@ localStorage.setItem(
 ## Get Data
 
 ```javascript
-const name =
-  localStorage.getItem("name");
+const name = localStorage.getItem("name");
 
 console.log(name);
 ```
@@ -5719,7 +5611,7 @@ console.log(name);
 Output:
 
 ```javascript
-Jitendra
+Jitendra;
 ```
 
 ---
@@ -5727,9 +5619,7 @@ Jitendra
 ## Remove Data
 
 ```javascript
-localStorage.removeItem(
-  "name"
-);
+localStorage.removeItem("name");
 ```
 
 ---
@@ -5747,13 +5637,9 @@ Removes everything from Local Storage.
 # Example
 
 ```javascript
-localStorage.setItem(
-  "city",
-  "Cuttack"
-);
+localStorage.setItem("city", "Cuttack");
 
-const city =
-  localStorage.getItem("city");
+const city = localStorage.getItem("city");
 
 console.log(city);
 ```
@@ -5761,7 +5647,7 @@ console.log(city);
 Output:
 
 ```javascript
-Cuttack
+Cuttack;
 ```
 
 ---
@@ -5779,13 +5665,10 @@ So objects must be converted into JSON.
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
-localStorage.setItem(
-  "user",
-  JSON.stringify(user)
-);
+localStorage.setItem("user", JSON.stringify(user));
 ```
 
 ---
@@ -5793,10 +5676,7 @@ localStorage.setItem(
 ## Retrieve Object
 
 ```javascript
-const user =
-  JSON.parse(
-    localStorage.getItem("user")
-  );
+const user = JSON.parse(localStorage.getItem("user"));
 
 console.log(user);
 ```
@@ -5817,10 +5697,7 @@ Output:
 ## Save Theme
 
 ```javascript
-localStorage.setItem(
-  "theme",
-  "dark"
-);
+localStorage.setItem("theme", "dark");
 ```
 
 ---
@@ -5828,14 +5705,13 @@ localStorage.setItem(
 ## Read Theme
 
 ```javascript
-const theme =
-  localStorage.getItem("theme");
+const theme = localStorage.getItem("theme");
 ```
 
 Even after refresh:
 
 ```javascript
-dark
+dark;
 ```
 
 is available.
@@ -5844,11 +5720,11 @@ is available.
 
 # Local Storage vs Session Storage
 
-| Local Storage | Session Storage |
-|--------------|----------------|
+| Local Storage                    | Session Storage                      |
+| -------------------------------- | ------------------------------------ |
 | Data remains after browser close | Data removed after tab/browser close |
-| Permanent storage | Temporary storage |
-| Around 5MB | Around 5MB |
+| Permanent storage                | Temporary storage                    |
+| Around 5MB                       | Around 5MB                           |
 
 ---
 
@@ -5873,22 +5749,22 @@ No.
 Use:
 
 ```javascript
-JSON.stringify()
+JSON.stringify();
 ```
 
 and
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 ### Which methods are commonly used?
 
 ```javascript
-setItem()
-getItem()
-removeItem()
-clear()
+setItem();
+getItem();
+removeItem();
+clear();
 ```
 
 ---
@@ -5906,10 +5782,7 @@ Strings Only
 Example:
 
 ```javascript
-localStorage.setItem(
-  "user",
-  JSON.stringify(user)
-);
+localStorage.setItem("user", JSON.stringify(user));
 ```
 
 Without it, objects cannot be stored properly.
@@ -5982,10 +5855,7 @@ Close Tab
 ## Store Data
 
 ```javascript
-sessionStorage.setItem(
-  "name",
-  "Jitendra"
-);
+sessionStorage.setItem("name", "Jitendra");
 ```
 
 ---
@@ -5993,10 +5863,7 @@ sessionStorage.setItem(
 ## Get Data
 
 ```javascript
-const name =
-  sessionStorage.getItem(
-    "name"
-  );
+const name = sessionStorage.getItem("name");
 
 console.log(name);
 ```
@@ -6004,7 +5871,7 @@ console.log(name);
 Output:
 
 ```javascript
-Jitendra
+Jitendra;
 ```
 
 ---
@@ -6012,9 +5879,7 @@ Jitendra
 ## Remove Data
 
 ```javascript
-sessionStorage.removeItem(
-  "name"
-);
+sessionStorage.removeItem("name");
 ```
 
 ---
@@ -6030,15 +5895,9 @@ sessionStorage.clear();
 # Example
 
 ```javascript
-sessionStorage.setItem(
-  "city",
-  "Cuttack"
-);
+sessionStorage.setItem("city", "Cuttack");
 
-const city =
-  sessionStorage.getItem(
-    "city"
-  );
+const city = sessionStorage.getItem("city");
 
 console.log(city);
 ```
@@ -6046,7 +5905,7 @@ console.log(city);
 Output:
 
 ```javascript
-Cuttack
+Cuttack;
 ```
 
 ---
@@ -6062,13 +5921,10 @@ Session Storage stores only strings.
 ```javascript
 const user = {
   name: "John",
-  age: 25
+  age: 25,
 };
 
-sessionStorage.setItem(
-  "user",
-  JSON.stringify(user)
-);
+sessionStorage.setItem("user", JSON.stringify(user));
 ```
 
 ---
@@ -6076,12 +5932,7 @@ sessionStorage.setItem(
 ## Retrieve Object
 
 ```javascript
-const user =
-  JSON.parse(
-    sessionStorage.getItem(
-      "user"
-    )
-  );
+const user = JSON.parse(sessionStorage.getItem("user"));
 
 console.log(user);
 ```
@@ -6102,16 +5953,13 @@ Output:
 ## Multi-Step Form
 
 ```javascript
-sessionStorage.setItem(
-  "step",
-  "2"
-);
+sessionStorage.setItem("step", "2");
 ```
 
 If the user refreshes the page:
 
 ```javascript
-step = 2
+step = 2;
 ```
 
 still exists.
@@ -6126,12 +5974,12 @@ Data Removed
 
 # Session Storage vs Local Storage
 
-| Session Storage | Local Storage |
-|----------------|--------------|
-| Temporary | Permanent |
-| Removed when tab closes | Remains after browser close |
-| Per tab | Shared across tabs of same origin |
-| Stores key-value pairs | Stores key-value pairs |
+| Session Storage         | Local Storage                     |
+| ----------------------- | --------------------------------- |
+| Temporary               | Permanent                         |
+| Removed when tab closes | Remains after browser close       |
+| Per tab                 | Shared across tabs of same origin |
+| Stores key-value pairs  | Stores key-value pairs            |
 
 ---
 
@@ -6156,22 +6004,22 @@ No.
 Use:
 
 ```javascript
-JSON.stringify()
+JSON.stringify();
 ```
 
 and
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 ### Which methods are commonly used?
 
 ```javascript
-setItem()
-getItem()
-removeItem()
-clear()
+setItem();
+getItem();
+removeItem();
+clear();
 ```
 
 ---
@@ -6245,9 +6093,7 @@ Browser Only
 ```
 
 ```javascript
-Cookies
-=
-Browser + Server
+Cookies = Browser + Server;
 ```
 
 Think:
@@ -6261,8 +6107,7 @@ Cookies travel with requests.
 # Creating a Cookie
 
 ```javascript
-document.cookie =
-  "username=John";
+document.cookie = "username=John";
 ```
 
 ---
@@ -6270,15 +6115,13 @@ document.cookie =
 # Reading Cookies
 
 ```javascript
-console.log(
-  document.cookie
-);
+console.log(document.cookie);
 ```
 
 Output:
 
 ```javascript
-username=John
+username = John;
 ```
 
 ---
@@ -6286,17 +6129,16 @@ username=John
 # Multiple Cookies
 
 ```javascript
-document.cookie =
-  "username=John";
+document.cookie = "username=John";
 
-document.cookie =
-  "city=Cuttack";
+document.cookie = "city=Cuttack";
 ```
 
 Output:
 
 ```javascript
-username=John; city=Cuttack
+username = John;
+city = Cuttack;
 ```
 
 ---
@@ -6304,8 +6146,7 @@ username=John; city=Cuttack
 # Setting Expiry Date
 
 ```javascript
-document.cookie =
-  "username=John; expires=Fri, 31 Dec 2027 12:00:00 UTC";
+document.cookie = "username=John; expires=Fri, 31 Dec 2027 12:00:00 UTC";
 ```
 
 Cookie will automatically expire on that date.
@@ -6317,8 +6158,7 @@ Cookie will automatically expire on that date.
 Set an old expiry date.
 
 ```javascript
-document.cookie =
-  "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 ```
 
 ---
@@ -6328,7 +6168,7 @@ document.cookie =
 When a user logs in:
 
 ```javascript
-token=abc123
+token = abc123;
 ```
 
 can be stored in a cookie.
@@ -6346,22 +6186,22 @@ The server can identify the user.
 
 # Cookie vs Local Storage
 
-| Cookies | Local Storage |
-|----------|--------------|
-| Sent to server automatically | Not sent to server |
-| Small size (~4KB) | Larger size (~5MB) |
-| Can have expiry date | No built-in expiry |
-| Used for authentication | Used for browser storage |
+| Cookies                      | Local Storage            |
+| ---------------------------- | ------------------------ |
+| Sent to server automatically | Not sent to server       |
+| Small size (~4KB)            | Larger size (~5MB)       |
+| Can have expiry date         | No built-in expiry       |
+| Used for authentication      | Used for browser storage |
 
 ---
 
 # Cookie vs Session Storage
 
-| Cookies | Session Storage |
-|----------|----------------|
+| Cookies                     | Session Storage         |
+| --------------------------- | ----------------------- |
 | Can survive browser restart | Removed when tab closes |
-| Sent to server | Not sent to server |
-| Smaller size | Larger size |
+| Sent to server              | Not sent to server      |
+| Smaller size                | Larger size             |
 
 ---
 
@@ -6405,13 +6245,13 @@ Yes.
 Using:
 
 ```javascript
-expires
+expires;
 ```
 
 or
 
 ```javascript
-max-age
+max - age;
 ```
 
 ### What is the size limit of a Cookie?
@@ -6443,7 +6283,7 @@ Size:
 Used for:
 
 ```javascript
-Authentication
+Authentication;
 ```
 
 ---
@@ -6496,7 +6336,7 @@ In Currying, we convert it into:
 
 ```javascript
 function add(a) {
-  return function(b) {
+  return function (b) {
     return a + b;
   };
 }
@@ -6538,15 +6378,13 @@ function add(a, b) {
   return a + b;
 }
 
-console.log(
-  add(10, 20)
-);
+console.log(add(10, 20));
 ```
 
 Output:
 
 ```javascript
-30
+30;
 ```
 
 ---
@@ -6555,20 +6393,18 @@ Output:
 
 ```javascript
 function add(a) {
-  return function(b) {
+  return function (b) {
     return a + b;
   };
 }
 
-console.log(
-  add(10)(20)
-);
+console.log(add(10)(20));
 ```
 
 Output:
 
 ```javascript
-30
+30;
 ```
 
 ---
@@ -6576,18 +6412,15 @@ Output:
 # Using Arrow Functions
 
 ```javascript
-const add =
-  a => b => a + b;
+const add = (a) => (b) => a + b;
 
-console.log(
-  add(10)(20)
-);
+console.log(add(10)(20));
 ```
 
 Output:
 
 ```javascript
-30
+30;
 ```
 
 ---
@@ -6597,7 +6430,7 @@ Output:
 ### Step 1
 
 ```javascript
-add(10)
+add(10);
 ```
 
 returns:
@@ -6613,7 +6446,7 @@ function(b) {
 ### Step 2
 
 ```javascript
-(20)
+20;
 ```
 
 executes that function.
@@ -6621,7 +6454,7 @@ executes that function.
 Result:
 
 ```javascript
-30
+30;
 ```
 
 ---
@@ -6630,23 +6463,20 @@ Result:
 
 ```javascript
 function multiply(a) {
-  return function(b) {
+  return function (b) {
     return a * b;
   };
 }
 
-const double =
-  multiply(2);
+const double = multiply(2);
 
-console.log(
-  double(5)
-);
+console.log(double(5));
 ```
 
 Output:
 
 ```javascript
-10
+10;
 ```
 
 ---
@@ -6656,11 +6486,9 @@ Output:
 ### Reusability
 
 ```javascript
-const double =
-  multiply(2);
+const double = multiply(2);
 
-const triple =
-  multiply(3);
+const triple = multiply(3);
 ```
 
 Now we can reuse them.
@@ -6708,18 +6536,15 @@ Code reusability and flexibility.
 ### What is the output?
 
 ```javascript
-const add =
-  a => b => a + b;
+const add = (a) => (b) => a + b;
 
-console.log(
-  add(5)(10)
-);
+console.log(add(5)(10));
 ```
 
 Output:
 
 ```javascript
-15
+15;
 ```
 
 ### Is Currying related to Closures?
@@ -6818,7 +6643,7 @@ greet();
 Output:
 
 ```javascript
-John
+John;
 ```
 
 ---
@@ -6828,7 +6653,7 @@ John
 `greet()` does not have:
 
 ```javascript
-name
+name;
 ```
 
 So JavaScript looks in the outer scope and finds it.
@@ -6854,7 +6679,7 @@ outer();
 Output:
 
 ```javascript
-Hello
+Hello;
 ```
 
 ---
@@ -6912,7 +6737,7 @@ outer();
 Output:
 
 ```javascript
-ReferenceError
+ReferenceError;
 ```
 
 ---
@@ -6929,14 +6754,13 @@ Parent function cannot access variables inside child function.
 function outer() {
   let count = 0;
 
-  return function() {
+  return function () {
     count++;
     console.log(count);
   };
 }
 
-const increment =
-  outer();
+const increment = outer();
 
 increment();
 ```
@@ -6944,7 +6768,7 @@ increment();
 Output:
 
 ```javascript
-1
+1;
 ```
 
 This works because of:
@@ -7014,7 +6838,7 @@ test();
 Output:
 
 ```javascript
-10
+10;
 ```
 
 ### Why?
@@ -7044,7 +6868,7 @@ Instead of calculating again and again, we can save the result.
 This technique is called:
 
 ```javascript
-Memoization
+Memoization;
 ```
 
 When the same input comes again:
@@ -7110,7 +6934,7 @@ Calculation happens twice.
 function memoizedSquare() {
   const cache = {};
 
-  return function(num) {
+  return function (num) {
     if (cache[num]) {
       console.log("From Cache");
 
@@ -7127,8 +6951,7 @@ function memoizedSquare() {
   };
 }
 
-const square =
-  memoizedSquare();
+const square = memoizedSquare();
 
 console.log(square(5));
 console.log(square(5));
@@ -7151,19 +6974,19 @@ From Cache
 ### First Call
 
 ```javascript
-square(5)
+square(5);
 ```
 
 Result:
 
 ```javascript
-25
+25;
 ```
 
 Stored in:
 
 ```javascript
-cache
+cache;
 ```
 
 ---
@@ -7171,13 +6994,13 @@ cache
 ### Second Call
 
 ```javascript
-square(5)
+square(5);
 ```
 
 JavaScript checks:
 
 ```javascript
-cache[5]
+cache[5];
 ```
 
 Already exists.
@@ -7212,7 +7035,7 @@ Use Cached Result
 function memoize(fn) {
   const cache = {};
 
-  return function(num) {
+  return function (num) {
     if (cache[num]) {
       return cache[num];
     }
@@ -7229,7 +7052,7 @@ function memoize(fn) {
 Memoization works because of:
 
 ```javascript
-Closure
+Closure;
 ```
 
 The cache remains available even after the function execution completes.
@@ -7243,23 +7066,18 @@ function square(num) {
   return num * num;
 }
 
-const memoizedSquare =
-  memoize(square);
+const memoizedSquare = memoize(square);
 
-console.log(
-  memoizedSquare(10)
-);
+console.log(memoizedSquare(10));
 
-console.log(
-  memoizedSquare(10)
-);
+console.log(memoizedSquare(10));
 ```
 
 Output:
 
 ```javascript
-100
-100
+100;
+100;
 ```
 
 Second call comes from cache.
@@ -7292,7 +7110,7 @@ In a cache object.
 ### Which JavaScript concept is used in Memoization?
 
 ```javascript
-Closure
+Closure;
 ```
 
 ### What is the main benefit?
@@ -7364,9 +7182,9 @@ Clean Code
 # Problem with Callbacks
 
 ```javascript
-getUser(function(user) {
-  getPosts(user.id, function(posts) {
-    getComments(posts[0].id, function(comments) {
+getUser(function (user) {
+  getPosts(user.id, function (posts) {
+    getComments(posts[0].id, function (comments) {
       console.log(comments);
     });
   });
@@ -7387,14 +7205,12 @@ Hard to read and maintain.
 
 ```javascript
 getUser()
-  .then(user => getPosts(user.id))
-  .then(posts =>
-    getComments(posts[0].id)
-  )
-  .then(comments => {
+  .then((user) => getPosts(user.id))
+  .then((posts) => getComments(posts[0].id))
+  .then((comments) => {
     console.log(comments);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -7437,12 +7253,8 @@ Promises are easier to read.
 
 ```javascript
 fetch(url)
-  .then(response =>
-    response.json()
-  )
-  .then(data =>
-    console.log(data)
-  );
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 ```
 
 The flow is clear.
@@ -7454,7 +7266,7 @@ The flow is clear.
 ### Callback
 
 ```javascript
-getData(function(error, data) {
+getData(function (error, data) {
   if (error) {
     console.log(error);
   }
@@ -7469,10 +7281,10 @@ Error handling becomes repetitive.
 
 ```javascript
 fetch(url)
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error);
   });
 ```
@@ -7485,12 +7297,8 @@ One `.catch()` can handle errors from the entire chain.
 
 ```javascript
 getUser()
-  .then(user =>
-    getPosts(user.id)
-  )
-  .then(posts =>
-    getComments(posts[0].id)
-  );
+  .then((user) => getPosts(user.id))
+  .then((posts) => getComments(posts[0].id));
 ```
 
 Each step receives data from the previous step.
@@ -7508,11 +7316,9 @@ async/await
 Example:
 
 ```javascript
-const response =
-  await fetch(url);
+const response = await fetch(url);
 
-const data =
-  await response.json();
+const data = await response.json();
 ```
 
 Cleaner than callbacks.
@@ -7521,13 +7327,13 @@ Cleaner than callbacks.
 
 # Callback vs Promise
 
-| Callback | Promise |
-|-----------|----------|
-| Can create callback hell | Avoids callback hell |
-| Harder to read | Easier to read |
+| Callback                  | Promise                    |
+| ------------------------- | -------------------------- |
+| Can create callback hell  | Avoids callback hell       |
+| Harder to read            | Easier to read             |
 | Error handling is complex | Centralized error handling |
-| Difficult to chain | Supports chaining |
-| Cannot use async/await | Works with async/await |
+| Difficult to chain        | Supports chaining          |
+| Cannot use async/await    | Works with async/await     |
 
 ---
 
@@ -7588,6 +7394,7 @@ Better Error Handling
 # One-Line Interview Summary
 
 Promises provide a cleaner, more readable, and more maintainable way to handle asynchronous operations compared to callbacks by avoiding callback hell and improving error handling.
+
 # Question: What are Debouncing and Throttling in JavaScript?
 
 ## 20-Second Interview Answer
@@ -7601,10 +7408,10 @@ Promises provide a cleaner, more readable, and more maintainable way to handle a
 Sometimes events like:
 
 ```javascript
-scroll
-resize
-keypress
-mousemove
+scroll;
+resize;
+keypress;
+mousemove;
 ```
 
 can trigger hundreds of times per second.
@@ -7690,7 +7497,7 @@ after the user stops typing.
 function debounce(fn, delay) {
   let timer;
 
-  return function() {
+  return function () {
     clearTimeout(timer);
 
     timer = setTimeout(() => {
@@ -7744,12 +7551,10 @@ With Throttle:
 function throttle(fn, delay) {
   let lastCall = 0;
 
-  return function() {
+  return function () {
     const now = Date.now();
 
-    if (
-      now - lastCall >= delay
-    ) {
+    if (now - lastCall >= delay) {
       lastCall = now;
 
       fn();
@@ -7800,11 +7605,11 @@ at fixed intervals.
 
 # Debounce vs Throttle
 
-| Debounce | Throttle |
-|-----------|-----------|
-| Waits for user to stop | Runs at fixed intervals |
-| Executes once after delay | Executes repeatedly |
-| Best for search box | Best for scroll/resize |
+| Debounce                      | Throttle                 |
+| ----------------------------- | ------------------------ |
+| Waits for user to stop        | Runs at fixed intervals  |
+| Executes once after delay     | Executes repeatedly      |
+| Best for search box           | Best for scroll/resize   |
 | Reduces unnecessary API calls | Controls event frequency |
 
 ---
@@ -7816,7 +7621,7 @@ at fixed intervals.
 Use:
 
 ```javascript
-Debounce
+Debounce;
 ```
 
 Because we want to call API only after user stops typing.
@@ -7828,7 +7633,7 @@ Because we want to call API only after user stops typing.
 Use:
 
 ```javascript
-Throttle
+Throttle;
 ```
 
 Because we want updates while scrolling, but not too frequently.
@@ -7848,13 +7653,13 @@ Executing a function at fixed intervals.
 ### Which is used for Search API?
 
 ```javascript
-Debounce
+Debounce;
 ```
 
 ### Which is used for Scroll Events?
 
 ```javascript
-Throttle
+Throttle;
 ```
 
 ### Why use Debounce and Throttle?
@@ -7870,7 +7675,7 @@ To improve performance and reduce unnecessary function calls.
 Answer:
 
 ```javascript
-Debounce
+Debounce;
 ```
 
 Because we want:

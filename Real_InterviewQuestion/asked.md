@@ -94,3 +94,9 @@
     - What is SSR, and why would you use it?
 10. **Error Boundaries**
     - What are Error Boundaries, and how do they work in React?
+
+## Questions Asked in a company:
+
+1. How you improve the performance
+2. How you reduce latency by 30℅
+3. What need t0 return for clenup function inside useEffect
